@@ -14,6 +14,11 @@ Questo conterra tutto querllo che vede l'utente, tutto quello che non è necessa
 		Spiegazione tutorial
 	Inseritore Seed
 
+	Opzioni
+		Caricare foto
+		Applicare trasformazioni
+		Pulire campi
+
 	Gioco
 	Contatore punti-> giocate e perse
 	Aiuto
@@ -21,8 +26,15 @@ Questo conterra tutto querllo che vede l'utente, tutto quello che non è necessa
 		Livelli: piu aumenta il livello piu traformazioni si applicano
 	Quattro opzioni per la risposta
 	Selettore traformazioni
+
+Fare in modo che si valuti da solo appena aperto
 	
 
 File 3 Pacchetto (Model)
 Contiene tutte le funzioni, nessuna parte grafica 
+
+Documentazione FORTE
+Grammatica corretta
+
+verifica risultato?
 
