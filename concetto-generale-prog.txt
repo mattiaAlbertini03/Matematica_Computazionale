@@ -1,0 +1,9 @@
+Idee di progetto:
+- Gioco con n img modificate (e.g. b/w, alto contrasto, etc.) dove:
+    si vuole avere lo score maggiore in z round.
+    
+    Ci sono hint sulle img (e.g. mostrare l arappresentazione matriciale) 
+    e il punteggio attribuito ha un valore minore (e.g. 1 su 3). 
+    
+    Inoltre l'utente può caricare immagini
+    proprie nel batch di gioco.
