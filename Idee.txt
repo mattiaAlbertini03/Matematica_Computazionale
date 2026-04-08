@@ -38,3 +38,8 @@ Grammatica corretta
 
 verifica risultato?
 
+Spiegare le trasformazioni
+
+Difficile trovare un progetto che utilizzi tutte le funzionalità specifiche del linguaggio
+ARIAL -> font dislessia o lettura del testo SPEAK
+
