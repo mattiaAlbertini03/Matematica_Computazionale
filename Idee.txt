@@ -1,0 +1,28 @@
+3 File 
+
+Utilizzare un design pattern Model-View
+
+File 1 
+
+Importa il modello e la view e basta (circa 5 righe)
+
+File 2 Tutorial (View)
+
+Questo conterra tutto querllo che vede l'utente, tutto quello che non è necessario per un programmatore
+
+	Titolo
+		Spiegazione tutorial
+	Inseritore Seed
+
+	Gioco
+	Contatore punti-> giocate e perse
+	Aiuto
+	Difficolta
+		Livelli: piu aumenta il livello piu traformazioni si applicano
+	Quattro opzioni per la risposta
+	Selettore traformazioni
+	
+
+File 3 Pacchetto (Model)
+Contiene tutte le funzioni, nessuna parte grafica 
+
