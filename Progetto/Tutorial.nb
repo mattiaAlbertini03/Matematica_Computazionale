@@ -1,0 +1,103 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3651,         95]
+NotebookOptionsPosition[      2863,         74]
+NotebookOutlinePosition[      3290,         91]
+CellTagsIndexPosition[      3247,         88]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Qui", " ", "quello", " ", "che", " ", "mostriamo", " ", "alla", " ", 
+    "prof"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Quit", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"<<", " ", "\"\<TrasformazioneImmagini.m\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"<<", " ", "\"\<Interfaccia.m\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Chiamo", " ", "gioco"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Trovare", " ", "caricamento", " ", "tramite", " ", "pulsante"}], 
+    "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.9848121018976974`*^9, 3.984812113009552*^9}, {
+   3.9848126732021313`*^9, 3.9848126738419533`*^9}, {3.9848128022210903`*^9, 
+   3.9848128232537117`*^9}, {3.98481292142136*^9, 3.9848129455688877`*^9}, {
+   3.984813483662327*^9, 3.984813528098404*^9}, {3.984813597900219*^9, 
+   3.98481363026153*^9}, {3.984814838262827*^9, 3.9848148650289917`*^9}, {
+   3.9848151045304146`*^9, 3.984815105471754*^9}, {3.9848151492079964`*^9, 
+   3.9848151571660957`*^9}, {3.9848169058927765`*^9, 3.9848169062021046`*^9}, 
+   3.984817227917568*^9, {3.984817444502659*^9, 3.984817452208889*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"f28daa08-0881-5e41-bab0-b844977b8466"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Studia", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Gioca", "[", "]"}], "\[IndentingNewLine]", "x"}], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"52fdecc3-b27b-6247-aa97-0d018cec54ae"],
+
+Cell[BoxData[
+ RowBox[{"Studia", "[", "]"}]], "Output",
+ CellChangeTimes->{3.984817469196224*^9, 3.9848177914538174`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"84e38758-0cb6-6f49-90fb-f14b6f247ace"],
+
+Cell[BoxData[
+ RowBox[{"Gioca", "[", "]"}]], "Output",
+ CellChangeTimes->{3.984817469196224*^9, 3.984817791455822*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"770941a6-c052-4d44-8386-f7bd36e81911"],
+
+Cell[BoxData["x"], "Output",
+ CellChangeTimes->{3.984817469196224*^9, 3.9848177914578304`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"c4945674-4af8-6042-b9f5-5a4095a4c5e6"]
+}, Open  ]]
+},
+WindowSize->{949, 466.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>1.3 Inherited,
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3435dabf-d7d0-7f4e-89f9-bbe4b384b59a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 1476, 30, 185, "Input",ExpressionUUID->"f28daa08-0881-5e41-bab0-b844977b8466"],
+Cell[CellGroupData[{
+Cell[2055, 54, 216, 3, 86, "Input",ExpressionUUID->"52fdecc3-b27b-6247-aa97-0d018cec54ae"],
+Cell[2274, 59, 199, 3, 41, "Output",ExpressionUUID->"84e38758-0cb6-6f49-90fb-f14b6f247ace"],
+Cell[2476, 64, 196, 3, 41, "Output",ExpressionUUID->"770941a6-c052-4d44-8386-f7bd36e81911"],
+Cell[2675, 69, 172, 2, 57, "Output",ExpressionUUID->"c4945674-4af8-6042-b9f5-5a4095a4c5e6"]
+}, Open  ]]
+}
+]
+*)
+
