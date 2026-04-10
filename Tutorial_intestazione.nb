@@ -1,0 +1,97 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3243,         89]
+NotebookOptionsPosition[      2328,         67]
+NotebookOutlinePosition[      2788,         84]
+CellTagsIndexPosition[      2745,         81]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["TITOLO", "Title",
+ CellChangeTimes->{{3.984816641285014*^9, 3.984816644750951*^9}, {
+  3.984819099841297*^9, 
+  3.9848191003223953`*^9}},ExpressionUUID->"989c1cbe-160b-40cc-b979-\
+1da47311f079"],
+
+Cell["sottotitolo eventuale", "Subtitle",
+ CellChangeTimes->{{3.9848149379687443`*^9, 3.984814999728683*^9}, {
+  3.984815046990487*^9, 
+  3.9848150475357*^9}},ExpressionUUID->"4444e677-dfb4-4371-b935-f939184d2167"],
+
+Cell["N . 3 : Nome gruppo ", "Subtitle",
+ CellChangeTimes->{{3.98481504838241*^9, 
+  3.984815096479371*^9}},ExpressionUUID->"4ae55e51-4243-46d9-b772-\
+69edd83dd885"],
+
+Cell["MC 2025/2026", "Subtitle",
+ CellChangeTimes->{{3.98481509812704*^9, 3.984815102384873*^9}, {
+  3.9848151567907753`*^9, 
+  3.984815179258315*^9}},ExpressionUUID->"5455213e-7fb5-4d2d-a4a8-\
+e2d8cc6b0d27"],
+
+Cell["\<\
+Mattia Albertini,    \t\tGiacomo Biribicchi,    \tOrazio Capone,    \t\tErik \
+Dervishi,    Alex Rossi\t\
+\>", "Author",
+ CellChangeTimes->{
+  3.9848151799525146`*^9, {3.984815253548605*^9, 3.984815380311059*^9}, {
+   3.984815543385497*^9, 3.9848155771725616`*^9}, {3.984815612293776*^9, 
+   3.984815657869204*^9}, {3.984815778656024*^9, 3.9848158958789988`*^9}, 
+   4.9848159372409286`*^9, 3.9848167367249804`*^9, {3.984816771004355*^9, 
+   3.9848168138303833`*^9}},ExpressionUUID->"96f6e007-5609-4b27-9117-\
+6dbc214ac18e"],
+
+Cell["\<\
+(anno 1, curriculum A) \t(anno 1, curriculum A) \t(anno 2, curriculum A) \t\
+(anno 1, curriculum A) \t(anno 1, curriculum C)\
+\>", "Text",
+ CellChangeTimes->{{3.9848159090387907`*^9, 3.984815935130275*^9}, 
+   3.984816015138747*^9, {3.98481619662318*^9, 3.984816205712801*^9}, {
+   3.984816788721326*^9, 
+   3.9848168082397223`*^9}},ExpressionUUID->"6b343bc3-2708-48fd-8996-\
+71509f44da71"]
+}, Open  ]]
+},
+WindowSize->{1440, 765},
+WindowMargins->{{-1.5, Automatic}, {Automatic, -1.5}},
+SpellingDictionaries->{"CorrectWords"->{"Introduzione", "anno"}},
+FrontEndVersion->"14.3 for Linux x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a7145d13-eea1-4dfb-884b-539519f81723"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 200, 4, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079"],
+Cell[779, 28, 214, 3, 52, "Subtitle",ExpressionUUID->"4444e677-dfb4-4371-b935-f939184d2167"],
+Cell[996, 33, 165, 3, 52, "Subtitle",ExpressionUUID->"4ae55e51-4243-46d9-b772-69edd83dd885"],
+Cell[1164, 38, 208, 4, 52, "Subtitle",ExpressionUUID->"5455213e-7fb5-4d2d-a4a8-e2d8cc6b0d27"],
+Cell[1375, 44, 534, 10, 30, "Author",ExpressionUUID->"96f6e007-5609-4b27-9117-6dbc214ac18e"],
+Cell[1912, 56, 400, 8, 33, "Text",ExpressionUUID->"6b343bc3-2708-48fd-8996-71509f44da71"]
+}, Open  ]]
+}
+]
+*)
+
