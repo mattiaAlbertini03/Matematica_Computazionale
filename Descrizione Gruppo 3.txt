@@ -1,0 +1,3 @@
+Descrizione Gruppo 3
+Il progetto si occupa della spiegazione e della verifica delle competenze delle operazioni di trasposizioni su immagini. L'utente avrà la possibilità, dopo aver inserito un immagine, di poterla modificare attraverso delle trasformazioni supportate dal programma, in cui potrà modificare anche dei parametri per cambiare il comportamento delle trasformazioni.
+Inoltre questo sarà seguito da una parte in cui verranno verificate le competenze attraverso un gioco in cui dopo aver inserito un seed verranno generate delle immagini già trasposte in cui l'utente dovrà capire di cosa si tratta l'immagine originale.
