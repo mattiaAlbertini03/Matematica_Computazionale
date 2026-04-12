@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[      5223,        140]
-NotebookOptionsPosition[      4643,        122]
-NotebookOutlinePosition[      5042,        138]
-CellTagsIndexPosition[      4999,        135]
+NotebookDataLength[      4284,        118]
+NotebookOptionsPosition[      3809,        101]
+NotebookOutlinePosition[      4199,        117]
+CellTagsIndexPosition[      4156,        114]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -39,13 +39,11 @@ Cell[BoxData[
     "\t", 
    RowBox[{
     RowBox[{
-     RowBox[{
-      RowBox[{"Gioca", " ", "[", "]"}], "::", " ", "usage"}], " ", "=", 
+     RowBox[{"Gioca", " ", "::", " ", "usage"}], " ", "=", 
      " ", "\"\<Esegue il gioco\>\""}], ";"}], "\[IndentingNewLine]", "\t", 
    RowBox[{
     RowBox[{
-     RowBox[{
-      RowBox[{"Studia", "[", "]"}], "::", "usage"}], " ", "=", 
+     RowBox[{"Studia", "::", "usage"}], " ", "=", 
      " ", "\"\<Esegue la parte didattica\>\""}], ";"}], "\[IndentingNewLine]",
     "\t", 
    RowBox[{"(*", 
@@ -56,14 +54,14 @@ Cell[BoxData[
     "\t\t", 
    RowBox[{
     RowBox[{
-     RowBox[{"Gioca", "[", "]"}], " ", ":=", " ", 
+     RowBox[{"Gioca", "[", "]"}], ":=", " ", 
      RowBox[{"DynamicModule", "[", 
       RowBox[{
        RowBox[{"{", "}"}], ",", " ", "None"}], "]"}]}], ";"}], "\[IndentingNewLine]",
     "\t\t", 
    RowBox[{
     RowBox[{
-     RowBox[{"Studia", "[", "]"}], " ", ":=", " ", 
+     RowBox[{"Studia", "[", "]"}], ":=", " ", 
      RowBox[{"DynamicModule", "[", 
       RowBox[{
        RowBox[{"{", "}"}], ",", " ", "None"}], "]"}]}], ";"}], 
@@ -81,48 +79,29 @@ Cell[BoxData[
    3.984814558151102*^9, 3.984814560247364*^9}, {3.9848146729695663`*^9, 
    3.9848148168668404`*^9}, {3.984815065039318*^9, 3.984815081976864*^9}, {
    3.9848172888990383`*^9, 3.9848173287380905`*^9}, {3.984817664760891*^9, 
-   3.9848176925326424`*^9}, {3.984817768108551*^9, 
-   3.9848177702488937`*^9}},ExpressionUUID->"9808ba5d-9110-7f4e-a7a7-\
-ae7a6a8d9fcb"],
+   3.9848176925326424`*^9}, {3.984817768108551*^9, 3.9848177702488937`*^9}, {
+   3.9849795118280487`*^9, 3.984979531687901*^9}, {3.9849804348473177`*^9, 
+   3.984980437280514*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"9808ba5d-9110-7f4e-a7a7-ae7a6a8d9fcb"],
 
 Cell[BoxData[
  TemplateBox[{
-  "Gioca", "shdw", 
-   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"Gioca\\\\\\\"\\\"}]\\) appears in \
-multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
-RowBox[{\\\"\\\\\\\"Interfaccia`\\\\\\\"\\\", \\\",\\\", \
-\\\"\\\\\\\"Global`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
-\\(\\*RowBox[{\\\"\\\\\\\"Interfaccia`\\\\\\\"\\\"}]\\) may shadow or be \
-shadowed by other definitions.\"", 2, 11, 1, 34128462117395342722, "Local", 
-   "Interfaccia`Gioca"},
-  "MessageTemplate2",
+  "Needs", "nocont", 
+   "\"Context \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"TrasformazioneImmagini`\\\\\\\"\\\"}]\\) was not \
+created when Needs was evaluated.\"", 2, 18, 5, 30097978327741375046, "Local"},
+  "MessageTemplate",
   BaseStyle->"MSG"]], "Message",
- CellChangeTimes->{3.9848152001907444`*^9},
+ CellChangeTimes->{3.9848152001907444`*^9, 3.984979519507021*^9, 
+  3.984979578334951*^9, 3.9849804398402777`*^9},
  CellLabel->
   "During evaluation of \
-In[10]:=",ExpressionUUID->"44e8b25b-d424-664d-8994-9f2330f3102a"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Studia", "shdw", 
-   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"Studia\\\\\\\"\\\"}]\\) appears in \
-multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
-RowBox[{\\\"\\\\\\\"Interfaccia`\\\\\\\"\\\", \\\",\\\", \
-\\\"\\\\\\\"Global`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
-\\(\\*RowBox[{\\\"\\\\\\\"Interfaccia`\\\\\\\"\\\"}]\\) may shadow or be \
-shadowed by other definitions.\"", 2, 12, 2, 34128462117395342722, "Local", 
-   "Interfaccia`Studia"},
-  "MessageTemplate2",
-  BaseStyle->"MSG"]], "Message",
- CellChangeTimes->{3.9848152002703476`*^9},
- CellLabel->
-  "During evaluation of \
-In[10]:=",ExpressionUUID->"d8bea047-3805-184c-9fb3-437ee24f595b"]
+In[18]:=",ExpressionUUID->"30bf8b9c-d157-4f91-a247-447abd50cf2b"]
 }, Open  ]]
 },
-WindowSize->{571, 418},
-WindowMargins->{{Automatic, 152}, {-34, Automatic}},
-FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
+WindowSize->{641, 689},
+WindowMargins->{{Automatic, 0}, {Automatic, 1}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"85532a06-8df7-4d41-a3a7-ce2ad91bdc81"
 ]
@@ -138,9 +117,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 2656, 63, 256, "Input",ExpressionUUID->"9808ba5d-9110-7f4e-a7a7-ae7a6a8d9fcb"],
-Cell[3235, 87, 693, 15, 40, "Message",ExpressionUUID->"44e8b25b-d424-664d-8994-9f2330f3102a"],
-Cell[3931, 104, 696, 15, 40, "Message",ExpressionUUID->"d8bea047-3805-184c-9fb3-437ee24f595b"]
+Cell[576, 22, 2714, 62, 274, "Input",ExpressionUUID->"9808ba5d-9110-7f4e-a7a7-ae7a6a8d9fcb"],
+Cell[3293, 86, 500, 12, 26, "Message",ExpressionUUID->"30bf8b9c-d157-4f91-a247-447abd50cf2b"]
 }, Open  ]]
 }
 ]
