@@ -16,10 +16,9 @@
 (* :Requirements:*)
 BeginPackage["TrasformazioneImmagini`"];
 	(*Funzioni che saranno esterne*)
-	x::usage ="";
-	imagesEqual::usage="Funzione che ritorna TRUE se le due immagini messe a confronto sono uguali, FALSE altrimenti";
+	x::usage ="Test";
+	imagesEqual::usage="imagesEqual[img1, img2] ritorna TRUE se le immagini sono uguali, FALSE altrimenti";
 	Begin["Private`"];
-imgageFromSeed::usage="Funzione che ritorna un'immagine specifica in base al seed numerico di input"
 		x =3;
 	(*Codice*)
 

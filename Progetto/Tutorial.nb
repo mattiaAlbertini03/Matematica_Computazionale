@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     26555,        657]
-NotebookOptionsPosition[     25347,        630]
-NotebookOutlinePosition[     25772,        647]
-CellTagsIndexPosition[     25729,        644]
+NotebookDataLength[     29880,        737]
+NotebookOptionsPosition[     28669,        710]
+NotebookOutlinePosition[     29094,        727]
+CellTagsIndexPosition[     29051,        724]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -39,20 +39,10 @@ Cell[BoxData[
   RowBox[{
    RowBox[{
     RowBox[{"SetDirectory", "[", 
-     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
-   RowBox[{
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{"Not", "[", 
-       RowBox[{"MemberQ", "[", 
-        RowBox[{"$Path", ",", 
-         RowBox[{"Directory", "[", "]"}]}], "]"}], "]"}], ",", 
-      RowBox[{"PrependTo", "[", 
-       RowBox[{"$Path", ",", 
-        RowBox[{"Directory", "[", "]"}]}], "]"}]}], "]"}], ";"}], 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
-    RowBox[{"Chiamo", " ", "gioco"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"Chiamo", " ", "gioco"}], "*)"}], "\n", 
    RowBox[{"(*", 
     RowBox[{"Trovare", " ", "caricamento", " ", "tramite", " ", "pulsante"}], 
     "*)"}]}]}]], "Input",
@@ -68,7 +58,8 @@ Cell[BoxData[
    3.985234137266756*^9, 3.9852341381318817`*^9}, {3.985234218127514*^9, 
    3.985234223975586*^9}, {3.9852344474406853`*^9, 3.9852344694046135`*^9}, {
    3.9852345103622856`*^9, 3.9852345122663593`*^9}, {3.9852345657465343`*^9, 
-   3.985234588252718*^9}, 3.985234918888731*^9},
+   3.985234588252718*^9}, 3.985234918888731*^9, {3.9852366476325817`*^9, 
+   3.985236647988222*^9}},
  CellLabel->"In[1]:=",ExpressionUUID->"f28daa08-0881-5e41-bab0-b844977b8466"],
 
 Cell[BoxData[
@@ -77,7 +68,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.9852345631188126`*^9, 3.985234590279291*^9}, {
    3.9852347972227383`*^9, 3.9852348286767197`*^9}, {3.9852349255610237`*^9, 
    3.985234941411022*^9}, 3.9852349999715996`*^9},
- CellLabel->"In[5]:=",ExpressionUUID->"57b1ab37-3503-ce4d-a05f-2388c0294ecb"],
+ CellLabel->"In[2]:=",ExpressionUUID->"57b1ab37-3503-ce4d-a05f-2388c0294ecb"],
 
 Cell[CellGroupData[{
 
@@ -94,13 +85,13 @@ Cell[BoxData[
    3.985234270378273*^9, 3.985234330429453*^9}, {3.9852345351914825`*^9, 
    3.9852345518542233`*^9}, {3.985234750827196*^9, 3.985234764081913*^9}, {
    3.985234933540285*^9, 3.9852349360773506`*^9}},
- CellLabel->"In[6]:=",ExpressionUUID->"52fdecc3-b27b-6247-aa97-0d018cec54ae"],
+ CellLabel->"In[3]:=",ExpressionUUID->"52fdecc3-b27b-6247-aa97-0d018cec54ae"],
 
 Cell[BoxData[
  InterpretationBox[
   StyleBox[
    FrameBox[
-    DynamicModuleBox[{System`InformationDump`open$$ = True, 
+    DynamicModuleBox[{System`InformationDump`open$$ = False, 
      System`InformationDump`mouseOver$$ = False}, 
      PaneSelectorBox[{True->
       TagBox[GridBox[{
@@ -126,16 +117,73 @@ Cell[BoxData[
          {
           ItemBox[
            PaneBox[
-            StyleBox["\<\"Interfaccia`Gioca\"\>", "InformationUsageText",
+            
+            StyleBox["\<\"Gioca[] avvia l'interfaccia di gioco.\"\>", 
+             "InformationUsageText",
              StripOnInput->False,
              LineSpacing->{1.5, 1.5, 3.}],
-            FrameMargins->{{10, 10}, {8, 10}},
-            ScrollPosition->{0., 0.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
            BaseStyle->"InformationUsageSubtitleBackground",
            StripOnInput->False], 
           ItemBox["\<\"\"\>",
            BaseStyle->"InformationUsageSubtitleBackground",
            StripOnInput->False]},
+         {
+          PaneBox[
+           TagBox[GridBox[{
+              {
+               StyleBox[
+                TagBox[
+                 TooltipBox[
+                  StyleBox["\<\" Definitions\"\>", "InformationRowLabel",
+                   StripOnInput->False],
+                  "\"Definitions\"",
+                  TooltipStyle->"TextStyling"],
+                 Annotation[#, "Definitions", "Tooltip"]& ], "DialogStyle",
+                StripOnInput->False]},
+              {
+               TemplateBox[{"\"\[ThinSpace]\"", 
+                 GridBox[{{
+                    RowBox[{
+                    RowBox[{"Gioca", "[", "]"}], ":=", 
+                    RowBox[{"DynamicModule", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Private`seed", "=", "0"}], ",", 
+                    "Private`targetImg"}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{"Private`targetImg", "=", 
+                    
+                    RowBox[{"Private`imageFromSeed", "[", "Private`seed", 
+                    "]"}]}], ";", 
+                    RowBox[{"Column", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"Indovina l'Immagine\"", ",", "\"Title\""}], 
+                    "]"}], ",", 
+                    RowBox[{"InputField", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", "Private`seed", "]"}], ",", 
+                    "Number"}], "]"}], ",", 
+                    RowBox[{"Dynamic", "[", 
+                    
+                    RowBox[{"Private`imageFromSeed", "[", "Private`seed", 
+                    "]"}], "]"}]}], "}"}], "]"}]}]}], "]"}]}]}, {" "}}, 
+                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                  DefaultBaseStyle -> "Column", 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]},
+                "RowDefault"]}
+             },
+             DefaultBaseStyle->"Column",
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+            "Column"],
+           FrameMargins->{{6, 0}, {3, 6}}], "\<\"\"\>"},
          {
           PaneBox[GridBox[{
              {
@@ -189,15 +237,10 @@ Cell[BoxData[
              PaneSelectorBox[{False->
               
               DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "UpPointerOpener"],
-               ImageSizeCache->{13., {3.477880908641964, 9.522119091358036}}],
-               True->
+               "FEBitmaps", "UpPointerOpener"]], True->
               
               DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "UpPointerOpenerHot"],
-               
-               ImageSizeCache->{
-                13., {3.477880908641964, 9.522119091358036}}]}, Dynamic[
+               "FEBitmaps", "UpPointerOpenerHot"]]}, Dynamic[
               System`InformationDump`mouseOver$$]],
              Alignment->Left,
              Appearance->{"Default" -> None},
@@ -253,10 +296,13 @@ Cell[BoxData[
          {
           ItemBox[
            PaneBox[
-            StyleBox["\<\"Interfaccia`Gioca\"\>", "InformationUsageText",
+            
+            StyleBox["\<\"Gioca[] avvia l'interfaccia di gioco.\"\>", 
+             "InformationUsageText",
              StripOnInput->False,
              LineSpacing->{1.5, 1.5, 3.}],
-            FrameMargins->{{10, 10}, {8, 10}}],
+            FrameMargins->{{10, 10}, {8, 10}},
+            ScrollPosition->{0., 0.}],
            BaseStyle->"InformationUsageSubtitleBackground",
            StripOnInput->False], 
           ItemBox["\<\"\"\>",
@@ -269,10 +315,15 @@ Cell[BoxData[
              PaneSelectorBox[{False->
               
               DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "DownPointerOpener"]], True->
+               "FEBitmaps", "DownPointerOpener"],
+               ImageSizeCache->{13., {3.477880908641964, 9.522119091358036}}],
+               True->
               
               DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "DownPointerOpenerHot"]]}, Dynamic[
+               "FEBitmaps", "DownPointerOpenerHot"],
+               
+               ImageSizeCache->{
+                13., {3.477880908641964, 9.522119091358036}}]}, Dynamic[
               System`InformationDump`mouseOver$$]],
              Alignment->Left,
              Appearance->{"Default" -> None},
@@ -314,10 +365,21 @@ Cell[BoxData[
     StripOnInput->False], "InformationGridPlain",
    StripOnInput->False],
   InformationData[<|
-   "ObjectType" -> "Symbol", "Usage" -> "Interfaccia`Gioca", "Documentation" -> 
-    None, "OwnValues" -> None, "UpValues" -> None, "DownValues" -> None, 
-    "SubValues" -> None, "DefaultValues" -> None, "NValues" -> None, 
-    "FormatValues" -> None, "Options" -> None, "Attributes" -> {}, "FullName" -> 
+   "ObjectType" -> "Symbol", "Usage" -> 
+    "Gioca[] avvia l'interfaccia di gioco.", "Documentation" -> None, 
+    "OwnValues" -> None, "UpValues" -> None, "DownValues" -> 
+    Information`InformationValueForm[
+     DownValues, Interfaccia`Gioca, {
+      Interfaccia`Gioca[] :> 
+       DynamicModule[{Private`seed = 0, Private`targetImg}, 
+         Private`targetImg = Private`imageFromSeed[Private`seed]; Column[{
+            Style["Indovina l'Immagine", "Title"], 
+            InputField[
+             Dynamic[Private`seed], Number], 
+            Dynamic[
+             Private`imageFromSeed[Private`seed]]}]]}], "SubValues" -> None, 
+    "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
+    "Options" -> None, "Attributes" -> {}, "FullName" -> 
     "Interfaccia`Gioca"|>, False]]], "Output",
  CellChangeTimes->{
   3.984817469196224*^9, 3.9848177914538174`*^9, 3.9852330958472614`*^9, 
@@ -327,8 +389,8 @@ Cell[BoxData[
    3.985234248199873*^9, {3.9852342838103447`*^9, 3.985234330806265*^9}, {
    3.9852345167362843`*^9, 3.9852345528272*^9}, 3.98523466698732*^9, {
    3.985234717268198*^9, 3.985234754622986*^9}, {3.985234818428684*^9, 
-   3.985234835009691*^9}, 3.9852358242352295`*^9},
- CellLabel->"Out[6]=",ExpressionUUID->"a11de376-48dc-5f4e-8b70-c3fd538df41b"],
+   3.985234835009691*^9}, 3.9852358242352295`*^9, 3.985236721141655*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"f85a21cf-9052-144d-987b-394c91e2b4df"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -360,7 +422,7 @@ Cell[BoxData[
          {
           ItemBox[
            PaneBox[
-            StyleBox["\<\"\"\>", "InformationUsageText",
+            StyleBox["\<\"Test\"\>", "InformationUsageText",
              StripOnInput->False,
              LineSpacing->{1.5, 1.5, 3.}],
             FrameMargins->{{10, 10}, {8, 10}}],
@@ -511,7 +573,7 @@ Cell[BoxData[
          {
           ItemBox[
            PaneBox[
-            StyleBox["\<\"\"\>", "InformationUsageText",
+            StyleBox["\<\"Test\"\>", "InformationUsageText",
              StripOnInput->False,
              LineSpacing->{1.5, 1.5, 3.}],
             FrameMargins->{{10, 10}, {8, 10}}],
@@ -577,7 +639,7 @@ Cell[BoxData[
     StripOnInput->False], "InformationGridPlain",
    StripOnInput->False],
   InformationData[<|
-   "ObjectType" -> "Symbol", "Usage" -> "", "Documentation" -> None, 
+   "ObjectType" -> "Symbol", "Usage" -> "Test", "Documentation" -> None, 
     "OwnValues" -> 
     Information`InformationValueForm[
      OwnValues, TrasformazioneImmagini`x, {TrasformazioneImmagini`x -> 3}], 
@@ -593,11 +655,29 @@ Cell[BoxData[
    3.985234248199873*^9, {3.9852342838103447`*^9, 3.985234330806265*^9}, {
    3.9852345167362843`*^9, 3.9852345528272*^9}, 3.98523466698732*^9, {
    3.985234717268198*^9, 3.985234754622986*^9}, {3.985234818428684*^9, 
-   3.985234835009691*^9}, 3.9852358244100533`*^9},
- CellLabel->"Out[7]=",ExpressionUUID->"5a6929fc-fcc9-9b45-94e9-890adbab93a8"],
+   3.985234835009691*^9}, 3.9852358242352295`*^9, 3.985236721326233*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"895bec35-7f92-b04e-8d72-e669f0a82900"],
 
 Cell[BoxData[
- RowBox[{"Gioca", "[", "]"}]], "Output",
+ DynamicModuleBox[{Private`seed$$ = 0, Private`targetImg$$ = Missing[
+  "NotAvailable"]}, 
+  TagBox[GridBox[{
+     {
+      StyleBox["\<\"Indovina l'Immagine\"\>", "Title",
+       StripOnInput->False]},
+     {
+      InputFieldBox[Dynamic[Private`seed$$], Number]},
+     {
+      DynamicBox[ToBoxes[
+        Private`imageFromSeed[Private`seed$$], StandardForm],
+       ImageSizeCache->{
+        196.82558917999268`, {3.4658202342689037`, 11.759032937698066`}}]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Column"],
+  DynamicModuleValues:>{}]], "Output",
  CellChangeTimes->{
   3.984817469196224*^9, 3.9848177914538174`*^9, 3.9852330958472614`*^9, 
    3.985233588515564*^9, 3.985233773459795*^9, 3.9852338506424217`*^9, {
@@ -606,8 +686,8 @@ Cell[BoxData[
    3.985234248199873*^9, {3.9852342838103447`*^9, 3.985234330806265*^9}, {
    3.9852345167362843`*^9, 3.9852345528272*^9}, 3.98523466698732*^9, {
    3.985234717268198*^9, 3.985234754622986*^9}, {3.985234818428684*^9, 
-   3.985234835009691*^9}, 3.985235824412071*^9},
- CellLabel->"Out[8]=",ExpressionUUID->"e97e71a1-7bb8-a344-b978-86c42d427500"]
+   3.985234835009691*^9}, 3.9852358242352295`*^9, 3.9852367229155293`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"2e3fc9b1-6872-954e-a9d5-7e36403f8f17"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -647,17 +727,17 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[554, 20, 407, 10, 61, "Input",ExpressionUUID->"861e802b-dff4-f24c-9be6-1ef59a60dbc0"],
-Cell[964, 32, 1898, 39, 135, "Input",ExpressionUUID->"f28daa08-0881-5e41-bab0-b844977b8466"],
-Cell[2865, 73, 372, 6, 61, "Input",ExpressionUUID->"57b1ab37-3503-ce4d-a05f-2388c0294ecb"],
+Cell[964, 32, 1593, 30, 110, "Input",ExpressionUUID->"f28daa08-0881-5e41-bab0-b844977b8466"],
+Cell[2560, 64, 372, 6, 61, "Input",ExpressionUUID->"57b1ab37-3503-ce4d-a05f-2388c0294ecb"],
 Cell[CellGroupData[{
-Cell[3262, 83, 706, 13, 110, "Input",ExpressionUUID->"52fdecc3-b27b-6247-aa97-0d018cec54ae"],
-Cell[3971, 98, 9370, 232, 153, "Output",ExpressionUUID->"a11de376-48dc-5f4e-8b70-c3fd538df41b"],
-Cell[13344, 332, 10586, 264, 114, "Output",ExpressionUUID->"5a6929fc-fcc9-9b45-94e9-890adbab93a8"],
-Cell[23933, 598, 714, 11, 41, "Output",ExpressionUUID->"e97e71a1-7bb8-a344-b978-86c42d427500"]
+Cell[2957, 74, 706, 13, 110, "Input",ExpressionUUID->"52fdecc3-b27b-6247-aa97-0d018cec54ae"],
+Cell[3666, 89, 12303, 303, 114, "Output",ExpressionUUID->"f85a21cf-9052-144d-987b-394c91e2b4df"],
+Cell[15972, 394, 10620, 264, 114, "Output",ExpressionUUID->"895bec35-7f92-b04e-8d72-e669f0a82900"],
+Cell[26595, 660, 1374, 29, 153, "Output",ExpressionUUID->"2e3fc9b1-6872-954e-a9d5-7e36403f8f17"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24684, 614, 234, 4, 36, "Input",ExpressionUUID->"a6a950e2-1642-b746-b830-84e9895aaed5"],
-Cell[24921, 620, 410, 7, 41, "Output",ExpressionUUID->"872ccdf5-ecc6-184c-9281-a80827861e48"]
+Cell[28006, 694, 234, 4, 36, "Input",ExpressionUUID->"a6a950e2-1642-b746-b830-84e9895aaed5"],
+Cell[28243, 700, 410, 7, 41, "Output",ExpressionUUID->"872ccdf5-ecc6-184c-9281-a80827861e48"]
 }, Open  ]]
 }
 ]
