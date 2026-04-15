@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     40541,        923]
-NotebookOptionsPosition[     39740,        901]
-NotebookOutlinePosition[     40131,        917]
-CellTagsIndexPosition[     40088,        914]
+NotebookDataLength[     25567,        576]
+NotebookOptionsPosition[     25083,        559]
+NotebookOutlinePosition[     25474,        575]
+CellTagsIndexPosition[     25431,        572]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,7 +23,7 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
-   RowBox[{"Variabile", " ", "globale", " ", "per", " ", 
+   RowBox[{"Variabili", " ", "globali", " ", "per", " ", 
     RowBox[{"l", "'"}], "immagine"}], "*)"}], "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
@@ -37,10 +37,13 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
    RowBox[{
     RowBox[{"blur", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"scalaColori", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"colore", " ", "=", " ", "None"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"rotazione", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"trasposizione", " ", "=", " ", "0"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"translaX", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"translaY", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -79,13 +82,28 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
         "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]",
     "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"bottonePulisci", " ", "=", " ", 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Button", "[", 
+        RowBox[{"\"\<Pulisci\>\"", ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"blur", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"rotazione", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"translaX", "=", "0"}], ";", "\[IndentingNewLine]", 
+          "translaY", ";", "\[IndentingNewLine]", 
+          RowBox[{"colore", " ", "=", " ", "None"}], ";"}]}], 
+        "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{"mostraImmagine", "=", " ", 
      RowBox[{"DynamicModule", "[", 
       RowBox[{
        RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"Dynamic", "[", 
         RowBox[{"Show", "[", "img", "]"}], "]"}]}], "\[IndentingNewLine]", 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
    RowBox[{
     RowBox[{"controlloBlur", " ", "=", 
      RowBox[{"\"\<Blur\>\"", "->", 
@@ -93,16 +111,14 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
        RowBox[{
         RowBox[{"Dynamic", "[", "blur", "]"}], ",", 
         RowBox[{"{", 
-         RowBox[{"0", ",", "20"}], "}"}], ",", 
+         RowBox[{"0", ",", "100", ",", " ", "1"}], "}"}], ",", 
         RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"controlloScalaColori", " ", "=", " ", 
-     RowBox[{"\"\<ScalaColori\>\"", "->", 
-      RowBox[{"Slider", "[", 
+    RowBox[{"controlloColore", " ", "=", " ", 
+     RowBox[{"\"\<Scala Colore\>\"", "->", 
+      RowBox[{"ColorSetter", "[", 
        RowBox[{
-        RowBox[{"Dynamic", "[", "scalaColori", "]"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "5"}], "}"}], ",", 
+        RowBox[{"Dynamic", "[", "colore", "]"}], ",", 
         RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"controlloRotazione", " ", "=", " ", 
@@ -111,18 +127,31 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
        RowBox[{
         RowBox[{"Dynamic", "[", "rotazione", "]"}], ",", 
         RowBox[{"{", 
-         RowBox[{"0", ",", "0.5"}], "}"}], ",", 
+         RowBox[{"0", ",", "360", ",", " ", "30"}], "}"}], ",", 
         RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"controlloTrasposizione", "=", " ", 
-     RowBox[{"\"\<Trasposizione\>\"", "->", 
-      RowBox[{"Slider", "[", 
+    RowBox[{"controlloTranslazione", "=", " ", 
+     RowBox[{"\"\<Translazione\>\"", "->", 
+      RowBox[{"GraphicsColumn", "[", 
        RowBox[{
-        RowBox[{"Dynamic", "[", "trasposizione", "]"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "0.5"}], "}"}], ",", 
-        RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Slider", "[", 
+           RowBox[{
+            RowBox[{"Dynamic", "[", "translaX", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1000", ",", "50"}], "}"}], ",", 
+            RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Slider", "[", 
+           RowBox[{
+            RowBox[{"Dynamic", "[", "translaY", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1000", ",", " ", "50"}], "}"}], ",", 
+            RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}], 
+         "\[IndentingNewLine]", "}"}], ",", " ", 
+        RowBox[{"ImageSize", "->", "Medium"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"controlliImmagine", "=", 
      RowBox[{"DynamicModule", "[", 
@@ -131,11 +160,113 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
        RowBox[{"TabView", "[", "\[IndentingNewLine]", 
         RowBox[{"{", "\[IndentingNewLine]", 
          RowBox[{
-         "controlloBlur", ",", "\[IndentingNewLine]", "controlloScalaColori", 
-          ",", "\[IndentingNewLine]", "controlloRotazione", ",", 
-          "\[IndentingNewLine]", "controlloTrasposizione"}], 
-         "\[IndentingNewLine]", "}"}], "]"}]}], "]"}]}], ";"}], 
+         "controlloBlur", ",", "\[IndentingNewLine]", "controlloColore", ",", 
+          "\[IndentingNewLine]", "controlloRotazione", ",", 
+          "\[IndentingNewLine]", "controlloTranslazione"}], 
+         "\[IndentingNewLine]", "}"}], "]"}], ",", 
+       RowBox[{"ImageSize", "->", "Large"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "Funzione", " ", "di", " ", "traslazione", " ", "con", " ", "wrap"}], "-",
+      "around"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"translateImageWrap", "[", 
+     RowBox[{"image_", ",", "tx_", ",", "ty_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"data", ",", "dims", ",", "w", ",", "h", ",", "shiftedData"}], 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"data", "=", 
+        RowBox[{"ImageData", "[", "image", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"dims", "=", 
+        RowBox[{"Dimensions", "[", "data", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"h", "=", 
+        RowBox[{"dims", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"w", "=", 
+        RowBox[{"dims", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+         "Normalizza", " ", "gli", " ", "shift", " ", "con", " ", "Mod", " ", 
+          "per", " ", "il", " ", "wrap"}], "-", "around"}], "*)"}], 
+       RowBox[{"shiftedData", "=", 
+        RowBox[{"RotateRight", "[", 
+         RowBox[{"data", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Mod", "[", 
+             RowBox[{
+              RowBox[{"Round", "[", "ty", "]"}], ",", "h"}], "]"}], ",", 
+            RowBox[{"Mod", "[", 
+             RowBox[{
+              RowBox[{"Round", "[", "tx", "]"}], ",", "w"}], "]"}], ",", 
+            "0"}], "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Image", "[", "shiftedData", "]"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"colorizeImage", "[", 
+     RowBox[{"image_", ",", "color_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"grayImg", ",", "hsvColor"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"color", "===", "None"}], ",", "\[IndentingNewLine]", "image",
+         ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"hsvColor", "=", 
+          RowBox[{"ColorConvert", "[", 
+           RowBox[{"color", ",", "Hue"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Colorize", "[", 
+          RowBox[{"image", ",", 
+           RowBox[{"ColorFunction", "->", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Hue", "[", 
+               RowBox[{
+                RowBox[{"hsvColor", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], ",", 
+                RowBox[{"hsvColor", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], ",", "#"}], "]"}], "&"}], 
+             ")"}]}]}], "]"}]}]}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modifiedImg", "=", 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"blurredImg", " ", "=", " ", 
+          RowBox[{"Blur", "[", 
+           RowBox[{"img", ",", " ", "blur"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"rotatedImg", " ", "=", " ", 
+          RowBox[{"ImageRotate", "[", 
+           RowBox[{"blurredImg", ",", " ", 
+            RowBox[{"rotazione", "*", "Degree"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"translatedImg", " ", "=", " ", 
+          RowBox[{"translateImageWrap", "[", 
+           RowBox[{"rotatedImg", ",", " ", "translaX", ",", " ", "translaY"}],
+            "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"colorizedImg", " ", "=", " ", 
+          RowBox[{"colorizeImage", "[", 
+           RowBox[{"img", ",", "colore"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Show", "[", "colorizedImg", "]"}]}], "\[IndentingNewLine]", 
+        "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", "\n", 
    RowBox[{"Panel", "[", 
     RowBox[{"GraphicsRow", "[", 
      RowBox[{"{", "\[IndentingNewLine]", 
@@ -144,11 +275,13 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
         RowBox[{
          RowBox[{"{", "\[IndentingNewLine]", 
           RowBox[{
-          "bottoneCaricamento", ",", "\[IndentingNewLine]", 
-           "mostraImmagine"}], "\[IndentingNewLine]", "}"}], ",", " ", 
-         RowBox[{"ImageSize", "->", "Small"}]}], "]"}], ",", 
-       "\[IndentingNewLine]", "controlliImmagine"}], "\[IndentingNewLine]", 
-      "}"}], "]"}], "]"}], "\[IndentingNewLine]"}]}]], "Input",
+          "bottoneCaricamento", ",", "\[IndentingNewLine]", "mostraImmagine", 
+           ",", "\[IndentingNewLine]", "modifiedImg"}], "\[IndentingNewLine]",
+           "}"}], ",", " ", 
+         RowBox[{"ImageSize", "->", "Medium"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", "controlliImmagine", ",", "\[IndentingNewLine]",
+        "bottonePulisci"}], "\[IndentingNewLine]", "}"}], "]"}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.984815139703452*^9, 3.9848151397035646`*^9}, {
    3.984815734772496*^9, 3.984815739119378*^9}, {3.9848158279324512`*^9, 
    3.984815855643079*^9}, {3.98481604380311*^9, 3.9848160862228603`*^9}, {
@@ -159,17 +292,30 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
    3.984817348515449*^9, {3.9848173870245523`*^9, 3.984817420316564*^9}, {
    3.984817453327923*^9, 3.984817500365128*^9}, {3.984817538366437*^9, 
    3.9848176464762487`*^9}, {3.984817677324407*^9, 3.984817811124057*^9}, {
-   3.984817856578848*^9, 3.984818023021358*^9}},
+   3.984817856578848*^9, 3.984818023021358*^9}, {3.985232604881843*^9, 
+   3.9852326497681828`*^9}, {3.985232683708682*^9, 3.985232784971752*^9}, {
+   3.985232824198902*^9, 3.985232942107305*^9}, {3.98523297790845*^9, 
+   3.985233023763938*^9}, {3.985233101828124*^9, 3.9852331283838463`*^9}, {
+   3.98523318195817*^9, 3.985233223179693*^9}, {3.9852332903469048`*^9, 
+   3.985233294729217*^9}, {3.9852333275239267`*^9, 3.985233328016337*^9}, {
+   3.985233435272751*^9, 3.9852335231327744`*^9}, {3.9852356369793377`*^9, 
+   3.985235681113607*^9}, {3.9852357955040894`*^9, 3.9852358280619164`*^9}, {
+   3.985235898266377*^9, 3.985235904145419*^9}, {3.9852359809413633`*^9, 
+   3.9852360143936443`*^9}, {3.985236050311287*^9, 3.985236312826995*^9}, {
+   3.985236355960968*^9, 3.985236366303116*^9}, {3.9852364585392723`*^9, 
+   3.985236484130829*^9}, {3.9852365257065563`*^9, 3.985236531348557*^9}, {
+   3.985236636579575*^9, 3.985236688340856*^9}, {3.985236752853096*^9, 
+   3.985236755353546*^9}, {3.9852369284507923`*^9, 3.985237147867569*^9}, {
+   3.985237186609207*^9, 3.985237189566635*^9}, {3.985237221412882*^9, 
+   3.985237334978593*^9}, {3.985237644844845*^9, 3.985237669083313*^9}, {
+   3.985237718324234*^9, 3.9852377208766937`*^9}, {3.9852378615727158`*^9, 
+   3.985237942365178*^9}, {3.985238030202054*^9, 3.985238037801517*^9}, {
+   3.985238416449956*^9, 3.9852384802545643`*^9}, {3.985238556076887*^9, 
+   3.985238564854598*^9}, {3.985238881974657*^9, 3.985238916770344*^9}, {
+   3.985238952262315*^9, 3.98523897307163*^9}, {3.985239079210431*^9, 
+   3.985239255853508*^9}},
  CellLabel->
-  "In[166]:=",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
-
-Cell[BoxData["0"], "Output",
- CellChangeTimes->{{3.984817454545869*^9, 3.984817464524043*^9}, 
-   3.984817503166189*^9, 3.9848176485870037`*^9, {3.984817679885604*^9, 
-   3.9848177119206448`*^9}, 3.984817812276464*^9, 3.9848179155144863`*^9, 
-   3.984817954090377*^9, 3.9848180236569023`*^9},
- CellLabel->
-  "Out[171]=",ExpressionUUID->"fcc1d28a-3102-4659-9ec4-6073332ae4dc"],
+  "In[1155]:=",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
 
 Cell[BoxData[
  PanelBox[
@@ -193,18 +339,34 @@ Cell[BoxData[
           DynamicModuleBox[{}, 
            DynamicBox[ToBoxes[
              Show[$CellContext`img], TraditionalForm],
-            ImageSizeCache->{162.31213872832367`, {0., 173.75722543352603`}}],
-           
+            ImageSizeCache->{176.23430962343096`, {0., 188.6610878661088}}],
            DynamicModuleValues:>{}], {81.9, -120.2}, {Center, Center}, {156., 167.00000000000003},
           
+          BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+         InsetBox[
+          DynamicModuleBox[{}, 
+           
+           DynamicBox[
+            ToBoxes[$CellContext`blurredImg = 
+              Blur[$CellContext`img, $CellContext`blur]; \
+$CellContext`rotatedImg = 
+              ImageRotate[$CellContext`blurredImg, $CellContext`rotazione 
+                Degree]; $CellContext`translatedImg = \
+$CellContext`translateImageWrap[$CellContext`rotatedImg, \
+$CellContext`translaX, $CellContext`translaY]; $CellContext`colorizedImg = \
+$CellContext`colorizeImage[$CellContext`img, $CellContext`colore]; 
+             Show[$CellContext`colorizedImg], TraditionalForm],
+            ImageSizeCache->{176.23430962343096`, {0., 188.6610878661088}}],
+           DynamicModuleValues:>{}], {81.9, -295.00000000000006}, {
+          Center, Center}, {156., 167.00000000000003},
           
           BaseStyle->{
            Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
-       ImageSize->Small,
+       ImageSize->Medium,
        Method->{"IgnoreImageSizeAutomaticLimit" -> True},
-       PlotRange->{{0, 163.8}, {-207.60000000000002`, 0}},
-       PlotRangePadding->Automatic], {92.50433526011561, -115.29046242774567},
-       ImageScaled[{0.5, 0.5}], {170.4277456647399, 216.},
+       PlotRange->{{0, 163.8}, {-382.40000000000003`, 0}},
+       PlotRangePadding->Automatic], {99.99858786610878, -223.47557531380752},
+       ImageScaled[{0.5, 0.5}], {185.0460251046025, 432.},
       BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
      InsetBox[
       DynamicModuleBox[{}, 
@@ -212,7 +374,7 @@ Cell[BoxData[
         InterpretationBox[
          StyleBox[GridBox[{
             {
-             SliderBox[Dynamic[$CellContext`blur], {0, 20},
+             SliderBox[Dynamic[$CellContext`blur], {0, 100, 1},
               Appearance->Automatic,
               DefaultBaseStyle->"LabeledSlider"], 
              InputFieldBox[Dynamic[$CellContext`blur],
@@ -238,42 +400,14 @@ Cell[BoxData[
           StripOnInput->False,
           FontFamily:>CurrentValue["ControlsFontFamily"]],
          LabeledSlider[
-          Dynamic[$CellContext`blur], {0, 20}]]}, {2,"\<\"ScalaColori\"\>"->
+          Dynamic[$CellContext`blur], {0, 100, 1}]]}, {
+        2,"\<\"Scala Colore\"\>"->
+        ColorSetterBox[Dynamic[$CellContext`colore], "Swatch",
+         Appearance->"Labeled"]}, {3,"\<\"Rotazione\"\>"->
         InterpretationBox[
          StyleBox[GridBox[{
             {
-             SliderBox[Dynamic[$CellContext`scalaColori], {0, 5},
-              Appearance->Automatic,
-              DefaultBaseStyle->"LabeledSlider"], 
-             InputFieldBox[Dynamic[$CellContext`scalaColori],
-              Appearance->"Frameless",
-              ContinuousAction->True,
-              DefaultBaseStyle->"LabeledSlider",
-              FieldSize->{{5, 10}, {1, 2}},
-              ImageMargins->0]}
-           },
-           AutoDelete->False,
-           BaselinePosition->{{1, 1}, Axis},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.7]}, 
-               Offset[0.27999999999999997`]}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}}],
-          Deployed->True,
-          StripOnInput->False,
-          FontFamily:>CurrentValue["ControlsFontFamily"]],
-         LabeledSlider[
-          Dynamic[$CellContext`scalaColori], {0, 5}]]}, {
-        3,"\<\"Rotazione\"\>"->
-        InterpretationBox[
-         StyleBox[GridBox[{
-            {
-             SliderBox[Dynamic[$CellContext`rotazione], {0, 0.5},
+             SliderBox[Dynamic[$CellContext`rotazione], {0, 360, 30},
               Appearance->Automatic,
               DefaultBaseStyle->"LabeledSlider"], 
              InputFieldBox[Dynamic[$CellContext`rotazione],
@@ -299,607 +433,131 @@ Cell[BoxData[
           StripOnInput->False,
           FontFamily:>CurrentValue["ControlsFontFamily"]],
          LabeledSlider[
-          Dynamic[$CellContext`rotazione], {0, 0.5}]]}, {
-        4,"\<\"Trasposizione\"\>"->
-        InterpretationBox[
-         StyleBox[GridBox[{
-            {
-             SliderBox[Dynamic[$CellContext`trasposizione], {0, 0.5},
-              Appearance->Automatic,
-              DefaultBaseStyle->"LabeledSlider"], 
-             InputFieldBox[Dynamic[$CellContext`trasposizione],
-              Appearance->"Frameless",
-              ContinuousAction->True,
-              DefaultBaseStyle->"LabeledSlider",
-              FieldSize->{{5, 10}, {1, 2}},
-              ImageMargins->0]}
-           },
-           AutoDelete->False,
-           BaselinePosition->{{1, 1}, Axis},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.7]}, 
-               Offset[0.27999999999999997`]}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}}],
-          Deployed->True,
-          StripOnInput->False,
-          FontFamily:>CurrentValue["ControlsFontFamily"]],
-         LabeledSlider[
-          Dynamic[$CellContext`trasposizione], {0, 0.5}]]}}, 2],
-       DynamicModuleValues:>{}], {325.7991329479769, -115.29046242774567}, {
-      Center, Center}, {267., 216.},
+          Dynamic[$CellContext`rotazione], {0, 360, 30}]]}, {
+        4,"\<\"Translazione\"\>"->
+        GraphicsBox[{{}, {InsetBox[
+            InterpretationBox[
+             StyleBox[GridBox[{
+                {
+                 SliderBox[Dynamic[$CellContext`translaX], {0, 1000, 50},
+                  Appearance->Automatic,
+                  DefaultBaseStyle->"LabeledSlider"], 
+                 InputFieldBox[Dynamic[$CellContext`translaX],
+                  Appearance->"Frameless",
+                  ContinuousAction->True,
+                  DefaultBaseStyle->"LabeledSlider",
+                  FieldSize->{{5, 10}, {1, 2}},
+                  ImageMargins->0]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{{1, 1}, Axis},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.7]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}],
+              Deployed->True,
+              StripOnInput->False,
+              FontFamily:>CurrentValue["ControlsFontFamily"]],
+             LabeledSlider[
+              Dynamic[$CellContext`translaX], {0, 1000, 
+              50}]], {131.775, -16.275}, {Center, Center}, {251.00000000000003, 20.},
+            
+            BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+           InsetBox[
+            InterpretationBox[
+             StyleBox[GridBox[{
+                {
+                 SliderBox[Dynamic[$CellContext`translaY], {0, 1000, 50},
+                  Appearance->Automatic,
+                  DefaultBaseStyle->"LabeledSlider"], 
+                 InputFieldBox[Dynamic[$CellContext`translaY],
+                  Appearance->"Frameless",
+                  ContinuousAction->True,
+                  DefaultBaseStyle->"LabeledSlider",
+                  FieldSize->{{5, 10}, {1, 2}},
+                  ImageMargins->0]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{{1, 1}, Axis},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.7]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}],
+              Deployed->True,
+              StripOnInput->False,
+              FontFamily:>CurrentValue["ControlsFontFamily"]],
+             LabeledSlider[
+              Dynamic[$CellContext`translaY], {0, 1000, 
+              50}]], {131.775, -48.824999999999996}, {Center, Center}, {251.00000000000003, 20.},
+            
+            
+            BaseStyle->{
+             Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+         ImageSize->Medium,
+         Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+         PlotRange->{{0, 263.55}, {-65.1, 0}},
+         PlotRangePadding->Automatic]}}, 2],
+       ImageSize -> Large,
+       DynamicModuleValues:>{}], {395.4727510460251, -223.47557531380752}, {
+      Center, Center}, {376., 431.99999999999994},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox[
+      DynamicModuleBox[{}, 
+       ButtonBox["\<\"Pulisci\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`blur = 0; $CellContext`rotazione = 
+          0; $CellContext`translaX = 
+          0; $CellContext`translaY; $CellContext`colore = None; Null),
+        Evaluator->Automatic,
+        Method->"Preemptive"],
+       DynamicModuleValues:>{}], {616.9239016736402, -223.47557531380752}, {
+      Center, Center}, {37., 431.99999999999994},
       BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
-   ImageSize->{466.5895953757225, 230.58092485549133`},
+   ImageSize->{642.8994769874478, 446.95115062761505`},
    Method->{"IgnoreImageSizeAutomaticLimit" -> True},
-   PlotRange->{{0, 466.5895953757225}, {-230.58092485549133`, 0}},
+   PlotRange->{{0, 642.8994769874478}, {-446.95115062761505`, 0}},
    PlotRangePadding->Automatic]]], "Output",
  CellChangeTimes->{{3.984817454545869*^9, 3.984817464524043*^9}, 
    3.984817503166189*^9, 3.9848176485870037`*^9, {3.984817679885604*^9, 
    3.9848177119206448`*^9}, 3.984817812276464*^9, 3.9848179155144863`*^9, 
-   3.984817954090377*^9, 3.984818023812612*^9},
+   3.984817954090377*^9, 3.9848180236569023`*^9, 3.9852325810276957`*^9, {
+   3.9852327437790623`*^9, 3.9852327857153187`*^9}, {3.985232842087323*^9, 
+   3.985232887268256*^9}, {3.9852329187611856`*^9, 3.9852329431590767`*^9}, {
+   3.985232980249721*^9, 3.985232993807819*^9}, 3.985233024379142*^9, 
+   3.985233129097104*^9, 3.98523318431961*^9, 3.985233224004774*^9, 
+   3.985233295900221*^9, 3.985233328777104*^9, {3.985233508086487*^9, 
+   3.985233525465983*^9}, 3.9852356068316517`*^9, 3.985235682176261*^9, {
+   3.985235775357794*^9, 3.985235811375642*^9}, {3.985235982385407*^9, 
+   3.985236003427806*^9}, {3.9852361912735567`*^9, 3.985236214270295*^9}, 
+   3.985236302254127*^9, 3.985236369486212*^9, {3.985236472486601*^9, 
+   3.985236492610779*^9}, 3.985236532974595*^9, 3.985236572571218*^9, 
+   3.985236658217408*^9, 3.985236689282612*^9, 3.98523675612247*^9, 
+   3.985237009351459*^9, 3.985237040562841*^9, {3.985237134094481*^9, 
+   3.9852371491886187`*^9}, 3.985237190463015*^9, 3.98523722315982*^9, {
+   3.985237255022978*^9, 3.985237261470264*^9}, {3.985237294184039*^9, 
+   3.985237300533518*^9}, 3.985237335859877*^9, 3.985237777084797*^9, 
+   3.9852378801719103`*^9, {3.985237914338187*^9, 3.9852379441530247`*^9}, 
+   3.985238039132015*^9, 3.985238427897028*^9, {3.9852384680944433`*^9, 
+   3.98523848196355*^9}, 3.985238569338902*^9, 3.9852389185557613`*^9, {
+   3.985238954558405*^9, 3.9852389745680037`*^9}, {3.9852392318669167`*^9, 
+   3.985239265902173*^9}},
  CellLabel->
-  "Out[179]=",ExpressionUUID->"6594ca3d-f14f-46b1-a6f1-9001b8612912"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"?", "TableView"}]], "Input",
- CellChangeTimes->{{3.984816753340654*^9, 3.9848167604029427`*^9}, {
-  3.984816794583152*^9, 3.98481683458477*^9}},
- CellLabel->"In[68]:=",ExpressionUUID->"78e9dda1-61e1-42a5-98bf-7d7b86f071fd"],
-
-Cell[BoxData[
- InterpretationBox[
-  StyleBox[
-   FrameBox[
-    DynamicModuleBox[{System`InformationDump`open$$ = False, 
-     System`InformationDump`mouseOver$$ = False}, 
-     PaneSelectorBox[{True->
-      TagBox[GridBox[{
-         {
-          ItemBox[
-           PaneBox[
-            StyleBox[
-             TagBox[
-              TooltipBox[
-               StyleBox["\<\" Symbol\"\>", "InformationRowLabel",
-                StripOnInput->False],
-               "\"Symbol\"",
-               TooltipStyle->"TextStyling"],
-              Annotation[#, "Symbol", "Tooltip"]& ], "InformationTitleText",
-             StripOnInput->False,
-             BaseStyle -> None],
-            FrameMargins->{{4, 0}, {-1, 1}}],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False], 
-          ItemBox[
-           PaneBox[
-            TooltipBox[
-             ButtonBox[
-              PaneSelectorBox[{False->
-               
-               DynamicBox[FEPrivate`FrontEndResource[
-                "FEBitmaps", "InformationHelpIcon"]], True->
-               
-               DynamicBox[FEPrivate`FrontEndResource[
-                "FEBitmaps", "InformationHelpIconHot"]]}, Dynamic[
-                CurrentValue["MouseOver"]]],
-              Appearance->None,
-              BaseStyle->"Link",
-              ButtonData->"paclet:ref/TableView",
-              ButtonNote->"paclet:ref/TableView"],
-             "\"paclet:ref/TableView\""],
-            FrameMargins->{{0, 4}, {0, 2}}],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False]},
-         {
-          ItemBox[
-           PaneBox[
-            
-            StyleBox["\<\"\\!\\(\\*RowBox[{\\\"TableView\\\", \\\"[\\\", \
-RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
-RowBox[{SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\"], StyleBox[\\\"11\\\", \
-\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\"], \
-StyleBox[\\\"12\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \
-\\\"TR\\\"]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
-RowBox[{SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\"], StyleBox[\\\"21\\\", \
-\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\"], \
-StyleBox[\\\"22\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \
-\\\"TR\\\"]}], \\\"}\\\"}], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\
-\"]}], \\\"}\\\"}], \\\"]\\\"}]\\) displays as a spreadsheet-like table view \
-for editing and viewing \\!\\(\\*SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\
-\"], StyleBox[\\\"ij\\\", \\\"TI\\\"]]\\).\\n\\!\\(\\*RowBox[{\\\"TableView\\\
-\", \\\"[\\\", RowBox[{\\\"Dynamic\\\", \\\"[\\\", StyleBox[\\\"x\\\", \\\"TI\
-\\\"], \\\"]\\\"}], \\\"]\\\"}]\\) takes the contents of the table view to be \
-the dynamically updated current value of \\!\\(\\*StyleBox[\\\"x\\\", \
-\\\"TI\\\"]\\), with the value of \\!\\(\\*StyleBox[\\\"x\\\", \\\"TI\\\"]\\) \
-being reset as the table view is interactively \
-edited.\\n\\!\\(\\*RowBox[{\\\"TableView\\\", \\\"[\\\", \
-RowBox[{StyleBox[\\\"table\\\", \\\"TI\\\"], \\\",\\\", \
-StyleBox[\\\"type\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) uses the specified type \
-by default to represent newly edited or created entries in the table view.\\n\
-\\!\\(\\*RowBox[{\\\"TableView\\\", \\\"[\\\", \\\"]\\\"}]\\) displays an \
-empty table view.\"\>", "InformationUsageText",
-             StripOnInput->False,
-             LineSpacing->{1.5, 1.5, 3.}],
-            FrameMargins->{{10, 10}, {8, 10}}],
-           BaseStyle->"InformationUsageSubtitleBackground",
-           StripOnInput->False], 
-          ItemBox["\<\"\"\>",
-           BaseStyle->"InformationUsageSubtitleBackground",
-           StripOnInput->False]},
-         {
-          PaneBox[GridBox[{
-             {
-              
-              DynamicModuleBox[{System`InformationDump`open$$ = {
-               False, False, False, False, False, False}}, 
-               StyleBox[GridBox[{
-                  {
-                   TagBox[
-                    TooltipBox[
-                    StyleBox["\<\" Documentation\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                    "\"Documentation\"",
-                    TooltipStyle->"TextStyling"],
-                    Annotation[#, "Documentation", "Tooltip"]& ], 
-                   TemplateBox[{
-                    
-                    TemplateBox[{
-                    "\"Local \[RightGuillemet]\"", "paclet:ref/TableView", 
-                    "paclet:ref/TableView", "Link", {
-                    LightDarkSwitched[
-                    RGBColor[0.9686274509803922, 0.4666666666666667, 0.]]}, 
-                    BaseStyle -> {
-                    LightDarkSwitched[
-                    RGBColor[0.0784313725490196, 0.1568627450980392, 0.6]]}}, 
-                    "HyperlinkTemplate"], "\"  \"", 
-                    StyleBox[
-                    "\"|\"", "InformationRowLabel", StripOnInput -> False], 
-                    "\"  \"", 
-                    TemplateBox[{"\"Web \[RightGuillemet]\"", {
-                    URL[
-                    "http://reference.wolfram.com/language/ref/TableView.\
-html"], None}, "http://reference.wolfram.com/language/ref/TableView.html", 
-                    "Hyperlink", {
-                    LightDarkSwitched[
-                    RGBColor[0.9686274509803922, 0.4666666666666667, 0.]]}, 
-                    BaseStyle -> {
-                    LightDarkSwitched[
-                    RGBColor[0.0784313725490196, 0.1568627450980392, 0.6]]}}, 
-                    "HyperlinkTemplate"]},
-                    "RowDefault"]},
-                  {
-                   PaneSelectorBox[{True->
-                    ButtonBox[
-                    PaneSelectorBox[{False->
-                    TemplateBox[{"\[ThickSpace]", "\"\[ThickSpace]\"", 
-                    StyleBox[
-                    "\"Options\"", "InformationRowLabel", StripOnInput -> 
-                    False], 
-                    DynamicBox[
-                    FEPrivate`FrontEndResource[
-                    "FEBitmaps", "DownPointerOpener"]]},
-                    "RowWithSeparators"], True->
-                    TemplateBox[{"\[ThickSpace]", "\"\[ThickSpace]\"", 
-                    StyleBox[
-                    "\"Options\"", "InformationRowLabel", StripOnInput -> 
-                    False], 
-                    DynamicBox[
-                    FEPrivate`FrontEndResource[
-                    "FEBitmaps", "DownPointerOpenerHot"]]},
-                    "RowWithSeparators"]}, Dynamic[
-                    CurrentValue["MouseOver"]],
-                    FrameMargins->0,
-                    ImageSize->Automatic],
-                    Appearance->None,
-                    BaseStyle->None,
-                    
-                    ButtonFunction:>(Part[System`InformationDump`open$$, 3] = 
-                    False),
-                    Evaluator->Automatic,
-                    FrameMargins->0,
-                    ImageMargins->0,
-                    Method->"Preemptive"], False->
-                    ButtonBox[
-                    PaneSelectorBox[{False->
-                    TemplateBox[{"\[ThickSpace]", "\"\[ThickSpace]\"", 
-                    StyleBox[
-                    "\"Options\"", "InformationRowLabel", StripOnInput -> 
-                    False], 
-                    DynamicBox[
-                    FEPrivate`FrontEndResource[
-                    "FEBitmaps", "RightPointerOpener"]]},
-                    "RowWithSeparators"], True->
-                    TemplateBox[{"\[ThickSpace]", "\"\[ThickSpace]\"", 
-                    StyleBox[
-                    "\"Options\"", "InformationRowLabel", StripOnInput -> 
-                    False], 
-                    DynamicBox[
-                    FEPrivate`FrontEndResource[
-                    "FEBitmaps", "RightPointerOpenerHot"]]},
-                    "RowWithSeparators"]}, Dynamic[
-                    CurrentValue["MouseOver"]],
-                    FrameMargins->0,
-                    ImageSize->Automatic],
-                    Appearance->None,
-                    BaseStyle->None,
-                    
-                    ButtonFunction:>(Part[System`InformationDump`open$$, 3] = 
-                    True),
-                    Evaluator->Automatic,
-                    FrameMargins->0,
-                    ImageMargins->0,
-                    Method->"Preemptive"]}, Dynamic[
-                    FEPrivate`Part[System`InformationDump`open$$, 3]]], 
-                   PaneSelectorBox[{True->GridBox[{
-                    {
-                    RowBox[{"Alignment", "\[Rule]", 
-                    RowBox[{"{", 
-                    RowBox[{"Automatic", ",", "Automatic"}], "}"}]}]},
-                    {
-                    RowBox[{"AllowedDimensions", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"Appearance", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"AppearanceElements", "\[Rule]", "All"}]},
-                    {
-                    RowBox[{"Background", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"BaselinePosition", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"BaseStyle", "\[Rule]", 
-                    RowBox[{"{", "}"}]}]},
-                    {
-                    RowBox[{"ContentPadding", "\[Rule]", "True"}]},
-                    {
-                    RowBox[{
-                    "DefaultBaseStyle", "\[Rule]", "\<\"TableView\"\>"}]},
-                    {
-                    RowBox[{"DefaultFrameStyle", "\[Rule]", 
-                    RowBox[{"{", "}"}]}]},
-                    {
-                    RowBox[{
-                    "DefaultHeaderStyle", 
-                    "\[Rule]", "\<\"TableViewLabels\"\>"}]},
-                    {
-                    RowBox[{"Dividers", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"Enabled", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"FrameMargins", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"FrameStyle", "\[Rule]", 
-                    RowBox[{"{", "}"}]}]},
-                    {
-                    RowBox[{"Headers", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"HeaderSize", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"ImageMargins", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"ImageSize", "\[Rule]", "Automatic"}]},
-                    {
-                    RowBox[{"ItemSize", "\[Rule]", 
-                    RowBox[{"{", "}"}]}]},
-                    {
-                    RowBox[{"ItemStyle", "\[Rule]", 
-                    RowBox[{"{", "}"}]}]},
-                    {
-                    RowBox[{"PickedElements", "\[Rule]", 
-                    RowBox[{"{", "}"}]}]},
-                    {
-                    RowBox[{"PickMode", "\[Rule]", "False"}]},
-                    {
-                    RowBox[{"Scrollbars", "\[Rule]", 
-                    RowBox[{"{", 
-                    RowBox[{"Automatic", ",", "Automatic"}], "}"}]}]},
-                    {
-                    RowBox[{"ScrollPosition", "\[Rule]", 
-                    RowBox[{"{", 
-                    RowBox[{"0.`", ",", "0.`"}], "}"}]}]},
-                    {
-                    RowBox[{"Spacings", "\[Rule]", "Automatic"}]},
-                    {
-                    StyleBox[
-                    
-                    TemplateBox[{
-                    "\"(\"", "\"\[InvisibleSpace]\"", "26", "\" total)\""},
-                    "RowDefault"], "InformationRowOpener",
-                    StripOnInput->False]}
-                    },
-                    BaselinePosition->{Baseline, {1, 1}},
-                    DefaultBaseStyle->"Column",
-                    GridBoxAlignment->{"Columns" -> {{Left}}},
-                    
-                    GridBoxItemSize->{
-                    "Columns" -> {{Automatic}}, "Rows" -> {{1.}}}], False->
-                    RowBox[{
-                    RowBox[{"Alignment", "\[Rule]", 
-                    RowBox[{"{", 
-                    RowBox[{"Automatic", ",", "Automatic"}], "}"}]}], "\[ThinSpace]", 
-                    StyleBox["\<\"\[Ellipsis]\"\>", "InformationRowOpener",
-                    StripOnInput->False], "\[ThinSpace]", 
-                    StyleBox[
-                    
-                    TemplateBox[{
-                    "\"(\"", "\"\[InvisibleSpace]\"", "26", "\" total)\""},
-                    "RowDefault"], "InformationRowOpener",
-                    StripOnInput->False]}]}, Dynamic[
-                    FEPrivate`Part[System`InformationDump`open$$, 3]],
-                    BaselinePosition->Baseline,
-                    ImageSize->Automatic]},
-                  {
-                   TagBox[
-                    TooltipBox[
-                    StyleBox["\<\" Attributes\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                    "\"Attributes\"",
-                    TooltipStyle->"TextStyling"],
-                    Annotation[#, "Attributes", "Tooltip"]& ], 
-                   RowBox[{"{", 
-                    RowBox[{"Protected", ",", "ReadProtected"}], "}"}]},
-                  {
-                   TagBox[
-                    TooltipBox[
-                    StyleBox["\<\" Full Name\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                    "\"FullName\"",
-                    TooltipStyle->"TextStyling"],
-                    
-                    Annotation[#, "FullName", 
-                    "Tooltip"]& ], "\<\"System`TableView\"\>"}
-                 },
-                 AutoDelete->False,
-                 GridBoxAlignment->{"Columns" -> {Right, Left}},
-                 GridBoxDividers->None,
-                 GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
-                 GridBoxSpacings->{"Columns" -> {
-                    Offset[0.27999999999999997`], {
-                    Offset[0.5599999999999999]}, 
-                    Offset[0.27999999999999997`]}, "Rows" -> {
-                    Offset[0.2], {
-                    Offset[0.8]}, 
-                    Offset[0.2]}}], "DialogStyle",
-                StripOnInput->False],
-               DynamicModuleValues:>{}]}
-            },
-            DefaultBaseStyle->"Column",
-            GridBoxAlignment->{"Columns" -> {{Left}}},
-            GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
-            
-            GridBoxItemSize->{
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-            GridBoxSpacings->{"Columns" -> {
-                Offset[0.27999999999999997`], {
-                 Offset[0.5599999999999999]}, 
-                Offset[0.27999999999999997`]}, "Rows" -> {
-                Offset[0.2], {
-                 Offset[3.6]}, 
-                Offset[0.2]}}],
-           FrameMargins->{{6, 6}, {6, 3}}], ""},
-         {
-          ItemBox[
-           TagBox[
-            ButtonBox[
-             PaneSelectorBox[{False->
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "UpPointerOpener"]], True->
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "UpPointerOpenerHot"]]}, Dynamic[
-              System`InformationDump`mouseOver$$]],
-             Alignment->Left,
-             Appearance->{"Default" -> None},
-             
-             ButtonFunction:>FEPrivate`Set[
-              System`InformationDump`open$$, False],
-             Evaluator->Automatic,
-             FrameMargins->{{9, 0}, {0, 0}},
-             ImageMargins->0,
-             ImageSize->Full,
-             Method->"Preemptive"],
-            
-            EventHandlerTag[{
-             "MouseEntered" :> 
-              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
-              "MouseExited" :> 
-              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
-              Method -> "Preemptive", PassEventsDown -> Automatic, 
-              PassEventsUp -> True}]],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False], "\[SpanFromLeft]"}
-        },
-        AutoDelete->False,
-        FrameStyle->Directive[
-          LightDarkSwitched[
-           GrayLevel[0.8]], 
-          Thickness[Tiny]],
-        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
-        GridBoxDividers->{
-         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-       "Grid"], False->
-      TagBox[GridBox[{
-         {
-          ItemBox[
-           PaneBox[
-            StyleBox[
-             TagBox[
-              TooltipBox[
-               StyleBox["\<\" Symbol\"\>", "InformationRowLabel",
-                StripOnInput->False],
-               "\"Symbol\"",
-               TooltipStyle->"TextStyling"],
-              Annotation[#, "Symbol", "Tooltip"]& ], "InformationTitleText",
-             StripOnInput->False],
-            FrameMargins->{{4, 0}, {-1, 1}}],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False], 
-          ItemBox[
-           PaneBox[
-            TooltipBox[
-             ButtonBox[
-              PaneSelectorBox[{False->
-               
-               DynamicBox[FEPrivate`FrontEndResource[
-                "FEBitmaps", "InformationHelpIcon"],
-                ImageSizeCache->{13., {3.6875, 9.3125}}], True->
-               
-               DynamicBox[FEPrivate`FrontEndResource[
-                "FEBitmaps", "InformationHelpIconHot"],
-                ImageSizeCache->{13., {3.6875, 9.3125}}]}, Dynamic[
-                CurrentValue["MouseOver"]]],
-              Appearance->None,
-              BaseStyle->"Link",
-              ButtonData->"paclet:ref/TableView",
-              ButtonNote->"paclet:ref/TableView"],
-             "\"paclet:ref/TableView\""],
-            FrameMargins->{{0, 4}, {0, 2}}],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False]},
-         {
-          ItemBox[
-           PaneBox[
-            
-            StyleBox["\<\"\\!\\(\\*RowBox[{\\\"TableView\\\", \\\"[\\\", \
-RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
-RowBox[{SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\"], StyleBox[\\\"11\\\", \
-\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\"], \
-StyleBox[\\\"12\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \
-\\\"TR\\\"]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
-RowBox[{SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\"], StyleBox[\\\"21\\\", \
-\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\"], \
-StyleBox[\\\"22\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \
-\\\"TR\\\"]}], \\\"}\\\"}], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\
-\"]}], \\\"}\\\"}], \\\"]\\\"}]\\) displays as a spreadsheet-like table view \
-for editing and viewing \\!\\(\\*SubscriptBox[StyleBox[\\\"expr\\\", \\\"TI\\\
-\"], StyleBox[\\\"ij\\\", \\\"TI\\\"]]\\).\\n\\!\\(\\*RowBox[{\\\"TableView\\\
-\", \\\"[\\\", RowBox[{\\\"Dynamic\\\", \\\"[\\\", StyleBox[\\\"x\\\", \\\"TI\
-\\\"], \\\"]\\\"}], \\\"]\\\"}]\\) takes the contents of the table view to be \
-the dynamically updated current value of \\!\\(\\*StyleBox[\\\"x\\\", \
-\\\"TI\\\"]\\), with the value of \\!\\(\\*StyleBox[\\\"x\\\", \\\"TI\\\"]\\) \
-being reset as the table view is interactively \
-edited.\\n\\!\\(\\*RowBox[{\\\"TableView\\\", \\\"[\\\", \
-RowBox[{StyleBox[\\\"table\\\", \\\"TI\\\"], \\\",\\\", \
-StyleBox[\\\"type\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) uses the specified type \
-by default to represent newly edited or created entries in the table view.\\n\
-\\!\\(\\*RowBox[{\\\"TableView\\\", \\\"[\\\", \\\"]\\\"}]\\) displays an \
-empty table view.\"\>", "InformationUsageText",
-             StripOnInput->False,
-             LineSpacing->{1.5, 1.5, 3.}],
-            FrameMargins->{{10, 10}, {8, 10}}],
-           BaseStyle->"InformationUsageSubtitleBackground",
-           StripOnInput->False], 
-          ItemBox["\<\"\"\>",
-           BaseStyle->"InformationUsageSubtitleBackground",
-           StripOnInput->False]},
-         {
-          ItemBox[
-           TagBox[
-            ButtonBox[
-             PaneSelectorBox[{False->
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "DownPointerOpener"],
-               ImageSizeCache->{10., {2.673828125, 7.326171875}}], True->
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "DownPointerOpenerHot"],
-               ImageSizeCache->{10., {2.673828125, 7.326171875}}]}, Dynamic[
-              System`InformationDump`mouseOver$$]],
-             Alignment->Left,
-             Appearance->{"Default" -> None},
-             
-             ButtonFunction:>FEPrivate`Set[
-              System`InformationDump`open$$, True],
-             Evaluator->Automatic,
-             FrameMargins->{{9, 0}, {0, 0}},
-             ImageMargins->0,
-             ImageSize->Full,
-             Method->"Preemptive"],
-            
-            EventHandlerTag[{
-             "MouseEntered" :> 
-              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
-              "MouseExited" :> 
-              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
-              Method -> "Preemptive", PassEventsDown -> Automatic, 
-              PassEventsUp -> True}]],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False], "\[SpanFromLeft]"}
-        },
-        AutoDelete->False,
-        FrameStyle->Directive[
-          LightDarkSwitched[
-           GrayLevel[0.8]], 
-          Thickness[Tiny]],
-        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
-        GridBoxDividers->{
-         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-       "Grid"]}, Dynamic[System`InformationDump`open$$],
-      BaselinePosition->Baseline,
-      FrameMargins->0,
-      ImageSize->Automatic],
-     DynamicModuleValues:>{}],
-    BaseStyle->"InformationGridFrame",
-    StripOnInput->False], "InformationGridPlain",
-   StripOnInput->False],
-  InformationData[<|
-   "ObjectType" -> "Symbol", "Usage" -> 
-    "\!\(\*RowBox[{\"TableView\", \"[\", RowBox[{\"{\", \
-RowBox[{RowBox[{\"{\", RowBox[{SubscriptBox[StyleBox[\"expr\", \"TI\"], \
-StyleBox[\"11\", \"TR\"]], \",\", SubscriptBox[StyleBox[\"expr\", \"TI\"], \
-StyleBox[\"12\", \"TR\"]], \",\", StyleBox[\"\[Ellipsis]\", \"TR\"]}], \
-\"}\"}], \",\", RowBox[{\"{\", RowBox[{SubscriptBox[StyleBox[\"expr\", \
-\"TI\"], StyleBox[\"21\", \"TR\"]], \",\", SubscriptBox[StyleBox[\"expr\", \
-\"TI\"], StyleBox[\"22\", \"TR\"]], \",\", StyleBox[\"\[Ellipsis]\", \
-\"TR\"]}], \"}\"}], \",\", StyleBox[\"\[Ellipsis]\", \"TR\"]}], \"}\"}], \
-\"]\"}]\) displays as a spreadsheet-like table view for editing and viewing \
-\!\(\*SubscriptBox[StyleBox[\"expr\", \"TI\"], StyleBox[\"ij\", \"TI\"]]\).\n\
-\!\(\*RowBox[{\"TableView\", \"[\", RowBox[{\"Dynamic\", \"[\", \
-StyleBox[\"x\", \"TI\"], \"]\"}], \"]\"}]\) takes the contents of the table \
-view to be the dynamically updated current value of \!\(\*StyleBox[\"x\", \
-\"TI\"]\), with the value of \!\(\*StyleBox[\"x\", \"TI\"]\) being reset as \
-the table view is interactively edited.\n\!\(\*RowBox[{\"TableView\", \"[\", \
-RowBox[{StyleBox[\"table\", \"TI\"], \",\", StyleBox[\"type\", \"TI\"]}], \"]\
-\"}]\) uses the specified type by default to represent newly edited or \
-created entries in the table view.\n\!\(\*RowBox[{\"TableView\", \"[\", \
-\"]\"}]\) displays an empty table view.", 
-    "Documentation" -> <|
-     "Local" -> "paclet:ref/TableView", "Web" -> 
-      "http://reference.wolfram.com/language/ref/TableView.html"|>, 
-    "OwnValues" -> None, "UpValues" -> None, "DownValues" -> None, 
-    "SubValues" -> None, "DefaultValues" -> None, "NValues" -> None, 
-    "FormatValues" -> None, 
-    "Options" -> {
-     Alignment -> {Automatic, Automatic}, AllowedDimensions -> Automatic, 
-      Appearance -> Automatic, AppearanceElements -> All, Background -> 
-      Automatic, BaselinePosition -> Automatic, BaseStyle -> {}, 
-      ContentPadding -> True, DefaultBaseStyle -> "TableView", 
-      DefaultFrameStyle -> {}, DefaultHeaderStyle -> "TableViewLabels", 
-      Dividers -> Automatic, Enabled -> Automatic, FrameMargins -> Automatic, 
-      FrameStyle -> {}, Headers -> Automatic, HeaderSize -> Automatic, 
-      ImageMargins -> Automatic, ImageSize -> Automatic, ItemSize -> {}, 
-      ItemStyle -> {}, PickedElements -> {}, PickMode -> False, 
-      Scrollbars -> {Automatic, Automatic}, ScrollPosition -> {0., 0.}, 
-      Spacings -> Automatic}, "Attributes" -> {Protected, ReadProtected}, 
-    "FullName" -> "System`TableView"|>, False]]], "Output",
- CellChangeTimes->{{3.984816798016326*^9, 3.984816835174191*^9}},
- CellLabel->"Out[68]=",ExpressionUUID->"c0f7dcf9-fc32-4f56-9932-6ae8901b9be6"]
+  "Out[1173]=",ExpressionUUID->"28135279-ce19-4d9e-b5da-829973800ff4"]
 }, Open  ]]
 },
-WindowSize->{1371.75, 717},
+WindowSize->{1370.25, 717},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"14.3 for Linux x86 (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
@@ -917,13 +575,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 6381, 141, 949, "Input",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
-Cell[6960, 165, 375, 6, 33, "Output",ExpressionUUID->"fcc1d28a-3102-4659-9ec4-6073332ae4dc"],
-Cell[7338, 173, 7020, 172, 267, "Output",ExpressionUUID->"6594ca3d-f14f-46b1-a6f1-9001b8612912"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[14395, 350, 247, 4, 29, "Input",ExpressionUUID->"78e9dda1-61e1-42a5-98bf-7d7b86f071fd"],
-Cell[14645, 356, 25079, 542, 180, "Output",ExpressionUUID->"c0f7dcf9-fc32-4f56-9932-6ae8901b9be6"]
+Cell[576, 22, 13583, 295, 1851, "Input",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
+Cell[14162, 319, 10905, 237, 516, "Output",ExpressionUUID->"28135279-ce19-4d9e-b5da-829973800ff4"]
 }, Open  ]]
 }
 ]
