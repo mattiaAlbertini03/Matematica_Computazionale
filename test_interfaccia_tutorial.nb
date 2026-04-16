@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     25567,        576]
-NotebookOptionsPosition[     25083,        559]
-NotebookOutlinePosition[     25474,        575]
-CellTagsIndexPosition[     25431,        572]
+NotebookDataLength[     25667,        576]
+NotebookOptionsPosition[     25183,        559]
+NotebookOutlinePosition[     25574,        575]
+CellTagsIndexPosition[     25531,        572]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -103,7 +103,7 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
        RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"Dynamic", "[", 
         RowBox[{"Show", "[", "img", "]"}], "]"}]}], "\[IndentingNewLine]", 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+      "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"controlloBlur", " ", "=", 
      RowBox[{"\"\<Blur\>\"", "->", 
@@ -262,7 +262,7 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
             "]"}]}], ";", "\[IndentingNewLine]", 
          RowBox[{"colorizedImg", " ", "=", " ", 
           RowBox[{"colorizeImage", "[", 
-           RowBox[{"img", ",", "colore"}], "]"}]}], ";", 
+           RowBox[{"translatedImg", ",", "colore"}], "]"}]}], ";", 
          "\[IndentingNewLine]", 
          RowBox[{"Show", "[", "colorizedImg", "]"}]}], "\[IndentingNewLine]", 
         "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]",
@@ -313,9 +313,8 @@ timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
    3.985238416449956*^9, 3.9852384802545643`*^9}, {3.985238556076887*^9, 
    3.985238564854598*^9}, {3.985238881974657*^9, 3.985238916770344*^9}, {
    3.985238952262315*^9, 3.98523897307163*^9}, {3.985239079210431*^9, 
-   3.985239255853508*^9}},
- CellLabel->
-  "In[1155]:=",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
+   3.985239255853508*^9}, {3.985326899229466*^9, 3.98532690264037*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
 
 Cell[BoxData[
  PanelBox[
@@ -332,15 +331,16 @@ Cell[BoxData[
                Import[$CellContext`file]]],
             Evaluator->Automatic,
             Method->"Queued"],
-           DynamicModuleValues:>{}], {81.9, -16.4}, {Center, Center}, {156., 25.},
+           DynamicModuleValues:>{}], {94.5, -17.}, {Center, Center}, {180., 25.},
           
           BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
          InsetBox[
           DynamicModuleBox[{}, 
            DynamicBox[ToBoxes[
              Show[$CellContext`img], TraditionalForm],
-            ImageSizeCache->{176.23430962343096`, {0., 188.6610878661088}}],
-           DynamicModuleValues:>{}], {81.9, -120.2}, {Center, Center}, {156., 167.00000000000003},
+            ImageSizeCache->{185.28696923003605`, {0., 171.90513256342234`}}],
+           
+           DynamicModuleValues:>{}], {94.5, -122.}, {Center, Center}, {180., 167.},
           
           BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
          InsetBox[
@@ -354,19 +354,20 @@ $CellContext`rotatedImg =
                 Degree]; $CellContext`translatedImg = \
 $CellContext`translateImageWrap[$CellContext`rotatedImg, \
 $CellContext`translaX, $CellContext`translaY]; $CellContext`colorizedImg = \
-$CellContext`colorizeImage[$CellContext`img, $CellContext`colore]; 
+$CellContext`colorizeImage[$CellContext`translatedImg, $CellContext`colore]; 
              Show[$CellContext`colorizedImg], TraditionalForm],
-            ImageSizeCache->{176.23430962343096`, {0., 188.6610878661088}}],
-           DynamicModuleValues:>{}], {81.9, -295.00000000000006}, {
-          Center, Center}, {156., 167.00000000000003},
+            ImageSizeCache->{185.28696923003605`, {0., 198.66880589664976`}}],
+           
+           DynamicModuleValues:>{}], {94.5, -311.}, {Center, Center}, {180., 193.},
+          
           
           BaseStyle->{
            Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
        ImageSize->Medium,
        Method->{"IgnoreImageSizeAutomaticLimit" -> True},
-       PlotRange->{{0, 163.8}, {-382.40000000000003`, 0}},
-       PlotRangePadding->Automatic], {99.99858786610878, -223.47557531380752},
-       ImageScaled[{0.5, 0.5}], {185.0460251046025, 432.},
+       PlotRange->{{0, 189.}, {-412., 0}},
+       PlotRangePadding->Automatic], {104.74505031691314, -219.5200340344077},
+       ImageScaled[{0.5, 0.5}], {194.55131769153783, 424.10128512652693},
       BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
      InsetBox[
       DynamicModuleBox[{}, 
@@ -508,10 +509,10 @@ $CellContext`colorizeImage[$CellContext`img, $CellContext`colore];
          ImageSize->Medium,
          Method->{"IgnoreImageSizeAutomaticLimit" -> True},
          PlotRange->{{0, 263.55}, {-65.1, 0}},
-         PlotRangePadding->Automatic]}}, 2],
+         PlotRangePadding->Automatic]}}, 4],
        ImageSize -> Large,
-       DynamicModuleValues:>{}], {395.4727510460251, -223.47557531380752}, {
-      Center, Center}, {376., 431.99999999999994},
+       DynamicModuleValues:>{}], {400.9594921049705, -219.5200340344077}, {
+      Center, Center}, {367.9999999999999, 424.101285126527},
       BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
      InsetBox[
       DynamicModuleBox[{}, 
@@ -522,12 +523,12 @@ $CellContext`colorizeImage[$CellContext`img, $CellContext`colore];
           0; $CellContext`translaY; $CellContext`colore = None; Null),
         Evaluator->Automatic,
         Method->"Preemptive"],
-       DynamicModuleValues:>{}], {616.9239016736402, -223.47557531380752}, {
-      Center, Center}, {37., 431.99999999999994},
+       DynamicModuleValues:>{}], {617.398275047259, -219.5200340344077}, {
+      Center, Center}, {34.999999999999886, 424.101285126527},
       BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
-   ImageSize->{642.8994769874478, 446.95115062761505`},
+   ImageSize->{642.3676665184031, 439.0400680688154},
    Method->{"IgnoreImageSizeAutomaticLimit" -> True},
-   PlotRange->{{0, 642.8994769874478}, {-446.95115062761505`, 0}},
+   PlotRange->{{0, 642.3676665184031}, {-439.0400680688154, 0}},
    PlotRangePadding->Automatic]]], "Output",
  CellChangeTimes->{{3.984817454545869*^9, 3.984817464524043*^9}, 
    3.984817503166189*^9, 3.9848176485870037`*^9, {3.984817679885604*^9, 
@@ -552,9 +553,8 @@ $CellContext`colorizeImage[$CellContext`img, $CellContext`colore];
    3.985238039132015*^9, 3.985238427897028*^9, {3.9852384680944433`*^9, 
    3.98523848196355*^9}, 3.985238569338902*^9, 3.9852389185557613`*^9, {
    3.985238954558405*^9, 3.9852389745680037`*^9}, {3.9852392318669167`*^9, 
-   3.985239265902173*^9}},
- CellLabel->
-  "Out[1173]=",ExpressionUUID->"28135279-ce19-4d9e-b5da-829973800ff4"]
+   3.985239265902173*^9}, 3.9853268526797657`*^9, 3.98532690484669*^9},
+ CellLabel->"Out[38]=",ExpressionUUID->"8629c88c-1a07-4403-8c61-efcb094d5580"]
 }, Open  ]]
 },
 WindowSize->{1370.25, 717},
@@ -575,8 +575,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 13583, 295, 1851, "Input",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
-Cell[14162, 319, 10905, 237, 516, "Output",ExpressionUUID->"28135279-ce19-4d9e-b5da-829973800ff4"]
+Cell[576, 22, 13633, 294, 1851, "Input",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
+Cell[14212, 318, 10955, 238, 495, "Output",ExpressionUUID->"8629c88c-1a07-4403-8c61-efcb094d5580"]
 }, Open  ]]
 }
 ]
