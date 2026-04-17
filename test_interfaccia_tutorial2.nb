@@ -1,0 +1,876 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     37604,        868]
+NotebookOptionsPosition[     37120,        851]
+NotebookOutlinePosition[     37511,        867]
+CellTagsIndexPosition[     37468,        864]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Variabili", " ", "globali", " ", "per", " ", 
+    RowBox[{"l", "'"}], "immagine"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"defImg", "=", 
+     RowBox[{
+     "Import", 
+      "[", "\"\<https://c8.alamy.com/compit/j253d8/esempio-illustrativo-del-\
+timbro-j253d8.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"img", " ", "=", " ", "defImg"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"blur", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"colore", " ", "=", " ", "None"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rotazione", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"translaX", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"translaY", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Definizione", " ", "del", " ", "bottone", " ", "per", " ", "caricare", " ",
+      "un", " ", "immagine", " ", "in", " ", "img"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"bottoneCaricamento", " ", "=", " ", 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Button", "[", 
+        RowBox[{"\"\<Carica Immagine\>\"", ",", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "Apre", " ", "il", " ", "selettore", " ", "file", " ", "e", " ", 
+           "importa", " ", "se", " ", 
+           RowBox[{"l", "'"}], "utente", " ", "non", " ", "annulla"}], "*)"}],
+          "\[IndentingNewLine]", 
+         RowBox[{"With", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"file", "=", 
+             RowBox[{"SystemDialogInput", "[", "\"\<FileOpen\>\"", "]"}]}], 
+            "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"file", "=!=", "$Canceled"}], ",", 
+             RowBox[{"img", "=", 
+              RowBox[{"Import", "[", "file", "]"}]}]}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Method", "->", "\"\<Queued\>\""}]}], " ", 
+        RowBox[{"(*", 
+         RowBox[{
+         "Importante", " ", "per", " ", "evitare", " ", "timeout", " ", "con",
+           " ", "file", " ", "grandi"}], "*)"}], "\[IndentingNewLine]", 
+        "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"bottonePulisci", " ", "=", " ", 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Button", "[", 
+        RowBox[{"\"\<Pulisci\>\"", ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"blur", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"rotazione", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"translaX", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"translaY", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"colore", " ", "=", " ", "None"}], ";"}]}], 
+        "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mostraImmagine", "=", " ", 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Dynamic", "[", 
+        RowBox[{"Show", "[", "img", "]"}], "]"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"controlloBlur", " ", "=", 
+     RowBox[{"\"\<Blur\\n\>\"", "->", 
+      RowBox[{"Slider", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "blur", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "200", ",", " ", "20"}], "}"}], ",", 
+        RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"controlloColore", " ", "=", " ", 
+      RowBox[{"\"\<Scala Colore\>\"", "->", 
+       RowBox[{"ColorSetter", "[", 
+        RowBox[{
+         RowBox[{"Dynamic", "[", "colore", "]"}], ",", 
+         RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"controlloRotazione", " ", "=", " ", 
+     RowBox[{"\"\<Rotazione\\n\>\"", "->", 
+      RowBox[{"Slider", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "rotazione", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "330", ",", " ", "30"}], "}"}], ",", 
+        RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"controlloTranslazione", "=", " ", 
+      RowBox[{"\"\<Translazione\\n\>\"", "->", 
+       RowBox[{"GraphicsColumn", "[", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Slider", "[", 
+            RowBox[{
+             RowBox[{"Dynamic", "[", "translaX", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "1000", ",", "50"}], "}"}], ",", 
+             RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Slider", "[", 
+            RowBox[{
+             RowBox[{"Dynamic", "[", "translaY", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "1000", ",", " ", "50"}], "}"}], ",", 
+             RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], ",", " ", 
+         RowBox[{"ImageSize", "->", "Medium"}]}], "]"}]}]}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"controlloX", " ", "=", " ", 
+     RowBox[{"\"\<Transla X\\n\>\"", "->", 
+      RowBox[{"Slider", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "translaX", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1000", ",", "50"}], "}"}], ",", 
+        RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"controlloY", " ", "=", " ", 
+     RowBox[{"\"\<Transla Y\\n\>\"", "->", 
+      RowBox[{"Slider", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "translaY", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1000", ",", " ", "50"}], "}"}], ",", 
+        RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"coloriDisponibili", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "None", ",", "Red", ",", "Green", ",", "Blue", ",", "Yellow", ",", 
+       "Cyan", ",", "Magenta", ",", "Orange", ",", "Purple"}], "}"}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"controlloColore", "=", 
+     RowBox[{"\"\<Scala Colore\\n\>\"", "->", 
+      RowBox[{"RadioButtonBar", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "colore", "]"}], ",", "coloriDisponibili"}], 
+       "]"}]}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"controlliImmagine", "=", 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", 
+       RowBox[{"TabView", "[", "\[IndentingNewLine]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+         "controlloBlur", ",", "\[IndentingNewLine]", "controlloColore", ",", 
+          "\[IndentingNewLine]", "controlloRotazione", ",", 
+          "\[IndentingNewLine]", "controlloTranslazione"}], 
+         "\[IndentingNewLine]", "}"}], "]"}], ",", 
+       RowBox[{"ImageSize", "->", "Large"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "Funzione", " ", "di", " ", "traslazione", " ", "con", " ", "wrap"}], "-",
+      "around"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"translateImageWrap", "[", 
+     RowBox[{"image_", ",", "tx_", ",", "ty_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"data", ",", "dims", ",", "w", ",", "h", ",", "shiftedData"}], 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"data", "=", 
+        RowBox[{"ImageData", "[", "image", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"dims", "=", 
+        RowBox[{"Dimensions", "[", "data", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"h", "=", 
+        RowBox[{"dims", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"w", "=", 
+        RowBox[{"dims", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+         "Normalizza", " ", "gli", " ", "shift", " ", "con", " ", "Mod", " ", 
+          "per", " ", "il", " ", "wrap"}], "-", "around"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"shiftedData", "=", 
+        RowBox[{"RotateRight", "[", 
+         RowBox[{"data", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Mod", "[", 
+             RowBox[{
+              RowBox[{"Round", "[", "ty", "]"}], ",", "h"}], "]"}], ",", 
+            RowBox[{"Mod", "[", 
+             RowBox[{
+              RowBox[{"Round", "[", "tx", "]"}], ",", "w"}], "]"}], ",", 
+            "0"}], "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Image", "[", "shiftedData", "]"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"colorizeImage", "[", 
+     RowBox[{"image_", ",", "color_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "hsvColor", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"color", "===", "None"}], ",", "\[IndentingNewLine]", "image",
+         ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"hsvColor", "=", 
+          RowBox[{"ColorConvert", "[", 
+           RowBox[{"color", ",", "Hue"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Colorize", "[", 
+          RowBox[{"image", ",", 
+           RowBox[{"ColorFunction", "->", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Hue", "[", 
+               RowBox[{
+                RowBox[{"hsvColor", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], ",", 
+                RowBox[{"hsvColor", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], ",", "#"}], "]"}], "&"}], 
+             ")"}]}]}], "]"}]}]}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modifiedImg", "=", 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"blurredImg", " ", "=", " ", 
+          RowBox[{"Blur", "[", 
+           RowBox[{"img", ",", " ", "blur"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"rotatedImg", " ", "=", " ", 
+          RowBox[{"ImageRotate", "[", 
+           RowBox[{"blurredImg", ",", " ", 
+            RowBox[{
+             RowBox[{"-", "rotazione"}], "*", "Degree"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"translatedImg", " ", "=", " ", 
+          RowBox[{"translateImageWrap", "[", 
+           RowBox[{"rotatedImg", ",", " ", "translaX", ",", " ", "translaY"}],
+            "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"colorizedImg", " ", "=", " ", 
+          RowBox[{"colorizeImage", "[", 
+           RowBox[{"translatedImg", ",", "colore"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Show", "[", "colorizedImg", "]"}]}], "\[IndentingNewLine]", 
+        "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Panel", "[", 
+    RowBox[{
+     RowBox[{"GraphicsRow", "[", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"GraphicsColumn", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+           "bottoneCaricamento", ",", "\[IndentingNewLine]", "mostraImmagine",
+             ",", "\[IndentingNewLine]", "modifiedImg"}], 
+           "\[IndentingNewLine]", "}"}], ",", " ", 
+          RowBox[{"ImageSize", "->", "Medium"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"GraphicsColumn", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+          "controlloBlur", ",", "\[IndentingNewLine]", "controlloColore", ",",
+            "\[IndentingNewLine]", "controlloRotazione", ",", 
+           "\[IndentingNewLine]", "controlloX", ",", "\[IndentingNewLine]", 
+           "controlloY", ",", "\[IndentingNewLine]", "bottonePulisci"}], 
+          "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "}"}], "]"}], ",", " ", 
+     RowBox[{"ImageSize", "->", "Full"}]}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.984815139703452*^9, 3.9848151397035646`*^9}, {
+   3.984815734772496*^9, 3.984815739119378*^9}, {3.9848158279324512`*^9, 
+   3.984815855643079*^9}, {3.98481604380311*^9, 3.9848160862228603`*^9}, {
+   3.984816155064065*^9, 3.984816185510909*^9}, {3.9848166160649033`*^9, 
+   3.984816676900118*^9}, {3.984816895755536*^9, 3.984816898975054*^9}, {
+   3.984816931991055*^9, 3.984816939188992*^9}, {3.9848170511560087`*^9, 
+   3.9848171165124493`*^9}, {3.9848172976275377`*^9, 3.984817298382963*^9}, 
+   3.984817348515449*^9, {3.9848173870245523`*^9, 3.984817420316564*^9}, {
+   3.984817453327923*^9, 3.984817500365128*^9}, {3.984817538366437*^9, 
+   3.9848176464762487`*^9}, {3.984817677324407*^9, 3.984817811124057*^9}, {
+   3.984817856578848*^9, 3.984818023021358*^9}, {3.985232604881843*^9, 
+   3.9852326497681828`*^9}, {3.985232683708682*^9, 3.985232784971752*^9}, {
+   3.985232824198902*^9, 3.985232942107305*^9}, {3.98523297790845*^9, 
+   3.985233023763938*^9}, {3.985233101828124*^9, 3.9852331283838463`*^9}, {
+   3.98523318195817*^9, 3.985233223179693*^9}, {3.9852332903469048`*^9, 
+   3.985233294729217*^9}, {3.9852333275239267`*^9, 3.985233328016337*^9}, {
+   3.985233435272751*^9, 3.9852335231327744`*^9}, {3.9852356369793377`*^9, 
+   3.985235681113607*^9}, {3.9852357955040894`*^9, 3.9852358280619164`*^9}, {
+   3.985235898266377*^9, 3.985235904145419*^9}, {3.9852359809413633`*^9, 
+   3.9852360143936443`*^9}, {3.985236050311287*^9, 3.985236312826995*^9}, {
+   3.985236355960968*^9, 3.985236366303116*^9}, {3.9852364585392723`*^9, 
+   3.985236484130829*^9}, {3.9852365257065563`*^9, 3.985236531348557*^9}, {
+   3.985236636579575*^9, 3.985236688340856*^9}, {3.985236752853096*^9, 
+   3.985236755353546*^9}, {3.9852369284507923`*^9, 3.985237147867569*^9}, {
+   3.985237186609207*^9, 3.985237189566635*^9}, {3.985237221412882*^9, 
+   3.985237334978593*^9}, {3.985237644844845*^9, 3.985237669083313*^9}, {
+   3.985237718324234*^9, 3.9852377208766937`*^9}, {3.9852378615727158`*^9, 
+   3.985237942365178*^9}, {3.985238030202054*^9, 3.985238037801517*^9}, {
+   3.985238416449956*^9, 3.9852384802545643`*^9}, {3.985238556076887*^9, 
+   3.985238564854598*^9}, {3.985238881974657*^9, 3.985238916770344*^9}, {
+   3.985238952262315*^9, 3.98523897307163*^9}, {3.985239079210431*^9, 
+   3.985239255853508*^9}, {3.985326899229466*^9, 3.98532690264037*^9}, {
+   3.985327199256254*^9, 3.985327199491089*^9}, {3.985327395322961*^9, 
+   3.985327403723536*^9}, {3.985327439791319*^9, 3.985327467076538*^9}, {
+   3.985327499240965*^9, 3.985327554787057*^9}, {3.9853276628542557`*^9, 
+   3.985327696236416*^9}, {3.98532774641469*^9, 3.985327811582129*^9}, {
+   3.985327843824958*^9, 3.985327860758135*^9}, {3.9853279046611357`*^9, 
+   3.9853279809582157`*^9}, {3.98532802564867*^9, 3.985328041556902*^9}, {
+   3.985328099399289*^9, 3.985328099892992*^9}, 3.985328171839788*^9, {
+   3.985328216829775*^9, 3.9853282256527348`*^9}, {3.9853282591556807`*^9, 
+   3.98532840856007*^9}, {3.985328451967464*^9, 3.985328455052557*^9}, {
+   3.9853285046238403`*^9, 3.985328506590053*^9}, 3.9853288115107393`*^9, {
+   3.985328855428619*^9, 3.9853288556371202`*^9}, {3.985328897048025*^9, 
+   3.985328899659911*^9}},
+ CellLabel->
+  "In[727]:=",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
+
+Cell[BoxData[
+ PanelBox[
+  GraphicsBox[{{}, {InsetBox[
+      GraphicsBox[{{}, {InsetBox[
+          DynamicModuleBox[{}, 
+           ButtonBox["\<\"Carica Immagine\"\>",
+            Appearance->Automatic,
+            
+            ButtonFunction:>
+             With[{$CellContext`file = SystemDialogInput["FileOpen"]}, 
+              
+              If[$CellContext`file =!= $Canceled, $CellContext`img = 
+               Import[$CellContext`file]]],
+            Evaluator->Automatic,
+            Method->"Queued"],
+           DynamicModuleValues:>{}], {94.5, -17.}, {Center, Center}, {180., 25.},
+          
+          BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+         InsetBox[
+          DynamicModuleBox[{}, 
+           DynamicBox[ToBoxes[
+             Show[$CellContext`img], TraditionalForm],
+            ImageSizeCache->{188.7378640776699, {0., 175.10679611650485`}}],
+           DynamicModuleValues:>{}], {94.5, -122.}, {Center, Center}, {180., 167.},
+          
+          BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+         InsetBox[
+          DynamicModuleBox[{}, 
+           
+           DynamicBox[
+            ToBoxes[$CellContext`blurredImg = 
+              Blur[$CellContext`img, $CellContext`blur]; \
+$CellContext`rotatedImg = 
+              ImageRotate[$CellContext`blurredImg, (-$CellContext`rotazione) 
+                Degree]; $CellContext`translatedImg = \
+$CellContext`translateImageWrap[$CellContext`rotatedImg, \
+$CellContext`translaX, $CellContext`translaY]; $CellContext`colorizedImg = \
+$CellContext`colorizeImage[$CellContext`translatedImg, $CellContext`colore]; 
+             Show[$CellContext`colorizedImg], TraditionalForm],
+            ImageSizeCache->{188.7378640776699, {0., 202.36893203883494`}}],
+           DynamicModuleValues:>{}], {94.5, -311.}, {Center, Center}, {180., 193.},
+          
+          
+          BaseStyle->{
+           Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{0., 0.}, {0., 0.}},
+       ImageSize->Medium,
+       Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+       PlotInteractivity:>True,
+       PlotRange->{{0, 189.}, {-412., 0}},
+       PlotRangePadding->Automatic], {109.82405749590215, -226.73667885512546},
+       ImageScaled[{0.5, 0.5}], {198.17475728155338, 432.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox[
+      GraphicsBox[{{}, {InsetBox[
+          RowBox[{"\<\"Blur\\n\"\>", "\[Rule]", 
+           InterpretationBox[
+            StyleBox[GridBox[{
+               {
+                SliderBox[Dynamic[$CellContext`blur], {0, 200, 20},
+                 Appearance->Automatic,
+                 DefaultBaseStyle->"LabeledSlider"], 
+                InputFieldBox[Dynamic[$CellContext`blur],
+                 Appearance->"Frameless",
+                 ContinuousAction->True,
+                 DefaultBaseStyle->"LabeledSlider",
+                 FieldSize->{{5, 10}, {1, 2}},
+                 ImageMargins->0]}
+              },
+              AutoDelete->False,
+              BaselinePosition->{{1, 1}, Axis},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.7]}, 
+                  Offset[0.27999999999999997`]}, "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}}],
+             Deployed->True,
+             StripOnInput->False,
+             FontFamily:>CurrentValue["ControlsFontFamily"]],
+            LabeledSlider[
+             Dynamic[$CellContext`blur], {0, 200, 
+             20}]]}], {139.125, -24.125}, {Center, Center}, {265., 35.},
+          BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+         InsetBox[
+          RowBox[{"\<\"Scala Colore\\n\"\>", "\[Rule]", 
+           InterpretationBox[
+            StyleBox[
+             RowBox[{GridBox[{
+                {
+                 RadioButtonBox[Dynamic[$CellContext`colore], {None},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox["None", "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}], "  ", GridBox[{
+                {
+                 
+                 RadioButtonBox[Dynamic[$CellContext`colore], {RGBColor[
+                  1, 0, 0]},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox[
+                  TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+                   "RGBColorSwatchTemplate"], "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}], "  ", GridBox[{
+                {
+                 
+                 RadioButtonBox[Dynamic[$CellContext`colore], {RGBColor[
+                  0, 1, 0]},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox[
+                  TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+                   "RGBColorSwatchTemplate"], "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}], "  ", GridBox[{
+                {
+                 
+                 RadioButtonBox[Dynamic[$CellContext`colore], {RGBColor[
+                  0, 0, 1]},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox[
+                  TemplateBox[<|"color" -> RGBColor[0, 0, 1]|>,
+                   "RGBColorSwatchTemplate"], "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}], "  ", GridBox[{
+                {
+                 
+                 RadioButtonBox[Dynamic[$CellContext`colore], {RGBColor[
+                  1, 1, 0]},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox[
+                  TemplateBox[<|"color" -> RGBColor[1, 1, 0]|>,
+                   "RGBColorSwatchTemplate"], "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}], "  ", GridBox[{
+                {
+                 
+                 RadioButtonBox[Dynamic[$CellContext`colore], {RGBColor[
+                  0, 1, 1]},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox[
+                  TemplateBox[<|"color" -> RGBColor[0, 1, 1]|>,
+                   "RGBColorSwatchTemplate"], "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}], "  ", GridBox[{
+                {
+                 
+                 RadioButtonBox[Dynamic[$CellContext`colore], {RGBColor[
+                  1, 0, 1]},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox[
+                  TemplateBox[<|"color" -> RGBColor[1, 0, 1]|>,
+                   "RGBColorSwatchTemplate"], "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}], "  ", GridBox[{
+                {
+                 
+                 RadioButtonBox[Dynamic[$CellContext`colore], {RGBColor[
+                  1, 0.5, 0]},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox[
+                  TemplateBox[<|"color" -> RGBColor[1, 0.5, 0]|>,
+                   "RGBColorSwatchTemplate"], "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}], "  ", GridBox[{
+                {
+                 
+                 RadioButtonBox[Dynamic[$CellContext`colore], {RGBColor[
+                  0.5, 0, 0.5]},
+                  DefaultBaseStyle->"RadioButtonBar"], 
+                 StyleBox[
+                  TemplateBox[<|"color" -> RGBColor[0.5, 0, 0.5]|>,
+                   "RGBColorSwatchTemplate"], "RadioButtonBarLabel",
+                  StripOnInput->False]}
+               },
+               AutoDelete->False,
+               BaselinePosition->{1, 2},
+               
+               GridBoxAlignment->{
+                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+               
+               GridBoxItemSize->{
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.21]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.4]}, 
+                   Offset[0.2]}}]}], "Deploy"],
+            RadioButtonBar[
+             Dynamic[$CellContext`colore], {None, 
+              RGBColor[1, 0, 0], 
+              RGBColor[0, 1, 0], 
+              RGBColor[0, 0, 1], 
+              RGBColor[1, 1, 0], 
+              RGBColor[0, 1, 1], 
+              RGBColor[1, 0, 1], 
+              RGBColor[1, 0.5, 0], 
+              RGBColor[0.5, 0, 0.5]}]]}], {139.125, -67.375}, {
+          Center, Center}, {265., 25.},
+          BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+         InsetBox[
+          RowBox[{"\<\"Rotazione\\n\"\>", "\[Rule]", 
+           InterpretationBox[
+            StyleBox[GridBox[{
+               {
+                SliderBox[Dynamic[$CellContext`rotazione], {0, 330, 30},
+                 Appearance->Automatic,
+                 DefaultBaseStyle->"LabeledSlider"], 
+                InputFieldBox[Dynamic[$CellContext`rotazione],
+                 Appearance->"Frameless",
+                 ContinuousAction->True,
+                 DefaultBaseStyle->"LabeledSlider",
+                 FieldSize->{{5, 10}, {1, 2}},
+                 ImageMargins->0]}
+              },
+              AutoDelete->False,
+              BaselinePosition->{{1, 1}, Axis},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.7]}, 
+                  Offset[0.27999999999999997`]}, "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}}],
+             Deployed->True,
+             StripOnInput->False,
+             FontFamily:>CurrentValue["ControlsFontFamily"]],
+            LabeledSlider[
+             Dynamic[$CellContext`rotazione], {0, 330, 
+             30}]]}], {139.125, -110.625}, {Center, Center}, {265., 35.},
+          BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+         InsetBox[
+          RowBox[{"\<\"Transla X\\n\"\>", "\[Rule]", 
+           InterpretationBox[
+            StyleBox[GridBox[{
+               {
+                SliderBox[Dynamic[$CellContext`translaX], {0, 1000, 50},
+                 Appearance->Automatic,
+                 DefaultBaseStyle->"LabeledSlider"], 
+                InputFieldBox[Dynamic[$CellContext`translaX],
+                 Appearance->"Frameless",
+                 ContinuousAction->True,
+                 DefaultBaseStyle->"LabeledSlider",
+                 FieldSize->{{5, 10}, {1, 2}},
+                 ImageMargins->0]}
+              },
+              AutoDelete->False,
+              BaselinePosition->{{1, 1}, Axis},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.7]}, 
+                  Offset[0.27999999999999997`]}, "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}}],
+             Deployed->True,
+             StripOnInput->False,
+             FontFamily:>CurrentValue["ControlsFontFamily"]],
+            LabeledSlider[
+             Dynamic[$CellContext`translaX], {0, 1000, 
+             50}]]}], {139.125, -158.875}, {Center, Center}, {265., 35.},
+          BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+         InsetBox[
+          RowBox[{"\<\"Transla Y\\n\"\>", "\[Rule]", 
+           InterpretationBox[
+            StyleBox[GridBox[{
+               {
+                SliderBox[Dynamic[$CellContext`translaY], {0, 1000, 50},
+                 Appearance->Automatic,
+                 DefaultBaseStyle->"LabeledSlider"], 
+                InputFieldBox[Dynamic[$CellContext`translaY],
+                 Appearance->"Frameless",
+                 ContinuousAction->True,
+                 DefaultBaseStyle->"LabeledSlider",
+                 FieldSize->{{5, 10}, {1, 2}},
+                 ImageMargins->0]}
+              },
+              AutoDelete->False,
+              BaselinePosition->{{1, 1}, Axis},
+              
+              GridBoxItemSize->{
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.7]}, 
+                  Offset[0.27999999999999997`]}, "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}}],
+             Deployed->True,
+             StripOnInput->False,
+             FontFamily:>CurrentValue["ControlsFontFamily"]],
+            LabeledSlider[
+             Dynamic[$CellContext`translaY], {0, 1000, 
+             50}]]}], {139.125, -207.125}, {Center, Center}, {265., 35.},
+          BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+         InsetBox[
+          DynamicModuleBox[{}, 
+           ButtonBox["\<\"Pulisci\"\>",
+            Appearance->Automatic,
+            
+            ButtonFunction:>($CellContext`blur = 0; $CellContext`rotazione = 
+              0; $CellContext`translaX = 0; $CellContext`translaY = 
+              0; $CellContext`colore = None; Null),
+            Evaluator->Automatic,
+            Method->"Preemptive"],
+           DynamicModuleValues:>{}], {139.125, -250.375}, {Center, Center}, {265., 25.},
+          
+          
+          BaseStyle->{
+           Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{0., 0.}, {0., 0.}},
+       ImageSize->{
+         UpTo[600], 
+         UpTo[700]},
+       Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+       PlotInteractivity:>True,
+       PlotRange->{{0, 278.25}, {-269.5, 0}},
+       PlotRangePadding->Automatic], {453.3977808599168, -226.73667885512546},
+       ImageScaled[{0.5, 0.5}], {446.025974025974, 432.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+   ImageSize->{687.1474467280292, 453.4733577102509},
+   Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+   PlotRange->{{0, 687.1474467280292}, {-453.4733577102509, 0}},
+   PlotRangePadding->Automatic],
+  ImageSize->Full]], "Output",
+ CellChangeTimes->{
+  3.9853278762667723`*^9, {3.985327915133739*^9, 3.985327938317759*^9}, 
+   3.985327985476652*^9, {3.985328032783539*^9, 3.9853280425634336`*^9}, 
+   3.9853281016180477`*^9, 3.985328173941033*^9, {3.985328240974244*^9, 
+   3.9853283335899353`*^9}, {3.985328396165965*^9, 3.985328410153495*^9}, 
+   3.985328456977417*^9, 3.9853285087639027`*^9, 3.985328857977315*^9, 
+   3.9853289012821207`*^9},
+ CellLabel->
+  "Out[747]=",ExpressionUUID->"06e8eca0-ae23-43f0-8e33-5c0bad89e593"]
+}, Open  ]]
+},
+WindowSize->{1370.25, 717},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.3 for Linux x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4b6e0b9c-bb36-4361-af14-3ff713fb070e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 16421, 354, 2094, "Input",ExpressionUUID->"02b88f0d-25ca-4003-b4b9-afbb8488134d"],
+Cell[17000, 378, 20104, 470, 509, "Output",ExpressionUUID->"06e8eca0-ae23-43f0-8e33-5c0bad89e593"]
+}, Open  ]]
+}
+]
+*)
+
