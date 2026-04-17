@@ -18,6 +18,9 @@ BeginPackage["TrasformazioneImmagini`"];
 	(*Funzioni che saranno esterne*)
 	x::usage ="Test";
 	imagesEqual::usage="imagesEqual[img1, img2] ritorna TRUE se le immagini sono uguali, FALSE altrimenti";
+	translateImageWrap::usage="translateImageWrap";
+	colorizeImage::usage="colorizeImage";
+	modifyImage::usage="modifyImage";
 	Begin["Private`"];
 		x =3;
 	(*Codice*)
@@ -40,6 +43,40 @@ imagesEqual[img1_Image,img2_Image]:=Module[{data1,data2},
 	data1=ImageData[img1];
 	data2=ImageData[img2];
 	data1===data2
+]
+
+translateImageWrap[image_,tx_,ty_]:=Module[{data,dims,w,h,shiftedData},
+data=ImageData[image];
+dims=Dimensions[data];
+h=dims[[1]];
+w=dims[[2]];
+(*Normalizza gli shift con Mod per il wrap-around*)
+shiftedData=RotateRight[data,{Mod[Round[ty],h],Mod[Round[tx],w],0}];
+Image[shiftedData]
+]
+
+colorizeImage[image_,color_]:=Module[{hsvColor},
+If[color===None,
+image,
+hsvColor=ColorConvert[color,Hue];
+Colorize[image,ColorFunction->(Hue[hsvColor[[1]],hsvColor[[2]],#]&)]]
+]
+
+(*modifiedImg=DynamicModule[{},
+Dynamic[
+blurredImg = Blur[img, blur];
+rotatedImg = ImageRotate[blurredImg, -rotazione*Degree];
+translatedImg = translateImageWrap[rotatedImg, translaX, translaY];
+colorizedImg = colorizeImage[translatedImg,colore];
+Show[colorizedImg]
+]
+];*)
+
+modifyImage[image_, blur_, rotation_, tx_, ty_, color_]:=Module[{},
+	blurredImg = Blur[image, blur];
+	rotatedImg = ImageRotate[blurredImg, -rotation*Degree];
+	translatedImg = translateImageWrap[rotatedImg, tx, ty];
+	colorizeImage[translatedImg,color]
 ]
 
 	End[];
