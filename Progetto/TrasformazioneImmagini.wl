@@ -28,14 +28,21 @@ BeginPackage["TrasformazioneImmagini`"];
 		x =3;
 
 
-	(*La varabile 'animali' funge da database/lista locale di foto per 50 specie di mammiferi differenti*)
-	animali=EntityList[EntityClass["Species","MammalSpecies"]][[1;;50]];
+	(*Creazione della Batch di 100 immagini variegate: prima si ricavano 5 liste 
+	di immagini di diversa categoria (Nota: in ogni lista sono presenti 20 img), successivamente si 
+	crea un'unica lista, ovvero il batch finale, data dalla Join delle 5 ricavate precedentemente*)
+	animalList=EntityList["Species"][[1;;20]];
+	foodList=EntityList[EntityClass["Food","ItalianFood"]][[1;;20]];
+	peopleList=EntityList["Person"][[1;;20]];
+	aircraftList=EntityList["Aircraft"][[1;;20]];
+	movieList=EntityList["Movie"][[1;;20]];
+	imageDatabase = Join[animalList, foodList, peopleList, aircaftList, movieList];
 	
 	(*Funzione che ritorna un'immagine specifica in base al seed numerico dato in input*)
 	imageFromSeed[seed_Integer]:=Module[{indice},
 		(*Si ricava l'indice viene ricavato tramite operazione MODULO e 
 		addizionato 1 per avere sempre un indice valido, ovvero >=1*)
-		indice=Mod[seed,Length[animali]]+1;
+		indice=Mod[seed,Length[imageDatabase]]+1;
 		EntityValue[animali[[indice]],"Image"]
 	]
 	
