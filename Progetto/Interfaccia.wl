@@ -32,6 +32,43 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 			]
 		];
 		
+		SetAttributes[bottonePulisci, HoldAll]
+		bottonePulisci[blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
+			Button["Pulisci",
+			blur=0;
+			rotazione=0;
+			translaX=0;
+			translaY=0;
+			colore = None;
+			]
+		];
+		
+		coloriDisponibili={None,Red,Green,Blue,Yellow,Cyan,Magenta,Orange};
+		maxStepTraslazione = 11;
+
+		SetAttributes[getWidth, HoldFirst]
+		getWidth[img_] := DynamicModule[{},
+			ImageDimensions[img][[1]]
+		];
+		
+		SetAttributes[getHeight, HoldFirst]
+		getHeight[img_] := DynamicModule[{},
+			ImageDimensions[img][[2]]
+		];
+		
+		SetAttributes[controlliImmagine, HoldAll]
+		controlliImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
+			GraphicsColumn[{
+							"Blur\n"->Slider[Dynamic[blur],{0,200, 20},Appearance->"Labeled"],
+							"Rotazione\n"->Slider[Dynamic[rotazione],{0,270, 30},Appearance->"Labeled"],
+							"Scala Colore\n"->RadioButtonBar[Dynamic[colore],coloriDisponibili],
+							"Transla X\n"->Slider[Dynamic[translaX],{0, maxStepTraslazione-1, 1},Appearance->"Labeled"],
+							"Transla Y\n"->Slider[Dynamic[translaY],{0, maxStepTraslazione-1, 1},Appearance->"Labeled"],
+							bottonePulisci[blur, rotazione, translaX, translaY, colore]}
+			]
+		];
+		
+		
 		SetAttributes[mostraImmagine, HoldFirst]
 		mostraImmagine[img_]=DynamicModule[{},
 			(*Cos\[IGrave] facendo \[EGrave] possibile avere una cella interattiva che mostra i cambiamenti
@@ -39,10 +76,12 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 			Dynamic[Show[img]]
 		];
 		
-		SetAttributes[mostraImmagine, HoldFirst]
+		
+		
+		SetAttributes[mostraImmagine, HoldAll]
 		mostraImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_]=DynamicModule[{},
 			Dynamic[
-				Show[modifyImage[img, blur, rotazione, translaX, translaY, colore]]
+				Show[modifyImage[img, blur, rotazione, translaX, translaY, colore, maxStepTraslazione]]
 			]
 		];
 
@@ -53,8 +92,11 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 				colore = None,
 				rotazione = 0,
 				translaX = 0,
-				translaY = 0
+				translaY = 0,
+				dims = {0,0}
 			},
+			
+			
 			(*Grazie a 'Panel' posso crearmi una UI grande quanto l'intero pannello del notebook*)
 			Panel[GraphicsRow[{
 					GraphicsColumn[{
@@ -63,7 +105,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 						mostraImmagine[img, blur, rotazione, translaX, translaY, colore]
 					}, 
 						ImageSize->Medium
-					]
+					],
+					controlliImmagine[img, blur, rotazione, translaX, translaY, colore]		
 				}], 
 				ImageSize->Full
 			]

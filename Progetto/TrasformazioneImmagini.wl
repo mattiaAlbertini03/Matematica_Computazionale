@@ -61,7 +61,7 @@ BeginPackage["TrasformazioneImmagini`"];
 	
 	(*Funzione che trasla l'immagine secondo gli indici di traslazione dati in input 
 	delle coordinate x e y*)
-	translateImageWrap[image_,tx_,ty_]:=Module[{data,dims,w,h,shiftedData},
+	translateImageWrap[image_,tx_,ty_, maxSteps_]:=Module[{data,dims,w,h,shiftedData},
 		(*L'immagine viene convertita in un'immagine 3d: data[[[riga, colonna, canale]]]*)
 		data=ImageData[image];
 		dims=Dimensions[data];
@@ -69,12 +69,15 @@ BeginPackage["TrasformazioneImmagini`"];
 		h=dims[[1]];
 		(*Si ottengno numero di colonne - larghezza*)
 		w=dims[[2]];
+		
+		stepX = w/maxSteps;
+		stepY = h/maxSteps;
 		(*Viene applicato uno shift con wrap-around permetendo la traslazione di un'immagine 
 		'rientrando' dal lato opposto*)
 		shiftedData=RotateRight[data,{
 				(*Con Mod si normalizza lo spostamento per evitare di andare fuori dal range*)
-				Mod[Round[ty],h],
-				Mod[Round[tx],w],
+				Mod[Round[ty*stepY],h],
+				Mod[Round[tx*stepX],w],
 				(*Canale RGB rimancono intoccati*)
 				0}];
 		(*Riconversione in formato immagine*)
@@ -108,10 +111,10 @@ BeginPackage["TrasformazioneImmagini`"];
 	
 	(*Funzione che dato in input Immagine, indice di blurring, indice di rotazione, 
 	indici di traslazione (lungo gli assi x e y) e colore, si ritorna l'immagine con applicata le transformazioni*)
-	modifyImage[image_, blur_, rotation_, tx_, ty_, color_]:=Module[{},
+	modifyImage[image_, blur_, rotation_, tx_, ty_, color_, maxStepTraslazione_]:=Module[{},
 		blurredImg = Blur[image, blur];
 		rotatedImg = ImageRotate[blurredImg, -rotation*Degree];
-		translatedImg = translateImageWrap[rotatedImg, tx, ty];
+		translatedImg = translateImageWrap[rotatedImg, tx, ty, maxStepTraslazione];
 		colorizeImage[translatedImg, color]
 	]
 	
