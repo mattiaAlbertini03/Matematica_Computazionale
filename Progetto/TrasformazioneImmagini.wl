@@ -31,19 +31,21 @@ BeginPackage["TrasformazioneImmagini`"];
 	(*Creazione della Batch di 100 immagini variegate: prima si ricavano 5 liste 
 	di immagini di diversa categoria (Nota: in ogni lista sono presenti 20 img), successivamente si 
 	crea un'unica lista, ovvero il batch finale, data dalla Join delle 5 ricavate precedentemente*)
-	animalList=EntityList[EntityClass["Species", "CatBreed"]][[1;;20]];
-	foodList=EntityList[EntityClass["Food","Fruit"]][[1;;20]];
-	peopleList=EntityList[EntityClass["Person", "USPresident"]][[1;;20]];
-	aircraftList=EntityList[EntityClass["Aircraft", "CommercialAircraft"]][[1;;20]];
-	movieList=EntityList[EntityClass["Movie", "AcademyAwardWinner"]][[1;;20]];
-	imageDatabase = Join[animalList, foodList, peopleList, aircaftList, movieList];
+	animalList = EntityList[SampledEntityClass[EntityClass["Species", "MammalSpecies"], 20]];
+	mineralList = EntityList[SampledEntityClass["Mineral", 20]];
+	elementList = EntityList["Element"][[1;;20]];
+	aircraftList = EntityList[SampledEntityClass["Aircraft", 20]];
+	movieList = EntityList[SampledEntityClass["Movie", 20]];
+	
+	imageDatabase = Join[animalList, mineralList, elementList, aircraftList, movieList];
+	lengthImageDb = Length[imageDatabase];
 	
 	(*Funzione che ritorna un'immagine specifica in base al seed numerico dato in input*)
-	imageFromSeed[seed_Integer]:=Module[{indice},
-		(*Si ricava l'indice viene ricavato tramite operazione MODULO e 
-		addizionato 1 per avere sempre un indice valido, ovvero >=1*)
-		indice=Mod[seed,Length[imageDatabase]]+1;
-		EntityValue[animali[[indice]],"Image"]
+	imageFromSeed[seed_Integer] := Module[{indice},
+	    (*Si ricava l'indice tramite operazione MODULO e 
+	    addizionato 1 per avere sempre un indice valido, ovvero >=1*)
+	    indice = Mod[seed, lengthImageDb] + 1;
+	    EntityValue[imageDatabase[[indice]], "Image"]
 	]
 	
 	(*Funzione che ritorna TRUE se le due immagini messe a confronto sono uguali, FALSE altrimenti*)
