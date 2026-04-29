@@ -51,11 +51,12 @@ BeginPackage["TrasformazioneImmagini`"];
 	lengthImageDb = Length[imageDatabase];
 	
 	(*Funzione che ritorna un'immagine specifica in base al seed numerico dato in input*)
-	imageFromSeed[seed_Integer] := Module[{indice},
+	imageFromSeed[seed_Integer] := Module[{indice, e, data},
 	    (*Si ricava l'indice tramite operazione MODULO e 
 	    addizionato 1 per avere sempre un indice valido, ovvero >=1*)
 	    indice = Mod[seed, lengthImageDb] + 1;
-	    EntityValue[imageDatabase[[indice]], "Image"]
+	    e=EntityValue[imageDatabase[[indice]], "Image"];
+	    Image[ColorConvert[RemoveAlphaChannel[e], "RGB"],"Real"]
 	]
 	
 	(*Funzione che ritorna TRUE se le due immagini messe a confronto sono uguali, FALSE altrimenti*)
@@ -71,7 +72,7 @@ BeginPackage["TrasformazioneImmagini`"];
 	
 	(*Funzione che trasla l'immagine secondo gli indici di traslazione dati in input 
 	delle coordinate x e y*)
-	translateImageWrap[image_,tx_,ty_, maxSteps_]:=Module[{data,dims,w,h,shiftedData},
+	translateImageWrap[image_,tx_,ty_, maxSteps_]:=Module[{data,dims,w,h,shiftedData, stepX, stepY},
 		(*L'immagine viene convertita in un'immagine 3d: data[[[riga, colonna, canale]]]*)
 		data=ImageData[image];
 		dims=Dimensions[data];
@@ -121,8 +122,9 @@ BeginPackage["TrasformazioneImmagini`"];
 	
 	(*Funzione che dato in input Immagine, indice di blurring, indice di rotazione, 
 	indici di traslazione (lungo gli assi x e y) e colore, si ritorna l'immagine con applicata le transformazioni*)
-	modifyImage[image_, blur_, rotation_, tx_, ty_, color_, maxStepTraslazione_]:=Module[{},
-		blurredImg = Blur[image, blur];
+	modifyImage[image_, blur_, rotation_, tx_, ty_, color_, maxStepTraslazione_]:=Module[{converted,blurredImg, rotatedImg, translatedImg},
+		converted = Image[ColorConvert[RemoveAlphaChannel[image], "RGB"],"Real"];
+		blurredImg = Blur[converted, blur];
 		rotatedImg = ImageRotate[blurredImg, -rotation*Degree];
 		translatedImg = translateImageWrap[rotatedImg, tx, ty, maxStepTraslazione];
 		colorizeImage[translatedImg, color]
