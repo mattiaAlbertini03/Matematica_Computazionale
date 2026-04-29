@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    310205,       5288]
-NotebookOptionsPosition[    309437,       5268]
-NotebookOutlinePosition[    309828,       5284]
-CellTagsIndexPosition[    309785,       5281]
+NotebookDataLength[    313206,       5346]
+NotebookOptionsPosition[    312438,       5326]
+NotebookOutlinePosition[    312829,       5342]
+CellTagsIndexPosition[    312786,       5339]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -50,7 +50,8 @@ Cell[BoxData[
       "valore"}]}], "*)"}], 
   RowBox[{
    RowBox[{"SetAttributes", "[", 
-    RowBox[{"bottoneCaricamento", ",", "HoldFirst"}], "]"}], "\n", 
+    RowBox[{"bottoneCaricamento", ",", "HoldFirst"}], "]"}], 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"Nota", ":", 
@@ -66,7 +67,7 @@ Cell[BoxData[
          RowBox[{"simbolo", "'"}]}], "=", 
         RowBox[{
          RowBox[{"'", " ", "e", " ", 
-          RowBox[{"NON", "'"}]}], ":=", "'"}]}], ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"NON", "'"}]}], ":=", "'"}]}], ")"}]}]}], "*)"}], "\n", 
    RowBox[{
     RowBox[{
      RowBox[{"bottoneCaricamento", "[", "img_", "]"}], "=", 
@@ -103,7 +104,7 @@ Cell[BoxData[
              RowBox[{"di", " ", "bloccarsi"}], ")"}], " ", "con", " ", "file",
              " ", "grandi"}]}], "*)"}], 
          RowBox[{"Method", "->", "\"\<Queued\>\""}]}], "]"}]}], "]"}]}], 
-    ";"}], "\n", "\[IndentingNewLine]", 
+    ";"}], "\[IndentingNewLine]", "\n", 
    RowBox[{"SetAttributes", "[", 
     RowBox[{"bottonePulisci", ",", "HoldAll"}], "]"}], "\n", 
    RowBox[{
@@ -123,7 +124,7 @@ Cell[BoxData[
           RowBox[{"translaX", "=", "0"}], ";", "\[IndentingNewLine]", 
           RowBox[{"translaY", "=", "0"}], ";", "\[IndentingNewLine]", 
           RowBox[{"colore", "=", "None"}], ";"}]}], "]"}]}], "]"}]}], ";"}], 
-   "\n", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\n", 
    RowBox[{
     RowBox[{"coloriDisponibili", "=", 
      RowBox[{"{", 
@@ -131,7 +132,7 @@ Cell[BoxData[
       "None", ",", "Red", ",", "Green", ",", "Blue", ",", "Yellow", ",", 
        "Cyan", ",", "Magenta", ",", "Orange"}], "}"}]}], ";"}], "\n", 
    RowBox[{
-    RowBox[{"maxStepTraslazione", "=", "11"}], ";"}], "\n", "\[IndentingNewLine]", 
+    RowBox[{"maxStepTraslazione", "=", "11"}], ";"}], "\[IndentingNewLine]", "\n", 
    RowBox[{"SetAttributes", "[", 
     RowBox[{"getWidth", ",", "HoldFirst"}], "]"}], "\n", 
    RowBox[{
@@ -142,7 +143,8 @@ Cell[BoxData[
        RowBox[{"{", "}"}], ",", 
        RowBox[{
         RowBox[{"ImageDimensions", "[", "img", "]"}], "[", 
-        RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+        RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
    RowBox[{"SetAttributes", "[", 
     RowBox[{"getHeight", ",", "HoldFirst"}], "]"}], "\n", 
    RowBox[{
@@ -153,7 +155,8 @@ Cell[BoxData[
        RowBox[{"{", "}"}], ",", 
        RowBox[{
         RowBox[{"ImageDimensions", "[", "img", "]"}], "[", 
-        RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+        RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
    RowBox[{"SetAttributes", "[", 
     RowBox[{"controlliImmagine", ",", "HoldAll"}], "]"}], "\n", 
    RowBox[{
@@ -210,8 +213,8 @@ Cell[BoxData[
           RowBox[{"bottonePulisci", "[", 
            RowBox[{
            "blur", ",", "rotazione", ",", "translaX", ",", "translaY", ",", 
-            "colore"}], "]"}]}], "}"}], "]"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\n", "\[IndentingNewLine]", 
+            "colore"}], "]"}]}], "}"}], "]"}]}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"SetAttributes", "[", 
     RowBox[{"mostraImmagine", ",", "HoldFirst"}], "]"}], "\n", 
    RowBox[{
@@ -229,7 +232,7 @@ Cell[BoxData[
          "reale"}], "*)"}], 
        RowBox[{"Dynamic", "[", 
         RowBox[{"Show", "[", "img", "]"}], "]"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", "\[IndentingNewLine]", 
    
    RowBox[{"SetAttributes", "[", 
     RowBox[{"mostraImmagine", ",", "HoldAll"}], "]"}], "\n", 
@@ -359,6 +362,7 @@ del-timbro-j253d8.jpg\>\"", "]"}]}], ",", "\[IndentingNewLine]",
          RowBox[{"{", 
           RowBox[{"0", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
         RowBox[{"punteggio", "=", "0"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"punteggioLivello", "=", "0"}], ",", "\[IndentingNewLine]", 
         RowBox[{"partite", " ", "=", " ", "1"}], ",", "\[IndentingNewLine]", 
         "\[IndentingNewLine]", 
         RowBox[{"blur2", " ", "=", "0"}], ",", "\[IndentingNewLine]", 
@@ -416,40 +420,40 @@ del-timbro-j253d8.jpg\>\"", "]"}]}], ",", "\[IndentingNewLine]",
               "translaY", ",", "colore"}], "]"}], ",", "\[IndentingNewLine]", 
             
             RowBox[{"Column", "[", 
-             RowBox[{"{", "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"Dynamic", "[", 
-                RowBox[{"Style", "[", 
-                 RowBox[{
-                  RowBox[{"\"\<Partita n: \>\"", "<>", 
-                   RowBox[{"ToString", "[", "partite", "]"}]}], ",", " ", 
-                  "Bold", ",", " ", "Green"}], "]"}], "]"}], ",", 
-               "\[IndentingNewLine]", 
-               RowBox[{"Dynamic", "[", 
-                RowBox[{"Style", "[", 
-                 RowBox[{
-                  RowBox[{"\"\<Punteggio: \>\"", "<>", 
-                   RowBox[{"ToString", "[", "punteggio", "]"}]}], ",", " ", 
-                  "Bold", ",", " ", "Green"}], "]"}], "]"}], ",", 
-               "\[IndentingNewLine]", 
-               RowBox[{"Dynamic", "[", 
-                RowBox[{"Style", "[", 
-                 RowBox[{
-                  RowBox[{"\"\<Aiuti: \>\"", "<>", 
-                   RowBox[{"ToString", "[", "aiuti", "]"}]}], ",", " ", 
-                  "Bold", ",", " ", "Green"}], "]"}], "]"}], ",", 
-               "\[IndentingNewLine]", 
-               RowBox[{"Row", "[", 
-                RowBox[{"{", 
-                 RowBox[{
-                 "blur2", ",", " ", "colore2", ",", " ", "rotazione2", ",", 
-                  " ", "translaX2", ",", " ", "translaY2"}], "}"}], "]"}], ",",
-                "\[IndentingNewLine]", 
-               RowBox[{"Button", "[", 
-                RowBox[{"\"\<Verifica\>\"", ",", "\[IndentingNewLine]", 
-                 RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"Dynamic", "[", 
+                 RowBox[{"Style", "[", 
                   RowBox[{
-                   RowBox[{"verifica", "[", 
+                   RowBox[{"\"\<Partita n: \>\"", "<>", 
+                    RowBox[{"ToString", "[", "partite", "]"}]}], ",", " ", 
+                   "Bold"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"Dynamic", "[", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"\"\<Punteggio: \>\"", "<>", 
+                    RowBox[{"ToString", "[", "punteggio", "]"}]}], ",", " ", 
+                   "Bold"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"Dynamic", "[", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"\"\<Aiuti: \>\"", "<>", 
+                    RowBox[{"ToString", "[", "aiuti", "]"}]}], ",", " ", 
+                   "Bold", ",", " ", "Green"}], "]"}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Row", "[", 
+                 RowBox[{"Dynamic", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "blur2", ",", " ", "colore2", ",", " ", "rotazione2", ",", 
+                    " ", "translaX2", ",", " ", "translaY2"}], "}"}], "]"}], 
+                 "]"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"Button", "[", 
+                 RowBox[{"\"\<Verifica\>\"", ",", "\[IndentingNewLine]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"verifica", "[", 
                     RowBox[{
                     RowBox[{"{", 
                     RowBox[{
@@ -461,14 +465,22 @@ del-timbro-j253d8.jpg\>\"", "]"}]}], ",", "\[IndentingNewLine]",
                     "blur2", ",", " ", "colore2", ",", " ", "rotazione2", ",",
                      " ", "translaX2", ",", " ", "translaY2"}], "}"}]}], 
                     "]"}], ",", "\[IndentingNewLine]", 
-                   RowBox[{
-                    RowBox[{"MessageDialog", "[", "\"\<corretto\>\"", "]"}], ";",
-                     "\[IndentingNewLine]", 
-                    RowBox[{"punteggio", "=", " ", 
-                    RowBox[{"punteggio", " ", "+", 
+                    RowBox[{
+                    RowBox[{"punteggioLivello", "=", 
                     RowBox[{"Max", "[", " ", 
                     RowBox[{
-                    RowBox[{"5", "-", "aiuti"}], ",", " ", "0"}], "]"}]}]}], ";",
+                    RowBox[{"5", "-", "aiuti"}], ",", " ", "0"}], "]"}]}], ";",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"MessageDialog", "[", 
+                    RowBox[{
+                    RowBox[{
+                    "StringTemplate", 
+                    "[", "\"\<Corretto: punteggio `1`, aiuti utilizzati `2`\>\
+\"", "]"}], "[", 
+                    RowBox[{"punteggioLivello", ",", "aiuti"}], "]"}], "]"}], 
+                    ";", "\[IndentingNewLine]", 
+                    RowBox[{"punteggio", "=", " ", 
+                    RowBox[{"punteggio", " ", "+", "punteggioLivello"}]}], ";",
                      "\[IndentingNewLine]", 
                     RowBox[{"aiuti", "=", "0"}], ";", "\[IndentingNewLine]", 
                     RowBox[{"partite", "=", " ", 
@@ -490,43 +502,70 @@ del-timbro-j253d8.jpg\>\"", "]"}]}], ",", "\[IndentingNewLine]",
                     " ", "translaX2", ",", " ", "translaY2", ",", " ", 
                     "colore2", ",", " ", "maxStepTraslazione"}], "]"}]}], 
                     ";"}], ",", "\[IndentingNewLine]", 
-                   RowBox[{"MessageDialog", "[", "\"\<sbagliato\>\"", "]"}]}],
+                    RowBox[{
+                    "MessageDialog", "[", "\"\<sbagliato\>\"", "]"}]}], 
                    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-                "]"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-               RowBox[{"Button", "[", 
-                RowBox[{"\"\<Next\>\"", ",", " ", "\[IndentingNewLine]", 
-                 RowBox[{
-                  RowBox[{"aiuti", "=", "0"}], ";", "\[IndentingNewLine]", 
-                  RowBox[{"partite", "=", " ", 
-                   RowBox[{"partite", "+", "1"}]}], ";", 
-                  "\[IndentingNewLine]", 
-                  RowBox[{"img", " ", "=", " ", 
-                   RowBox[{"prossimaImmagine", "[", "]"}]}], ";", 
-                  "\[IndentingNewLine]", 
-                  RowBox[{"aggiornaParametri", "[", 
-                   RowBox[{"{", 
+                 "]"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                RowBox[{"Button", "[", 
+                 RowBox[{"\"\<Next\>\"", ",", " ", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"aiuti", "=", "0"}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"partite", "=", " ", 
+                    RowBox[{"partite", "+", "1"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"img", " ", "=", " ", 
+                    RowBox[{"prossimaImmagine", "[", "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"aggiornaParametri", "[", 
+                    RowBox[{"{", 
                     RowBox[{
                     "blur2", ",", " ", "colore2", ",", " ", "rotazione2", ",",
                      " ", "translaX2", ",", " ", "translaY2"}], "}"}], "]"}], 
-                  ";", "\[IndentingNewLine]", 
-                  RowBox[{"immagineModificata", " ", "=", " ", 
-                   RowBox[{"modifyImage", "[", 
+                   ";", "\[IndentingNewLine]", 
+                   RowBox[{"immagineModificata", " ", "=", " ", 
+                    RowBox[{"modifyImage", "[", 
                     RowBox[{
                     "img", ",", " ", "blur2", ",", " ", "rotazione2", ",", 
                     " ", "translaX2", ",", " ", "translaY2", ",", " ", 
                     "colore2", ",", " ", "maxStepTraslazione"}], "]"}]}], 
-                  ";"}]}], "\[IndentingNewLine]", "]"}], ",", 
-               "\[IndentingNewLine]", "\[IndentingNewLine]", 
-               RowBox[{"Button", "[", 
-                RowBox[{"\"\<Aiuto\>\"", ",", "\[IndentingNewLine]", 
-                 RowBox[{
-                  RowBox[{"aiuti", "=", " ", 
-                   RowBox[{"Min", "[", 
+                   ";"}]}], "\[IndentingNewLine]", "]"}], ",", 
+                "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                RowBox[{"Button", "[", 
+                 RowBox[{"\"\<Aiuto\>\"", ",", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"aiuti", "=", " ", 
+                    RowBox[{"Min", "[", 
                     RowBox[{
-                    RowBox[{"aiuti", "+", "1"}], ",", "5"}], "]"}]}], ";"}]}],
+                    RowBox[{"aiuti", "+", "1"}], ",", "5"}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"aiuti", ">=", "1"}], ",", 
+                    RowBox[{"blur", "=", "blur2"}]}], "]"}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"aiuti", ">=", "2"}], ",", 
+                    RowBox[{"rotazione", "=", "rotazione2"}]}], "]"}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"aiuti", ">=", "3"}], ",", 
+                    RowBox[{"colore", "=", "colore2"}]}], "]"}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"aiuti", ">=", "4"}], ",", 
+                    RowBox[{"translaX", "=", "translaX2"}]}], "]"}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"aiuti", ">=", "5"}], ",", 
+                    RowBox[{"translaY", "=", "translaY2"}]}], "]"}], ";"}]}], 
                  "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-              "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", 
-           "}"}], "]"}], ",", 
+               "\[IndentingNewLine]", "}"}], ",", " ", "Center", ",", 
+              RowBox[{"ItemSize", "->", "20"}]}], "]"}]}], 
+           "\[IndentingNewLine]", "}"}], "]"}], ",", 
          RowBox[{"ImageSize", "->", "Full"}]}], "]"}]}]}], "]"}]}], ";"}], 
   "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -626,8 +665,14 @@ del-timbro-j253d8.jpg\>\"", "]"}]}], ",", "\[IndentingNewLine]",
    3.986457270148428*^9, 3.9864572776080103`*^9}, {3.986457315277885*^9, 
    3.986457353282667*^9}, {3.986457970900494*^9, 3.986457979051927*^9}, {
    3.9864581019215918`*^9, 3.9864581020710506`*^9}, {3.98645843465341*^9, 
-   3.9864584445122232`*^9}, {3.986460941195098*^9, 3.986460950204236*^9}},
- CellLabel->"In[20]:=",ExpressionUUID->"3e1a6d9a-9a27-4421-83b4-70d29274167c"],
+   3.9864584445122232`*^9}, {3.986460941195098*^9, 3.986460950204236*^9}, {
+   3.986462958901354*^9, 3.9864629659080143`*^9}, 3.986463031437725*^9, {
+   3.9864631305181847`*^9, 3.9864632127405643`*^9}, {3.986463304874061*^9, 
+   3.986463314076869*^9}, {3.986463360453635*^9, 3.986463390348692*^9}, {
+   3.986463480897787*^9, 3.986463484976151*^9}, {3.986463546364468*^9, 
+   3.986463550644628*^9}, {3.9864636243004713`*^9, 
+   3.986463667481488*^9}},ExpressionUUID->"3e1a6d9a-9a27-4421-83b4-\
+70d29274167c"],
 
 Cell[BoxData[
  DynamicModuleBox[{$CellContext`seed$$ = 0, $CellContext`errorMsg$$ = 
@@ -5110,8 +5155,8 @@ $CellContext`blur, $CellContext`rotazione, $CellContext`translaX, \
 $CellContext`translaY, $CellContext`colore, \
 $CellContext`maxStepTraslazione]]], DynamicModuleValues :> {}], 
            Dynamic[
-            Show[$CellContext`immagineModificata]]}], {90.8875, -225.8875}, {
-         Center, Center}, {161.00000000000003`, 431.}, 
+            Show[$CellContext`immagineModificata]]}], {92.1125, -227.1125}, {
+         Center, Center}, {160.99999999999997`, 431.}, 
          BaseStyle -> {Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
         Inset[
          DynamicModule[{}, 
@@ -5164,30 +5209,31 @@ $CellContext`maxStepTraslazione]]], DynamicModuleValues :> {}],
               UpTo[600], 
               UpTo[700]}, PlotRange -> {{0, 278.25}, {-269.5, 0}}}, 
            Method -> {"IgnoreImageSizeAutomaticLimit" -> True}], 
-          DynamicModuleValues :> {}], {492.16249999999997`, -225.8875}, {
-         Center, Center}, {599.9999999999999, 431.}, 
+          DynamicModuleValues :> {}], {495.83750000000003`, -227.1125}, {
+         Center, Center}, {600.0000000000001, 431.}, 
          BaseStyle -> {Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
         Inset[
          Column[{
            Dynamic[
-            Style[
-            "Partita n: " <> ToString[$CellContext`partite], Bold, Green]], 
+            Style["Partita n: " <> ToString[$CellContext`partite], Bold]], 
            Dynamic[
-            Style[
-            "Punteggio: " <> ToString[$CellContext`punteggio], Bold, Green]], 
-           
+            Style["Punteggio: " <> ToString[$CellContext`punteggio], Bold]], 
            Dynamic[
             Style["Aiuti: " <> ToString[$CellContext`aiuti], Bold, Green]], 
-           Row[{40, None, 120, 2, 1}], 
+           Row[
+            
+            Dynamic[{$CellContext`blur2, $CellContext`colore2, \
+$CellContext`rotazione2, $CellContext`translaX2, $CellContext`translaY2}]], 
            Button["Verifica", 
             If[
              $CellContext`verifica[{$CellContext`blur, $CellContext`colore, \
 $CellContext`rotazione, $CellContext`translaX, $CellContext`translaY}, \
 {$CellContext`blur2, $CellContext`colore2, $CellContext`rotazione2, \
-$CellContext`translaX2, $CellContext`translaY2}], 
-             MessageDialog[
-              "corretto"]; $CellContext`punteggio = $CellContext`punteggio + 
-               Max[5 - $CellContext`aiuti, 0]; $CellContext`aiuti = 
+$CellContext`translaX2, $CellContext`translaY2}], MessageDialog[
+               StringTemplate[
+               "Corretto: punteggio `1`, aiuti utilizzati \
+`2`"][$CellContext`punteggio, $CellContext`aiuti]]; $CellContext`punteggio = \
+$CellContext`punteggio + Max[5 - $CellContext`aiuti, 0]; $CellContext`aiuti = 
               0; $CellContext`partite = $CellContext`partite + 
                1; $CellContext`img = $CellContext`prossimaImmagine[]; \
 $CellContext`aggiornaParametri[{$CellContext`blur2, $CellContext`colore2, \
@@ -5211,13 +5257,23 @@ $CellContext`translaY2, $CellContext`colore2, \
 $CellContext`maxStepTraslazione]; Null], 
            Button[
            "Aiuto", $CellContext`aiuti = Min[$CellContext`aiuti + 1, 5]; 
-            Null]}], {847.9375, -225.8875}, {Center, Center}, {
-         69.99999999999989, 431.}, 
+            If[$CellContext`aiuti >= 
+              1, $CellContext`blur = $CellContext`blur2]; 
+            If[$CellContext`aiuti >= 
+              2, $CellContext`rotazione = $CellContext`rotazione2]; 
+            If[$CellContext`aiuti >= 
+              3, $CellContext`colore = $CellContext`colore2]; 
+            If[$CellContext`aiuti >= 
+              4, $CellContext`translaX = $CellContext`translaX2]; 
+            If[$CellContext`aiuti >= 
+              5, $CellContext`translaY = $CellContext`translaY2]; Null]}, 
+          Center, ItemSize -> 20], {903.0625, -227.1125}, {Center, Center}, {
+         168.0000000000001, 431.}, 
          BaseStyle -> {
           Graphics3DBoxOptions -> {SphericalRegion -> False}}]}}, {}}, {
      PlotRangePadding -> Automatic, 
-      PlotRange -> {{0, 893.3249999999999}, {-451.775, 0}}, 
-      ImageSize -> {893.3249999999999, 451.775}}, 
+      PlotRange -> {{0, 998.6750000000001}, {-454.225, 0}}, 
+      ImageSize -> {998.6750000000001, 454.225}}, 
      Method -> {"IgnoreImageSizeAutomaticLimit" -> True}], ImageSize -> Full],
     DynamicModuleValues :> {}]}, 
   TagBox[GridBox[{
@@ -5241,7 +5297,7 @@ $CellContext`GiocaTest[$CellContext`seed$$], $CellContext`errorMsg$$ =
        ImageSizeCache->{0., {0., 6.328125}}]},
      {
       DynamicBox[ToBoxes[$CellContext`visual$$, StandardForm],
-       ImageSizeCache->{1257.25, {233.561328125, 238.213671875}}]}
+       ImageSizeCache->{1257.25, {234.786328125, 239.438671875}}]}
     },
     DefaultBaseStyle->"Column",
     GridBoxAlignment->{"Columns" -> {{Left}}},
@@ -5262,8 +5318,10 @@ $CellContext`GiocaTest[$CellContext`seed$$], $CellContext`errorMsg$$ =
    3.9864574138085957`*^9, 3.9864576320815268`*^9, 3.986457769737693*^9, 
    3.9864578375742073`*^9, 3.98645798107449*^9, 3.986458076652828*^9, 
    3.986458199177464*^9, 3.986458396835794*^9, 3.986458446163514*^9, 
-   3.986459701700618*^9, 3.9864608571881723`*^9, 3.98646105590769*^9},
- CellLabel->"Out[26]=",ExpressionUUID->"f6f4b401-76b7-4841-898f-67d156978ecf"]
+   3.986459701700618*^9, 3.9864608571881723`*^9, 3.98646105590769*^9, 
+   3.986462910887426*^9, 3.986462967999344*^9, 3.986463229782427*^9, 
+   3.986463396272674*^9, 3.9864635513342533`*^9},
+ CellLabel->"Out[54]=",ExpressionUUID->"1eff8ce2-5ddd-4751-a745-8b457f95eba5"]
 }, Open  ]]
 },
 WindowSize->{1370.25, 717},
@@ -5285,10 +5343,10 @@ CellTagsIndex->{}
 Notebook[{
 Cell[554, 20, 216, 4, 29, "Input",ExpressionUUID->"346d2ec2-55f9-4197-a3c2-c292826b9748"],
 Cell[773, 26, 519, 10, 69, "Input",ExpressionUUID->"89a424a3-8e18-4328-b267-f9f35fa708ff"],
-Cell[1295, 38, 8902, 215, 872, "Input",ExpressionUUID->"18986a70-5e6b-458a-857e-2dc0cc3d2126"],
+Cell[1295, 38, 8914, 218, 846, "Input",ExpressionUUID->"18986a70-5e6b-458a-857e-2dc0cc3d2126"],
 Cell[CellGroupData[{
-Cell[10222, 257, 18538, 372, 2168, "Input",ExpressionUUID->"3e1a6d9a-9a27-4421-83b4-70d29274167c"],
-Cell[28763, 631, 280658, 4634, 554, "Output",ExpressionUUID->"f6f4b401-76b7-4841-898f-67d156978ecf"]
+Cell[10234, 260, 20703, 414, 2311, "Input",ExpressionUUID->"3e1a6d9a-9a27-4421-83b4-70d29274167c"],
+Cell[30940, 676, 281482, 4647, 537, "Output",ExpressionUUID->"1eff8ce2-5ddd-4751-a745-8b457f95eba5"]
 }, Open  ]]
 }
 ]
