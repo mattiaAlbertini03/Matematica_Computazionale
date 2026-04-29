@@ -21,6 +21,7 @@ BeginPackage["TrasformazioneImmagini`"];
 	translateImageWrap::usage="translateImageWrap";
 	colorizeImage::usage="colorizeImage";
 	modifyImage::usage="modifyImage";
+	imageFromSeed::usage="imageFromSeed";
 	Begin["Private`"];
 		(*
 		NOTA: variabile global di prova, da togliere!

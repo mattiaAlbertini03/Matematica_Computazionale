@@ -60,7 +60,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 		controlliImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
 			GraphicsColumn[{
 							"Blur\n"->Slider[Dynamic[blur],{0,200, 20},Appearance->"Labeled"],
-							"Rotazione\n"->Slider[Dynamic[rotazione],{0,270, 30},Appearance->"Labeled"],
+							"Rotazione\n"->Slider[Dynamic[rotazione],{0,359, 30},Appearance->"Labeled"],
 							"Scala Colore\n"->RadioButtonBar[Dynamic[colore],coloriDisponibili],
 							"Transla X\n"->Slider[Dynamic[translaX],{0, maxStepTraslazione-1, 1},Appearance->"Labeled"],
 							"Transla Y\n"->Slider[Dynamic[translaY],{0, maxStepTraslazione-1, 1},Appearance->"Labeled"],
