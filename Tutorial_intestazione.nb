@@ -10,24 +10,56 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     24831,        637]
-NotebookOptionsPosition[     17270,        465]
-NotebookOutlinePosition[     20802,        559]
-CellTagsIndexPosition[     20295,        538]
+NotebookDataLength[     29584,        756]
+NotebookOptionsPosition[     21215,        568]
+NotebookOutlinePosition[     25047,        668]
+CellTagsIndexPosition[     24511,        646]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<TrasformazioneImmagini`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Get", "[", "\"\<Interfaccia`\>\"", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"EvaluationCell", "[", "]"}], ",", " ", 
+    RowBox[{"CellOpen", "->", "False"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"NextCell", "[", "]"}], ",", 
+    RowBox[{"Deletable", "->", "False"}]}], " ", 
+   RowBox[{"(*", 
+    RowBox[{",", " ", 
+     RowBox[{"Editable", "->", "False"}]}], " ", "*)"}], " ", "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.986443260570863*^9, 3.986443335363929*^9}, {
+   3.986443889581102*^9, 3.986443928261694*^9}, {3.986445362139905*^9, 
+   3.986445385478817*^9}, {3.986446718674209*^9, 3.986446720741159*^9}, 
+   3.986449579805904*^9, {3.986449621274341*^9, 
+   3.986449623486105*^9}},ExpressionUUID->"234a75cf-c155-4e61-bbf9-\
+b3abdf03a3e8"],
 
 Cell[CellGroupData[{
-Cell["Le trasformazioni sulle immagini ", "Title",
+
+Cell["TITOLO", "Title",
  CellChangeTimes->{{3.984816641285014*^9, 3.984816644750951*^9}, {
    3.984819099841297*^9, 3.9848191003223953`*^9}, {3.9852345725052233`*^9, 
    3.985234574637599*^9}, 3.9852347666252127`*^9, {3.9852349699780273`*^9, 
    3.98523497051558*^9}, {3.986021316944666*^9, 3.986021318385035*^9}, {
    3.986023011770172*^9, 3.986023041147914*^9}, {3.986023221591567*^9, 
    3.986023225009259*^9}, 3.9860232571957293`*^9, 3.986023601200889*^9, {
-   3.986023868193606*^9, 3.986023868416381*^9}},
+   3.986023868193606*^9, 3.986023868416381*^9}, 3.986443336470037*^9, 
+   3.986445283125778*^9, {3.986447216755066*^9, 3.986447222338686*^9}},
  CellTags->"c:1",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079"],
 
 Cell[CellGroupData[{
@@ -57,8 +89,9 @@ Rossi\t\
    3.984815657869204*^9}, {3.984815778656024*^9, 3.9848158958789988`*^9}, 
    4.984815937240929*^9, 3.9848167367249804`*^9, {3.984816771004355*^9, 
    3.9848168138303833`*^9}, {3.985233418277668*^9, 3.9852334192803373`*^9}, {
-   3.9852342597127647`*^9, 
-   3.9852342746203814`*^9}},ExpressionUUID->"96f6e007-5609-4b27-9117-\
+   3.9852342597127647`*^9, 3.9852342746203814`*^9}, 3.986443868039184*^9, {
+   3.986445398531096*^9, 
+   3.986445398817885*^9}},ExpressionUUID->"96f6e007-5609-4b27-9117-\
 6dbc214ac18e"],
 
 Cell["\<\
@@ -69,8 +102,9 @@ Cell["\<\
    3.984816015138747*^9, {3.98481619662318*^9, 3.984816205712801*^9}, {
    3.984816788721326*^9, 3.9848168082397223`*^9}, {3.985234277142785*^9, 
    3.9852343005187693`*^9}, {3.9852348227227373`*^9, 3.985234832367828*^9}, {
-   3.9852351202114773`*^9, 3.9852351222943983`*^9}, 
-   3.985240951882174*^9},ExpressionUUID->"6b343bc3-2708-48fd-8996-\
+   3.9852351202114773`*^9, 3.9852351222943983`*^9}, 3.985240951882174*^9, {
+   3.986445397522543*^9, 
+   3.986445414971552*^9}},ExpressionUUID->"6b343bc3-2708-48fd-8996-\
 71509f44da71"]
 }, Open  ]],
 
@@ -78,7 +112,7 @@ Cell[CellGroupData[{
 
 Cell["Indice", "Chapter",
  CellChangeTimes->{{3.985416788214226*^9, 3.985416803866663*^9}, 
-   3.9854169302415733`*^9},
+   3.9854169302415733`*^9, {3.986445410861823*^9, 3.9864454113668747`*^9}},
  CellTags->"Indice",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f"],
 
 Cell[TextData[{
@@ -119,17 +153,25 @@ Cell[TextData[{
   BaseStyle->"Hyperlink",
   ButtonData->"gioco"],
  "  \n3. ",
- ButtonBox["Approfondimenti",
-  BaseStyle->"Hyperlink",
-  ButtonData->"approfondimenti"],
- "\n4. ",
  ButtonBox["Bibliografia e Sitografia",
   BaseStyle->"Hyperlink",
   ButtonData->"bibliografia"],
- "\n5. ",
+ "\n4. ",
  ButtonBox["Commenti e lavoro futuro",
   BaseStyle->"Hyperlink",
-  ButtonData->"commenti"]
+  ButtonData->"commenti"],
+ "\n\t4.1 ",
+ ButtonBox["commenti",
+  BaseStyle->"Hyperlink",
+  ButtonData->"com"],
+ "\n\t4.2 ",
+ ButtonBox[" lavoro futuro",
+  BaseStyle->"Hyperlink",
+  ButtonData->"lavoro_futuro"],
+ "\n\t4.3 ",
+ ButtonBox["copia del codice",
+  BaseStyle->"Hyperlink",
+  ButtonData->"copia_codice"]
 }], "Text",
  CellChangeTimes->{{3.985240957219846*^9, 3.985240982637265*^9}, {
    3.985416157714117*^9, 3.985416157714781*^9}, {3.9854162084263563`*^9, 
@@ -147,7 +189,10 @@ Cell[TextData[{
    3.985418338030725*^9, 3.9854183679358892`*^9}, {3.985418557276185*^9, 
    3.985418557277144*^9}, {3.985418980703683*^9, 3.9854190118541517`*^9}, {
    3.985419201228036*^9, 3.9854192149637423`*^9}, {3.986021787097439*^9, 
-   3.986021804542259*^9}},
+   3.986021804542259*^9}, {3.986443880662756*^9, 3.9864438815522537`*^9}, {
+   3.986444452062283*^9, 3.986444463372633*^9}, {3.986444495075852*^9, 
+   3.98644449507733*^9}, {3.986444742769396*^9, 3.986444784139234*^9}, {
+   3.986446271026732*^9, 3.986446275910523*^9}},
  TextAlignment->
   AlignmentMarker,ExpressionUUID->"20301a34-8458-4ffc-8c6e-b8bdf49589ca"]
 }, Open  ]],
@@ -164,12 +209,21 @@ Cell["Introduzione", "Chapter",
 
 Cell["\<\
 .....   . ..  ..  . . ..  .
-Le trasformazioni che tratteremo in questo documento sono: il blur, il cambio \
+L\[CloseCurlyQuote]obbiettivo di questo notebook \[EGrave] il comprendere \
+cosa sono e come lavorano le trasformazioni sulle immagini, comprendendo come \
+esse vadano a modificare l\[CloseCurlyQuote]imagine originale,  per poi dopo \
+testare se si ha compreso come queste trasformazioni lavorino tramite un gioco.
+......
+....
+.. 
+Le trasformazioni che tratteremo in questo notebook sono: il blur, il cambio \
 colore, la trasposizione e  la rotazione. \
 \>", "Text",
  CellChangeTimes->{{3.985419930168797*^9, 3.985419938775285*^9}, {
-  3.986024168769562*^9, 
-  3.98602423850384*^9}},ExpressionUUID->"ed8a53e7-cf58-4e15-babc-\
+   3.986024168769562*^9, 3.98602423850384*^9}, {3.986443980098908*^9, 
+   3.986444004273199*^9}, {3.986444122661772*^9, 3.9864441983165283`*^9}, {
+   3.9864450895411873`*^9, 3.986445264979288*^9}, 
+   3.986445427317451*^9},ExpressionUUID->"ed8a53e7-cf58-4e15-babc-\
 1ae9f14de9df"],
 
 Cell[CellGroupData[{
@@ -181,7 +235,7 @@ Cell["Effetto Blur", "Section",
   "effetto_blur",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b"],
 
 Cell[TextData[{
- "... ... ..\n..... ",
+ "... ... ...... ",
  ButtonBox["[1]",
   BaseStyle->"Hyperlink",
   ButtonData->"bib1"]
@@ -191,8 +245,9 @@ Cell[TextData[{
    3.9860242421720448`*^9, 3.986024252861198*^9}, {3.98602430393451*^9, 
    3.9860243039488707`*^9}, {3.9860243753478413`*^9, 3.986024375880563*^9}, {
    3.986024689553541*^9, 3.986024689558971*^9}, {3.986025281555747*^9, 
-   3.9860252916692266`*^9}, {3.986025802125311*^9, 
-   3.986025802126045*^9}},ExpressionUUID->"5bdc1a2c-1975-4f35-ab19-\
+   3.9860252916692266`*^9}, {3.986025802125311*^9, 3.986025802126045*^9}, {
+   3.9864453167018967`*^9, 
+   3.986445316914322*^9}},ExpressionUUID->"5bdc1a2c-1975-4f35-ab19-\
 94750b5fff74"]
 }, Open  ]],
 
@@ -215,8 +270,8 @@ Cell[TextData[{
    3.9854188266690063`*^9, {3.98542066607854*^9, 3.985420666079977*^9}, {
    3.9854207643678617`*^9, 3.985420769970419*^9}, {3.986024666284204*^9, 
    3.98602468959286*^9}, {3.986025295880473*^9, 3.986025296805903*^9}, {
-   3.986025818528956*^9, 
-   3.986025818529632*^9}},ExpressionUUID->"7bed703d-c2de-4a4c-b88c-\
+   3.986025818528956*^9, 3.986025818529632*^9}, 
+   3.986445315000355*^9},ExpressionUUID->"7bed703d-c2de-4a4c-b88c-\
 f5db1203191f"]
 }, Open  ]],
 
@@ -236,8 +291,9 @@ Cell[TextData[{
   ButtonData->"bib3"]
 }], "Text",
  CellChangeTimes->{{3.985420748252697*^9, 3.9854207593937817`*^9}, {
-  3.986025298825656*^9, 3.986025303646714*^9}, {3.9860258269781513`*^9, 
-  3.9860258269792147`*^9}},ExpressionUUID->"d7fb4399-22d6-443a-af54-\
+   3.986025298825656*^9, 3.986025303646714*^9}, {3.9860258269781513`*^9, 
+   3.9860258269792147`*^9}, 
+   3.986445313101602*^9},ExpressionUUID->"d7fb4399-22d6-443a-af54-\
 80f9381e7350"]
 }, Open  ]],
 
@@ -269,16 +325,12 @@ Cell["Esercizio universale", "Chapter",
    3.986026069764729*^9},
  CellTags->"esUni",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943"],
 
-Cell["\<\
- -Seed da utente
--Genera esercizi \[Infinity]
--Verifica Risultato
--Mostra Soluzione o fornisci un Suggerimento\
-\>", "Text",
+Cell[".....", "Text",
  CellChangeTimes->{
   3.9852411462792797`*^9, 3.9854173218340893`*^9, {3.985418389000904*^9, 
-   3.985418389791959*^9}, {3.9860217003222303`*^9, 
-   3.986021753192024*^9}},ExpressionUUID->"f9c954c2-946a-485e-8cf5-\
+   3.985418389791959*^9}, {3.9860217003222303`*^9, 3.986021753192024*^9}, {
+   3.9864454580286093`*^9, 
+   3.9864454843478947`*^9}},ExpressionUUID->"f9c954c2-946a-485e-8cf5-\
 4e2a44be99a0"],
 
 Cell[CellGroupData[{
@@ -292,9 +344,30 @@ Cell["Allenamento", "Section",
 
 Cell["... ... ..", "Text",
  CellChangeTimes->{{3.985418746074801*^9, 3.985418763751737*^9}, {
-  3.986021140409952*^9, 
-  3.986021181836564*^9}},ExpressionUUID->"2c932672-52a7-4ff0-84b1-\
-dcd67c2b07d5"]
+  3.986021140409952*^9, 3.986021181836564*^9}, {3.986443567980804*^9, 
+  3.986443568911261*^9}, {3.986443737264966*^9, 
+  3.986443738323209*^9}},ExpressionUUID->"2c932672-52a7-4ff0-84b1-\
+dcd67c2b07d5"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"EvaluationCell", "[", "]"}], ",", 
+    RowBox[{"CellOpen", "->", "False"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"NextCell", "[", "]"}], ",", 
+    RowBox[{"Deletable", "->", "False"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "INSERICE", " ", "CODICE", " ", "CHE", " ", "GENERA", " ", "IL", " ", 
+    "BOTTONE"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.9864437393225927`*^9, 
+  3.986443741999134*^9}},ExpressionUUID->"fcfe3c4e-a7e4-45af-beb8-\
+e2a7fdebf403"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -307,25 +380,32 @@ Cell["Gioco", "Section",
  CellTags->"gioco",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41"],
 
 Cell["... ... ..", "Text",
- CellChangeTimes->{{3.985418746074801*^9, 
-  3.985418763751737*^9}},ExpressionUUID->"978aa148-7721-4ff1-b81f-\
-f1f4df6019a2"]
+ CellChangeTimes->{{3.985418746074801*^9, 3.985418763751737*^9}, {
+  3.986443571113134*^9, 3.986443572235189*^9}, {3.9864436463531017`*^9, 
+  3.986443665335936*^9}},ExpressionUUID->"978aa148-7721-4ff1-b81f-\
+f1f4df6019a2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"EvaluationCell", "[", "]"}], ",", 
+    RowBox[{"CellOpen", "->", "False"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"NextCell", "[", "]"}], ",", 
+    RowBox[{"Deletable", "->", "False"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "INSERICE", " ", "CODICE", " ", "CHE", " ", "GENERA", " ", "IL", " ", 
+    "BOTTONE"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.986443669387209*^9, 3.9864437098373528`*^9}, {
+  3.986446739523513*^9, 
+  3.986446739969749*^9}},ExpressionUUID->"dc9ac5d7-8816-4278-a50e-\
+27f3eb4355e9"]
 }, Open  ]]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Approfondimenti (non obbligatoria)", "Chapter",
- CellChangeTimes->{{3.9852409879883204`*^9, 3.9852410043540783`*^9}, {
-  3.985241041934299*^9, 3.9852410510802183`*^9}, {3.9860216013029003`*^9, 
-  3.986021607614476*^9}, {3.9860216911461477`*^9, 3.986021692813912*^9}},
- CellTags->
-  "approfondimenti",ExpressionUUID->"fc10dd11-982f-4f90-888e-009fb49714ec"],
-
-Cell["... ... ...", "Text",
- CellChangeTimes->{{3.985419948727754*^9, 
-  3.985419960654522*^9}},ExpressionUUID->"576f6cbd-4ba0-4e1c-93ad-\
-f74364cef627"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -338,22 +418,6 @@ Cell["Bibliografia e Sitografia", "Chapter",
  CellTags->
   "bibliografia",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36"],
 
-Cell["\<\
-devono essere citati nel testo del tutorial, con link attivi. \
-\>", "Text",
- CellChangeTimes->{{3.985240785596731*^9, 3.985240800607717*^9}, {
-  3.985420272909779*^9, 3.98542029895891*^9}, {3.985420345703436*^9, 
-  3.985420345769508*^9}, {3.986020331395933*^9, 3.9860203358603086`*^9}, {
-  3.986021092183095*^9, 3.986021098529849*^9}, {3.9860212537711487`*^9, 
-  3.9860213041023006`*^9}, {3.986021838819865*^9, 3.986021904453042*^9}, {
-  3.9860219358861513`*^9, 3.9860220011814528`*^9}, {3.986024321181191*^9, 
-  3.9860243417307053`*^9}, {3.986025313679702*^9, 3.9860253239081087`*^9}, {
-  3.9860253695468903`*^9, 3.986025390124251*^9}, {3.9860254484141693`*^9, 
-  3.986025459633412*^9}, {3.986025634107711*^9, 3.986025667638373*^9}, {
-  3.9860256990445423`*^9, 
-  3.986025699395656*^9}},ExpressionUUID->"871e7fa0-e2a1-43d0-b9e2-\
-0e0bb4968c21"],
-
 Cell[TextData[{
  ButtonBox["\[UpArrow] ",
   BaseStyle->"Hyperlink",
@@ -364,7 +428,7 @@ Cell[TextData[{
   3.986026072331914*^9, 3.986026093186014*^9}, {3.9860261267571373`*^9, 
   3.9860261269316072`*^9}, {3.986026158738062*^9, 3.986026158738888*^9}, {
   3.9860263519974003`*^9, 3.986026367462039*^9}, {3.986027654468648*^9, 
-  3.986027680440235*^9}},
+  3.986027680440235*^9}, {3.9864453300544786`*^9, 3.9864453308358*^9}},
  CellTags->"bib1",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73"],
 
 Cell[TextData[{
@@ -406,60 +470,99 @@ Cell[TextData[{
 
 Cell[CellGroupData[{
 
-Cell["Commenti e lavoro futuro (rivolta a docente e tutor)", "Chapter",
+Cell["Commenti e lavoro futuro", "Chapter",
  CellChangeTimes->{{3.985240656531178*^9, 3.985240705236794*^9}, {
    3.985419538439722*^9, 3.9854195390573072`*^9}, {3.986021578494403*^9, 
-   3.986021583704286*^9}, 3.986024727530448*^9},
+   3.986021583704286*^9}, 3.986024727530448*^9, {3.986444593278211*^9, 
+   3.9864446004424458`*^9}},
  CellTags->"commenti",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83"],
+
+Cell[CellGroupData[{
+
+Cell["Commenti ", "Section",
+ CellChangeTimes->{{3.986444601964718*^9, 3.986444633092002*^9}},
+ CellTags->"commenti",ExpressionUUID->"f3250828-fa03-40c9-8012-15b7a1204967"],
 
 Cell["\<\
 entity,   
 attributo holdfirst(puntatore) , 
 .m ->  .wl   
 la memeoria cache 
-
-... ... ... ..
-
 ....
-
-
-\
+....\
 \>", "Text",
  CellChangeTimes->{{3.985419971968768*^9, 3.985420032206279*^9}, {
    3.986020333501089*^9, 3.9860203898618193`*^9}, {3.9860204380928926`*^9, 
    3.9860204500622063`*^9}, {3.9860210556658697`*^9, 3.986021057489222*^9}, {
    3.986021103379875*^9, 3.986021104823743*^9}, {3.986021453718457*^9, 
    3.986021473037306*^9}, 3.986021567563242*^9, {3.986021820026458*^9, 
-   3.986021825479765*^9}},ExpressionUUID->"fc1224d5-3827-43a2-b0e2-\
-91737a7b023a"],
+   3.986021825479765*^9}, {3.98644304236705*^9, 3.9864430454621553`*^9}, 
+   3.98644324166531*^9, {3.986444327078587*^9, 3.986444352447597*^9}, {
+   3.986444636392407*^9, 
+   3.9864446443433037`*^9}},ExpressionUUID->"fc1224d5-3827-43a2-b0e2-\
+91737a7b023a"]
+}, Open  ]],
 
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+Cell[CellGroupData[{
+
+Cell["Lavoro futuro", "Section",
+ CellChangeTimes->{{3.98644464575837*^9, 3.986444667432023*^9}},
+ CellTags->
+  "lavoro_futuro",ExpressionUUID->"3ac31b79-cb52-4c91-a8e9-55ec1661188d"],
+
+Cell["\<\
+...................................
+...........
+...
+..\
+\>", "Text",
+ CellChangeTimes->{{3.9864446715425463`*^9, 
+  3.9864446916795263`*^9}},ExpressionUUID->"c058ae4b-0ab0-4ea1-8052-\
+a45186c1a2d1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Copia del codice", "Section",
+ CellChangeTimes->{{3.9864443531486187`*^9, 3.986444415196764*^9}, {
+  3.986444619195353*^9, 3.9864446192885027`*^9}},
+ CellTags->
+  "copia_codice",ExpressionUUID->"bcce8394-d598-4b4c-9822-5511415dea6e"],
+
+Cell[BoxData[{
+ RowBox[{
   RowBox[{"SetOptions", "[", 
    RowBox[{
-    RowBox[{"NextCell", "[", "]"}], ",", "\[IndentingNewLine]", 
-    RowBox[{"Editable", "->", "False"}], ",", "\[IndentingNewLine]", 
-    RowBox[{"Evaluatable", "->", "False"}], ",", "\[IndentingNewLine]", 
-    RowBox[{"Deletable", "->", "False"}]}], "\[IndentingNewLine]", 
-   "]"}]}]], "Input",
+    RowBox[{"EvaluationCell", "[", "]"}], ",", 
+    RowBox[{"CellOpen", "->", "False"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"SetOptions", "[", 
+  RowBox[{
+   RowBox[{"NextCell", "[", "]"}], ",", 
+   RowBox[{"Editable", "->", "False"}], ",", 
+   RowBox[{"Evaluatable", "->", "False"}], ",", 
+   RowBox[{"Deletable", "->", "False"}]}], "]"}]}], "Input",
  CellOpen->True,
  CellChangeTimes->{{3.986019675716247*^9, 3.98601967974399*^9}, {
    3.9860198342567987`*^9, 3.986019834523758*^9}, {3.986019892603786*^9, 
    3.986019959867814*^9}, {3.986019999521371*^9, 3.986020024583667*^9}, {
    3.9860201518282537`*^9, 3.986020176057275*^9}, {3.986020256867676*^9, 
    3.986020283616596*^9}, {3.986021215090001*^9, 3.986021231238048*^9}, 
-   3.986024805548457*^9},ExpressionUUID->"0b945694-6e1a-4cc3-be4d-\
+   3.986024805548457*^9, {3.986442919622429*^9, 3.9864429931776114`*^9}, {
+   3.986443046921921*^9, 3.986443069316794*^9}, {3.986443132853203*^9, 
+   3.986443181295179*^9}, 3.986443237194359*^9, {3.9864463099788094`*^9, 
+   3.986446350488875*^9}},ExpressionUUID->"0b945694-6e1a-4cc3-be4d-\
 88b42fb29281"],
 
 Cell["\<\
-
 SetDirectory[NotebookDirectory[]];
 Get[\"TrasformazioneImmagini`\"];
 Get[\"Interfaccia`\"];\
 \>", "Text",
  CellChangeTimes->{{3.986020261268909*^9, 3.9860202643745527`*^9}, 
-   3.986021223613846*^9, 3.986025032415935*^9},
- CellLabel->"",ExpressionUUID->"16bcf0dc-1dd4-4e85-850c-a1c3a65a63bc"]
+   3.986021223613846*^9, 3.986025032415935*^9, {3.986443175277803*^9, 
+   3.9864431795718517`*^9}},ExpressionUUID->"16bcf0dc-1dd4-4e85-850c-\
+a1c3a65a63bc"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
@@ -482,161 +585,177 @@ ExpressionUUID->"a7145d13-eea1-4dfb-884b-539519f81723"
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "c:1"->{
-  Cell[576, 22, 610, 8, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079",
-   CellTags->"c:1"]},
- "Indice"->{
-  Cell[3088, 78, 195, 3, 67, "Chapter",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f",
-   CellTags->"Indice"]},
- "introduzione"->{
-  Cell[5800, 156, 377, 6, 67, "Chapter",ExpressionUUID->"4cb4e65d-5f25-4d28-9825-00055fee9c42",
-   CellTags->"introduzione"]},
- "effetto_blur"->{
-  Cell[6553, 176, 237, 4, 65, "Section",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b",
-   CellTags->"effetto_blur"]},
- "cambio_colore"->{
-  Cell[7446, 200, 287, 5, 65, "Section",ExpressionUUID->"57e71acb-a0f0-416b-8e4f-ff6a7f2f9712",
-   CellTags->"cambio_colore"]},
- "trasposizione"->{
-  Cell[8282, 224, 289, 5, 65, "Section",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a",
-   CellTags->"trasposizione"]},
- "rotazione"->{
-  Cell[8958, 245, 281, 4, 65, "Section",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5",
-   CellTags->"rotazione"]},
- "esUni"->{
-  Cell[9625, 266, 208, 3, 67, "Chapter",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943",
-   CellTags->"esUni"]},
  "allenamento"->{
-  Cell[10225, 285, 334, 5, 65, "Section",ExpressionUUID->"d010562d-d474-42d7-a160-f77e9db1a0c8",
+  Cell[12586, 337, 334, 5, 65, "Section",ExpressionUUID->"d010562d-d474-42d7-a160-f77e9db1a0c8",
    CellTags->"allenamento"]},
- "gioco"->{
-  Cell[10800, 301, 367, 5, 65, "Section",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41",
-   CellTags->"gioco"]},
- "approfondimenti"->{
-  Cell[11371, 317, 361, 5, 67, "Chapter",ExpressionUUID->"fc10dd11-982f-4f90-888e-009fb49714ec",
-   CellTags->"approfondimenti"]},
  "bibliografia"->{
-  Cell[11925, 332, 395, 6, 67, "Chapter",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36",
+  Cell[15279, 412, 395, 6, 67, "Chapter",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36",
    CellTags->"bibliografia"]},
  "bib1"->{
-  Cell[13182, 356, 532, 11, 33, "Text",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73",
+  Cell[15677, 420, 578, 11, 33, "Text",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73",
    CellTags->"bib1"]},
  "bib2"->{
-  Cell[13717, 369, 481, 10, 33, "Text",ExpressionUUID->"06518877-4a3f-4207-9034-984b4fdfade5",
+  Cell[16258, 433, 481, 10, 33, "Text",ExpressionUUID->"06518877-4a3f-4207-9034-984b4fdfade5",
    CellTags->"bib2"]},
  "bib3"->{
-  Cell[14201, 381, 476, 10, 33, "Text",ExpressionUUID->"ee129440-7031-4977-8b86-18ec5fd0dc24",
+  Cell[16742, 445, 476, 10, 33, "Text",ExpressionUUID->"ee129440-7031-4977-8b86-18ec5fd0dc24",
    CellTags->"bib3"]},
  "bib4"->{
-  Cell[14680, 393, 452, 10, 33, "Text",ExpressionUUID->"3aa04edd-e54f-43aa-a725-1415d8298d14",
+  Cell[17221, 457, 452, 10, 33, "Text",ExpressionUUID->"3aa04edd-e54f-43aa-a725-1415d8298d14",
    CellTags->"bib4"]},
+ "cambio_colore"->{
+  Cell[9816, 255, 287, 5, 65, "Section",ExpressionUUID->"57e71acb-a0f0-416b-8e4f-ff6a7f2f9712",
+   CellTags->"cambio_colore"]},
  "commenti"->{
-  Cell[15169, 408, 339, 4, 67, "Chapter",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83",
-   CellTags->"commenti"]}
+  Cell[17710, 472, 363, 5, 67, "Chapter",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83",
+   CellTags->"commenti"],
+  Cell[18098, 481, 172, 2, 65, "Section",ExpressionUUID->"f3250828-fa03-40c9-8012-15b7a1204967",
+   CellTags->"commenti"]},
+ "copia_codice"->{
+  Cell[19475, 525, 239, 4, 65, "Section",ExpressionUUID->"bcce8394-d598-4b4c-9822-5511415dea6e",
+   CellTags->"copia_codice"]},
+ "c:1"->{
+  Cell[1728, 53, 677, 9, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079",
+   CellTags->"c:1"]},
+ "effetto_blur"->{
+  Cell[8874, 230, 237, 4, 65, "Section",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b",
+   CellTags->"effetto_blur"]},
+ "esUni"->{
+  Cell[12045, 322, 208, 3, 67, "Chapter",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943",
+   CellTags->"esUni"]},
+ "gioco"->{
+  Cell[13909, 374, 367, 5, 65, "Section",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41",
+   CellTags->"gioco"]},
+ "Indice"->{
+  Cell[4429, 112, 243, 3, 67, "Chapter",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f",
+   CellTags->"Indice"]},
+ "introduzione"->{
+  Cell[7617, 201, 377, 6, 67, "Chapter",ExpressionUUID->"4cb4e65d-5f25-4d28-9825-00055fee9c42",
+   CellTags->"introduzione"]},
+ "lavoro_futuro"->{
+  Cell[19044, 507, 183, 3, 65, "Section",ExpressionUUID->"3ac31b79-cb52-4c91-a8e9-55ec1661188d",
+   CellTags->"lavoro_futuro"]},
+ "rotazione"->{
+  Cell[11378, 301, 281, 4, 65, "Section",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5",
+   CellTags->"rotazione"]},
+ "trasposizione"->{
+  Cell[10674, 279, 289, 5, 65, "Section",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a",
+   CellTags->"trasposizione"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"c:1", 17932, 484},
- {"Indice", 18059, 487},
- {"introduzione", 18198, 490},
- {"effetto_blur", 18344, 493},
- {"cambio_colore", 18491, 496},
- {"trasposizione", 18639, 499},
- {"rotazione", 18783, 502},
- {"esUni", 18919, 505},
- {"allenamento", 19057, 508},
- {"gioco", 19196, 511},
- {"approfondimenti", 19339, 514},
- {"bibliografia", 19489, 517},
- {"bib1", 19628, 520},
- {"bib2", 19757, 523},
- {"bib3", 19886, 526},
- {"bib4", 20015, 529},
- {"commenti", 20148, 532}
+ {"allenamento", 21885, 587},
+ {"bibliografia", 22031, 590},
+ {"bib1", 22170, 593},
+ {"bib2", 22299, 596},
+ {"bib3", 22428, 599},
+ {"bib4", 22557, 602},
+ {"cambio_colore", 22695, 605},
+ {"commenti", 22838, 608},
+ {"copia_codice", 23104, 613},
+ {"c:1", 23242, 616},
+ {"effetto_blur", 23376, 619},
+ {"esUni", 23515, 622},
+ {"gioco", 23648, 625},
+ {"Indice", 23782, 628},
+ {"introduzione", 23922, 631},
+ {"lavoro_futuro", 24069, 634},
+ {"rotazione", 24214, 637},
+ {"trasposizione", 24359, 640}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[554, 20, 1149, 29, 133, "Input",ExpressionUUID->"234a75cf-c155-4e61-bbf9-b3abdf03a3e8"],
 Cell[CellGroupData[{
-Cell[576, 22, 610, 8, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079",
+Cell[1728, 53, 677, 9, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079",
  CellTags->"c:1"],
 Cell[CellGroupData[{
-Cell[1211, 34, 430, 7, 67, "Chapter",ExpressionUUID->"4ae55e51-4243-46d9-b772-69edd83dd885"],
-Cell[1644, 43, 208, 4, 52, "Subtitle",ExpressionUUID->"5455213e-7fb5-4d2d-a4a8-e2d8cc6b0d27"],
-Cell[1855, 49, 616, 12, 30, "Author",ExpressionUUID->"96f6e007-5609-4b27-9117-6dbc214ac18e"],
-Cell[2474, 63, 577, 10, 33, "Text",ExpressionUUID->"6b343bc3-2708-48fd-8996-71509f44da71"]
+Cell[2430, 66, 430, 7, 67, "Chapter",ExpressionUUID->"4ae55e51-4243-46d9-b772-69edd83dd885"],
+Cell[2863, 75, 208, 4, 52, "Subtitle",ExpressionUUID->"5455213e-7fb5-4d2d-a4a8-e2d8cc6b0d27"],
+Cell[3074, 81, 688, 13, 30, "Author",ExpressionUUID->"96f6e007-5609-4b27-9117-6dbc214ac18e"],
+Cell[3765, 96, 627, 11, 33, "Text",ExpressionUUID->"6b343bc3-2708-48fd-8996-71509f44da71"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3088, 78, 195, 3, 67, "Chapter",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f",
+Cell[4429, 112, 243, 3, 67, "Chapter",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f",
  CellTags->"Indice"],
-Cell[3286, 83, 2477, 68, 274, "Text",ExpressionUUID->"20301a34-8458-4ffc-8c6e-b8bdf49589ca"]
+Cell[4675, 117, 2905, 79, 317, "Text",ExpressionUUID->"20301a34-8458-4ffc-8c6e-b8bdf49589ca"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5800, 156, 377, 6, 67, "Chapter",ExpressionUUID->"4cb4e65d-5f25-4d28-9825-00055fee9c42",
+Cell[7617, 201, 377, 6, 67, "Chapter",ExpressionUUID->"4cb4e65d-5f25-4d28-9825-00055fee9c42",
  CellTags->"introduzione"],
-Cell[6180, 164, 348, 8, 55, "Text",ExpressionUUID->"ed8a53e7-cf58-4e15-babc-1ae9f14de9df"],
+Cell[7997, 209, 852, 17, 164, "Text",ExpressionUUID->"ed8a53e7-cf58-4e15-babc-1ae9f14de9df"],
 Cell[CellGroupData[{
-Cell[6553, 176, 237, 4, 65, "Section",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b",
+Cell[8874, 230, 237, 4, 65, "Section",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b",
  CellTags->"effetto_blur"],
-Cell[6793, 182, 616, 13, 55, "Text",ExpressionUUID->"5bdc1a2c-1975-4f35-ab19-94750b5fff74"]
+Cell[9114, 236, 665, 14, 33, "Text",ExpressionUUID->"5bdc1a2c-1975-4f35-ab19-94750b5fff74"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7446, 200, 287, 5, 65, "Section",ExpressionUUID->"57e71acb-a0f0-416b-8e4f-ff6a7f2f9712",
+Cell[9816, 255, 287, 5, 65, "Section",ExpressionUUID->"57e71acb-a0f0-416b-8e4f-ff6a7f2f9712",
  CellTags->"cambio_colore"],
-Cell[7736, 207, 509, 12, 33, "Text",ExpressionUUID->"7bed703d-c2de-4a4c-b88c-f5db1203191f"]
+Cell[10106, 262, 531, 12, 33, "Text",ExpressionUUID->"7bed703d-c2de-4a4c-b88c-f5db1203191f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8282, 224, 289, 5, 65, "Section",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a",
+Cell[10674, 279, 289, 5, 65, "Section",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a",
  CellTags->"trasposizione"],
-Cell[8574, 231, 347, 9, 33, "Text",ExpressionUUID->"d7fb4399-22d6-443a-af54-80f9381e7350"]
+Cell[10966, 286, 375, 10, 33, "Text",ExpressionUUID->"d7fb4399-22d6-443a-af54-80f9381e7350"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8958, 245, 281, 4, 65, "Section",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5",
+Cell[11378, 301, 281, 4, 65, "Section",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5",
  CellTags->"rotazione"],
-Cell[9242, 251, 334, 9, 33, "Text",ExpressionUUID->"f4873060-c8d7-40f8-bd86-b6e8b2e8e622"]
+Cell[11662, 307, 334, 9, 33, "Text",ExpressionUUID->"f4873060-c8d7-40f8-bd86-b6e8b2e8e622"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9625, 266, 208, 3, 67, "Chapter",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943",
+Cell[12045, 322, 208, 3, 67, "Chapter",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943",
  CellTags->"esUni"],
-Cell[9836, 271, 364, 10, 99, "Text",ExpressionUUID->"f9c954c2-946a-485e-8cf5-4e2a44be99a0"],
+Cell[12256, 327, 305, 6, 33, "Text",ExpressionUUID->"f9c954c2-946a-485e-8cf5-4e2a44be99a0"],
 Cell[CellGroupData[{
-Cell[10225, 285, 334, 5, 65, "Section",ExpressionUUID->"d010562d-d474-42d7-a160-f77e9db1a0c8",
+Cell[12586, 337, 334, 5, 65, "Section",ExpressionUUID->"d010562d-d474-42d7-a160-f77e9db1a0c8",
  CellTags->"allenamento"],
-Cell[10562, 292, 201, 4, 33, "Text",ExpressionUUID->"2c932672-52a7-4ff0-84b1-dcd67c2b07d5"]
+Cell[12923, 344, 296, 5, 33, "Text",ExpressionUUID->"2c932672-52a7-4ff0-84b1-dcd67c2b07d5"],
+Cell[13222, 351, 650, 18, 69, "Input",ExpressionUUID->"fcfe3c4e-a7e4-45af-beb8-e2a7fdebf403"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10800, 301, 367, 5, 65, "Section",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41",
+Cell[13909, 374, 367, 5, 65, "Section",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41",
  CellTags->"gioco"],
-Cell[11170, 308, 152, 3, 33, "Text",ExpressionUUID->"978aa148-7721-4ff1-b81f-f1f4df6019a2"]
+Cell[14279, 381, 249, 4, 33, "Text",ExpressionUUID->"978aa148-7721-4ff1-b81f-f1f4df6019a2"],
+Cell[14531, 387, 699, 19, 69, "Input",ExpressionUUID->"dc9ac5d7-8816-4278-a50e-27f3eb4355e9"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11371, 317, 361, 5, 67, "Chapter",ExpressionUUID->"fc10dd11-982f-4f90-888e-009fb49714ec",
- CellTags->"approfondimenti"],
-Cell[11735, 324, 153, 3, 33, "Text",ExpressionUUID->"576f6cbd-4ba0-4e1c-93ad-f74364cef627"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[11925, 332, 395, 6, 67, "Chapter",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36",
+Cell[15279, 412, 395, 6, 67, "Chapter",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36",
  CellTags->"bibliografia"],
-Cell[12323, 340, 856, 14, 33, "Text",ExpressionUUID->"871e7fa0-e2a1-43d0-b9e2-0e0bb4968c21"],
-Cell[13182, 356, 532, 11, 33, "Text",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73",
+Cell[15677, 420, 578, 11, 33, "Text",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73",
  CellTags->"bib1"],
-Cell[13717, 369, 481, 10, 33, "Text",ExpressionUUID->"06518877-4a3f-4207-9034-984b4fdfade5",
+Cell[16258, 433, 481, 10, 33, "Text",ExpressionUUID->"06518877-4a3f-4207-9034-984b4fdfade5",
  CellTags->"bib2"],
-Cell[14201, 381, 476, 10, 33, "Text",ExpressionUUID->"ee129440-7031-4977-8b86-18ec5fd0dc24",
+Cell[16742, 445, 476, 10, 33, "Text",ExpressionUUID->"ee129440-7031-4977-8b86-18ec5fd0dc24",
  CellTags->"bib3"],
-Cell[14680, 393, 452, 10, 33, "Text",ExpressionUUID->"3aa04edd-e54f-43aa-a725-1415d8298d14",
+Cell[17221, 457, 452, 10, 33, "Text",ExpressionUUID->"3aa04edd-e54f-43aa-a725-1415d8298d14",
  CellTags->"bib4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15169, 408, 339, 4, 67, "Chapter",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83",
+Cell[17710, 472, 363, 5, 67, "Chapter",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83",
  CellTags->"commenti"],
-Cell[15511, 414, 575, 19, 252, "Text",ExpressionUUID->"fc1224d5-3827-43a2-b0e2-91737a7b023a"],
-Cell[16089, 435, 847, 16, 129, "Input",ExpressionUUID->"0b945694-6e1a-4cc3-be4d-88b42fb29281",
+Cell[CellGroupData[{
+Cell[18098, 481, 172, 2, 65, "Section",ExpressionUUID->"f3250828-fa03-40c9-8012-15b7a1204967",
+ CellTags->"commenti"],
+Cell[18273, 485, 734, 17, 143, "Text",ExpressionUUID->"fc1224d5-3827-43a2-b0e2-91737a7b023a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19044, 507, 183, 3, 65, "Section",ExpressionUUID->"3ac31b79-cb52-4c91-a8e9-55ec1661188d",
+ CellTags->"lavoro_futuro"],
+Cell[19230, 512, 208, 8, 99, "Text",ExpressionUUID->"c058ae4b-0ab0-4ea1-8052-a45186c1a2d1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19475, 525, 239, 4, 65, "Section",ExpressionUUID->"bcce8394-d598-4b4c-9822-5511415dea6e",
+ CellTags->"copia_codice"],
+Cell[19717, 531, 1115, 22, 49, "Input",ExpressionUUID->"0b945694-6e1a-4cc3-be4d-88b42fb29281",
  CellOpen->True],
-Cell[16939, 453, 303, 8, 99, "Text",ExpressionUUID->"16bcf0dc-1dd4-4e85-850c-a1c3a65a63bc"]
+Cell[20835, 555, 340, 8, 77, "Text",ExpressionUUID->"16bcf0dc-1dd4-4e85-850c-a1c3a65a63bc"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
