@@ -29,14 +29,23 @@ BeginPackage["TrasformazioneImmagini`"];
 		x =3;
 
 
+	(*Funzione che serve a filtrare solo istanze in cui vi \[EGrave] associata la corrispettiva immagine*)
+	filterWithImages[entityList_] := Select[
+	    entityList,
+	    (*Si controlla se si ritorna effettivamente un'immagine valida e con 'Quiet'
+	    si evitano di mostrare messaggi di errore per tutte quelle entit\[AGrave] cui immagine NON
+	    \[EGrave] stata trovata*)
+	    ImageQ[Quiet[EntityValue[#, "Image"]]] &
+	]
+	
 	(*Creazione della Batch di 100 immagini variegate: prima si ricavano 5 liste 
 	di immagini di diversa categoria (Nota: in ogni lista sono presenti 20 img), successivamente si 
 	crea un'unica lista, ovvero il batch finale, data dalla Join delle 5 ricavate precedentemente*)
-	animalList = EntityList[SampledEntityClass[EntityClass["Species", "MammalSpecies"], 20]];
-	mineralList = EntityList[SampledEntityClass["Mineral", 20]];
-	elementList = EntityList["Element"][[1;;20]];
-	aircraftList = EntityList[SampledEntityClass["Aircraft", 20]];
-	movieList = EntityList[SampledEntityClass["Movie", 20]];
+	animalList   = filterWithImages[EntityList[SampledEntityClass[EntityClass["Species", "MammalSpecies"], 30]]];
+	mineralList  = filterWithImages[EntityList[SampledEntityClass["Mineral",  30]]];
+	elementList  = filterWithImages[EntityList["Element"][[1;;30]]];
+	aircraftList = filterWithImages[EntityList[SampledEntityClass["Aircraft", 30]]];
+	movieList    = filterWithImages[EntityList[SampledEntityClass["Movie",    30]]];
 	
 	imageDatabase = Join[animalList, mineralList, elementList, aircraftList, movieList];
 	lengthImageDb = Length[imageDatabase];

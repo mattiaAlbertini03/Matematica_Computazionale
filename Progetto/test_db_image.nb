@@ -1,0 +1,725 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     26603,        717]
+NotebookOptionsPosition[     26026,        699]
+NotebookOutlinePosition[     26418,        715]
+CellTagsIndexPosition[     26375,        712]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+     "===", "===", "===", "===", "===", "===", "===", "===", "==="}], " ", 
+   "*)"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{"TEST", " ", "-", " ", 
+    RowBox[{"Confronto", " ", "immagini", " ", "tramite", " ", "seed"}]}], 
+   "                       ", "*)"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+     "===", "===", "===", "===", "===", "===", "===", "===", "==="}], " ", 
+   "*)"}], "\n", "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"1.", " ", "FUNZIONE", " ", "HELPER"}], " ", "-", " ", 
+    RowBox[{
+    "Filtra", " ", "entit\[AGrave]", " ", "con", " ", "immagine", " ", 
+     "valida"}]}], "        ", "*)"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"filterWithImages", "[", "entityList_", "]"}], " ", ":=", " ", 
+    RowBox[{"Select", "[", "\n", "    ", 
+     RowBox[{"entityList", ",", "\n", "    ", 
+      RowBox[{
+       RowBox[{"ImageQ", "[", 
+        RowBox[{"Quiet", "[", 
+         RowBox[{"EntityValue", "[", 
+          RowBox[{"#", ",", " ", "\"\<Image\>\""}], "]"}], "]"}], "]"}], " ", 
+       "&"}]}], "\n", "]"}]}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"2.", " ", "COSTRUZIONE", " ", "DEL", " ", "DATABASE"}], 
+    "                                   ", "*)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"animalList", "   ", "=", " ", 
+     RowBox[{"filterWithImages", "[", 
+      RowBox[{"EntityList", "[", 
+       RowBox[{"SampledEntityClass", "[", 
+        RowBox[{
+         RowBox[{"EntityClass", "[", 
+          RowBox[{"\"\<Species\>\"", ",", " ", "\"\<MammalSpecies\>\""}], 
+          "]"}], ",", " ", "30"}], "]"}], "]"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mineralList", "  ", "=", " ", 
+     RowBox[{"filterWithImages", "[", 
+      RowBox[{"EntityList", "[", 
+       RowBox[{"SampledEntityClass", "[", 
+        RowBox[{"\"\<Mineral\>\"", ",", "  ", "30"}], "]"}], "]"}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"elementList", "  ", "=", " ", 
+     RowBox[{"filterWithImages", "[", 
+      RowBox[{
+       RowBox[{"EntityList", "[", "\"\<Element\>\"", "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ";;", "30"}], "]"}], "]"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"aircraftList", " ", "=", " ", 
+     RowBox[{"filterWithImages", "[", 
+      RowBox[{"EntityList", "[", 
+       RowBox[{"SampledEntityClass", "[", 
+        RowBox[{"\"\<Aircraft\>\"", ",", " ", "30"}], "]"}], "]"}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"movieList", "    ", "=", " ", 
+     RowBox[{"filterWithImages", "[", 
+      RowBox[{"EntityList", "[", 
+       RowBox[{"SampledEntityClass", "[", 
+        RowBox[{"\"\<Movie\>\"", ",", "    ", "30"}], "]"}], "]"}], "]"}]}], 
+    ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"imageDatabase", " ", "=", " ", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+      "animalList", ",", " ", "mineralList", ",", " ", "elementList", ",", 
+       " ", "aircraftList", ",", " ", "movieList"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"lengthImageDb", " ", "=", " ", 
+     RowBox[{"Length", "[", "imageDatabase", "]"}]}], ";"}], "\n", "\n", 
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<Database caricato: \>\"", ",", " ", "lengthImageDb", ",", 
+     " ", "\"\< immagini valide\>\""}], "]"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"3.", " ", "FUNZIONE"}], " ", "-", " ", 
+     RowBox[{"Ritorna", " ", "immagine", " ", "dal", " ", "seed"}]}], 
+    "                       ", "*)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"imageFromSeed", "[", "seed_Integer", "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "indice", "}"}], ",", "\n", "    ", 
+      RowBox[{
+       RowBox[{"indice", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{"seed", ",", " ", "lengthImageDb"}], "]"}], " ", "+", " ", 
+         "1"}]}], ";", "\n", "    ", 
+       RowBox[{"EntityValue", "[", 
+        RowBox[{
+         RowBox[{"imageDatabase", "[", 
+          RowBox[{"[", "indice", "]"}], "]"}], ",", " ", "\"\<Image\>\""}], 
+        "]"}]}]}], "\n", "]"}]}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"4.", " ", "FUNZIONE"}], " ", "-", " ", 
+     RowBox[{
+     "Confronta", " ", "due", " ", "immagini", " ", "pixel", " ", "per", " ", 
+      "pixel"}]}], "          ", "*)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"imagesEqual", "[", 
+     RowBox[{"img1_Image", ",", " ", "img2_Image"}], "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"data1", ",", " ", "data2"}], "}"}], ",", "\n", "    ", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"ImageDimensions", "[", "img1", "]"}], " ", "=!=", " ", 
+          RowBox[{"ImageDimensions", "[", "img2", "]"}]}], ",", " ", 
+         RowBox[{"Return", "[", "False", "]"}]}], "]"}], ";", "\n", "    ", 
+       RowBox[{"data1", " ", "=", " ", 
+        RowBox[{"ImageData", "[", "img1", "]"}]}], ";", "\n", "    ", 
+       RowBox[{"data2", " ", "=", " ", 
+        RowBox[{"ImageData", "[", "img2", "]"}]}], ";", "\n", "    ", 
+       RowBox[{"data1", " ", "===", " ", "data2"}]}]}], "\n", "]"}]}], "\n", 
+   "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"5.", " ", "TEST", " ", "INTERATTIVO"}], 
+    "                                           ", "*)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}], " ", "*)"}], "\n", 
+   RowBox[{"DynamicModule", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"seed1", " ", "=", " ", "0"}], ",", " ", 
+       RowBox[{"seed2", " ", "=", " ", "0"}], ",", " ", 
+       RowBox[{"risultato", " ", "=", " ", "None"}]}], "}"}], ",", "\n", 
+     "    ", 
+     RowBox[{"Panel", "[", "\n", "        ", 
+      RowBox[{
+       RowBox[{"Column", "[", 
+        RowBox[{"{", "\n", "            ", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           
+           RowBox[{"\"\<Test confronto immagini\>\"", ",", " ", "Bold", ",", 
+            " ", "16"}], "]"}], ",", "\n", "            ", 
+          RowBox[{"Spacer", "[", "10", "]"}], ",", "\n", "\n", "            ", 
+          RowBox[{"(*", " ", 
+           RowBox[{"Input", " ", "seed"}], " ", "*)"}], "\n", "            ", 
+          
+          RowBox[{"Row", "[", 
+           RowBox[{"{", "\n", "                ", 
+            RowBox[{"\"\<Seed 1: \>\"", ",", " ", 
+             RowBox[{"InputField", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", "seed1", "]"}], ",", " ", "Number", ",",
+                " ", 
+               RowBox[{"FieldSize", " ", "->", " ", "6"}]}], "]"}], ",", "\n",
+              "                ", 
+             RowBox[{"Spacer", "[", "20", "]"}], ",", "\n", 
+             "                ", "\"\<Seed 2: \>\"", ",", " ", 
+             RowBox[{"InputField", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", "seed2", "]"}], ",", " ", "Number", ",",
+                " ", 
+               RowBox[{"FieldSize", " ", "->", " ", "6"}]}], "]"}], ",", "\n",
+              "                ", 
+             RowBox[{"Spacer", "[", "20", "]"}], ",", "\n", 
+             "                ", 
+             RowBox[{"Button", "[", 
+              
+              RowBox[{"\"\<Confronta\>\"", ",", "\n", "                    ", 
+               
+               RowBox[{"risultato", " ", "=", " ", 
+                RowBox[{
+                "imagesEqual", "[", "\n", "                        ", 
+                 RowBox[{
+                  RowBox[{"imageFromSeed", "[", "seed1", "]"}], ",", "\n", 
+                  "                        ", 
+                  RowBox[{"imageFromSeed", "[", "seed2", "]"}]}], "\n", 
+                 "                    ", "]"}]}], ",", "\n", 
+               "                    ", 
+               RowBox[{"Background", " ", "->", " ", 
+                RowBox[{"RGBColor", "[", 
+                 RowBox[{"0.2", ",", " ", "0.5", ",", " ", "0.9"}], "]"}]}], ",",
+                "\n", "                    ", 
+               RowBox[{"BaseStyle", "  ", "->", " ", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"FontColor", " ", "->", " ", "White"}], ",", " ", 
+                  RowBox[{"FontWeight", " ", "->", " ", "Bold"}]}], "}"}]}]}],
+               "\n", "                ", "]"}]}], "\n", "            ", "}"}],
+            "]"}], ",", "\n", "            ", 
+          RowBox[{"Spacer", "[", "10", "]"}], ",", "\n", "\n", "            ", 
+          RowBox[{"(*", " ", 
+           RowBox[{"Risultato", " ", "testuale"}], " ", "*)"}], "\n", 
+          "            ", 
+          RowBox[{"Dynamic", "[", "\n", "                ", 
+           RowBox[{"Which", "[", "\n", "                    ", 
+            RowBox[{
+             RowBox[{"risultato", " ", "===", " ", "None"}], ",", " ", "\n", 
+             "                        ", "\"\<\>\"", ",", "\n", 
+             "                    ", 
+             RowBox[{"risultato", " ", "===", " ", "True"}], ",", "\n", 
+             "                        ", 
+             RowBox[{"Style", "[", 
+              
+              RowBox[{"\"\<\[Checkmark]  Le immagini sono UGUALI\>\"", ",", 
+               " ", "Bold", ",", " ", "14", ",", " ", 
+               RowBox[{"Darker", "[", "Green", "]"}]}], "]"}], ",", "\n", 
+             "                    ", "True", ",", "\n", 
+             "                        ", 
+             RowBox[{"Style", "[", 
+              
+              RowBox[{"\"\<\[Times]  Le immagini sono DIVERSE\>\"", ",", " ", 
+               "Bold", ",", " ", "14", ",", " ", 
+               RowBox[{"Darker", "[", "Red", "]"}]}], "]"}]}], "\n", 
+            "                ", "]"}], "\n", "            ", "]"}], ",", "\n",
+           "            ", 
+          RowBox[{"Spacer", "[", "10", "]"}], ",", "\n", "\n", "            ", 
+          RowBox[{"(*", " ", 
+           RowBox[{"Immagini", " ", "affiancate"}], " ", "*)"}], "\n", 
+          "            ", 
+          RowBox[{"Dynamic", "[", "\n", "                ", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"risultato", " ", "===", " ", "None"}], ",", "\n", 
+             "                    ", "\"\<\>\"", ",", "\n", 
+             "                    ", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", "\n", "                        ", 
+               RowBox[{
+                RowBox[{"Column", "[", 
+                 RowBox[{"{", "\n", "                            ", 
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<Seed \>\"", " ", "<>", " ", 
+                    RowBox[{"ToString", "[", "seed1", "]"}]}], ",", " ", 
+                    "Bold"}], "]"}], ",", "\n", 
+                   "                            ", 
+                   RowBox[{"imageFromSeed", "[", "seed1", "]"}]}], "\n", 
+                  "                        ", "}"}], "]"}], ",", "\n", 
+                "                        ", 
+                RowBox[{"Spacer", "[", "30", "]"}], ",", "\n", 
+                "                        ", 
+                RowBox[{"Column", "[", 
+                 RowBox[{"{", "\n", "                            ", 
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<Seed \>\"", " ", "<>", " ", 
+                    RowBox[{"ToString", "[", "seed2", "]"}]}], ",", " ", 
+                    "Bold"}], "]"}], ",", "\n", 
+                   "                            ", 
+                   RowBox[{"imageFromSeed", "[", "seed2", "]"}]}], "\n", 
+                  "                        ", "}"}], "]"}]}], "\n", 
+               "                    ", "}"}], "]"}]}], "\n", 
+            "                ", "]"}], "\n", "            ", "]"}]}], "\n", 
+         "        ", "}"}], "]"}], ",", "\n", "        ", 
+       RowBox[{"ImageSize", " ", "->", " ", "Full"}]}], "\n", "    ", "]"}]}],
+     "\n", "]"}]}]}]], "Code",
+ CellChangeTimes->{
+  3.986452866679139*^9, {3.9864529069472847`*^9, 3.98645293606879*^9}},
+ CellLabel->"In[49]:=",ExpressionUUID->"7cc3a909-2169-41b0-b5b4-e17c2e8c5ab0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Database caricato: \"\>", "\[InvisibleSpace]", "98", 
+   "\[InvisibleSpace]", "\<\" immagini valide\"\>"}],
+  SequenceForm["Database caricato: ", 98, " immagini valide"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.986452947660215*^9, 3.986452949389037*^9}, 
+   3.986453206659358*^9},
+ CellLabel->
+  "During evaluation of \
+In[49]:=",ExpressionUUID->"67317df2-7919-4f99-9bff-08af1ccc5a8c"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`seed1$$ = 39, $CellContext`seed2$$ = 
+  8, $CellContext`risultato$$ = False}, 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       StyleBox["\<\"Test confronto immagini\"\>",
+        StripOnInput->False,
+        FontSize->16,
+        FontWeight->Bold]},
+      {
+       TemplateBox[{10},
+        "Spacer1"]},
+      {
+       TemplateBox[{"\"Seed 1: \"", 
+         InputFieldBox[
+          Dynamic[$CellContext`seed1$$], Number, FieldSize -> 6], 
+         TemplateBox[{20}, "Spacer1"], "\"Seed 2: \"", 
+         InputFieldBox[
+          Dynamic[$CellContext`seed2$$], Number, FieldSize -> 6], 
+         TemplateBox[{20}, "Spacer1"], 
+         ButtonBox[
+         "\"Confronta\"", 
+          ButtonFunction :> ($CellContext`risultato$$ = \
+$CellContext`imagesEqual[
+             $CellContext`imageFromSeed[$CellContext`seed1$$], 
+             $CellContext`imageFromSeed[$CellContext`seed2$$]]), Background -> 
+          RGBColor[0.2, 0.5, 0.9], 
+          BaseStyle -> {FontColor -> GrayLevel[1], FontWeight -> Bold}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{10},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         Which[$CellContext`risultato$$ === None, 
+          "", $CellContext`risultato$$ === True, 
+          Style["\[Checkmark]  Le immagini sono UGUALI", Bold, 14, 
+           Darker[Green]], True, 
+          Style["\[Times]  Le immagini sono DIVERSE", Bold, 14, 
+           Darker[Red]]], StandardForm],
+        ImageSizeCache->{201.03369140625, {2.6455078125, 10.9033203125}}]},
+      {
+       TemplateBox[{10},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[$CellContext`risultato$$ === None, "", 
+          Row[{
+            Column[{
+              Style["Seed " <> ToString[$CellContext`seed1$$], Bold], 
+              $CellContext`imageFromSeed[$CellContext`seed1$$]}], 
+            Spacer[30], 
+            Column[{
+              Style["Seed " <> ToString[$CellContext`seed2$$], Bold], 
+              $CellContext`imageFromSeed[$CellContext`seed2$$]}]}]], 
+         StandardForm],
+        ImageSizeCache->{
+         111.67290581597223`, {22.560791015625, 28.216552734375}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   ImageSize->Full],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{{3.9864529476715193`*^9, 3.986452949396781*^9}, 
+   3.986453206661611*^9},
+ CellLabel->"Out[60]=",ExpressionUUID->"f04e171b-551e-4dc9-bf09-75335305f56d"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6d8f44c9-a5ec-4133-bb51-d37f65c4674c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 22297, 590, 1993, "Code",ExpressionUUID->"7cc3a909-2169-41b0-b5b4-e17c2e8c5ab0"],
+Cell[22876, 614, 446, 10, 23, "Print",ExpressionUUID->"67317df2-7919-4f99-9bff-08af1ccc5a8c"],
+Cell[23325, 626, 2685, 70, 194, "Output",ExpressionUUID->"f04e171b-551e-4dc9-bf09-75335305f56d"]
+}, Open  ]]
+}
+]
+*)
+
