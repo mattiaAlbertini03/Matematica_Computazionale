@@ -1,6 +1,7 @@
 Controllare attivazione e caricamento automatico
 Controllare immagini caricate
 Commentare tutto il codice
+	Rendere coerente lingua nel codice
 	Controllare Grammatica
 Parte testuale
 Parte estetica
