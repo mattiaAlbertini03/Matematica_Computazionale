@@ -16,17 +16,13 @@
 (* :Requirements:*)
 BeginPackage["TrasformazioneImmagini`"];
 	(*Funzioni che saranno esterne*)
-	x::usage ="Test";
 	imagesEqual::usage="imagesEqual[img1, img2] ritorna TRUE se le immagini sono uguali, FALSE altrimenti";
 	translateImageWrap::usage="translateImageWrap";
 	colorizeImage::usage="colorizeImage";
 	modifyImage::usage="modifyImage";
 	imageFromSeed::usage="imageFromSeed";
+	
 	Begin["Private`"];
-		(*
-		NOTA: variabile global di prova, da togliere!
-		*)
-		x =3;
 
 
 	(*Funzione che serve a filtrare solo istanze in cui vi \[EGrave] associata la corrispettiva immagine*)
