@@ -3,7 +3,39 @@ Controllare immagini caricate
 Commentare tutto il codice
 	Rendere coerente lingua nel codice
 	Controllare Grammatica
+	Scrivere i "?" con i parametri giusto e fatta bene 
 Parte testuale
-Parte estetica
-Aggiunta aiuto
+Parte estetica -> abbellirlo e rendere tutto coerenete
+Aggiunta aiuto -> bloccare bottone e renderlo grigio quando si arrivano a 5 aiuti?
 ARIAL -> font dislessia o lettura del testo SPEAK
+Grduatoria permanente (opzionale)
+Sviluppi futuri
+A chi è rivolto
+Approfondire parti non spiegate dalla prof
+Carico db locale
+Farlo provare a qualcuno a caso (2-3 persone)-> ce lo chiederà
+link nella biblografia e link tra le cose nelle pagine
+
+Indice
+	Introduzione
+		A chi è rivolto
+		Come utilizzare questo notebook
+	Modifica immagini
+		Trasposizione 
+		...
+	Struttura file
+		Abbiamo utilizzato il paradigma MVC 
+	Approfondimenti con sviluppi futuri
+		sviluppi futuri (anche banali)
+		Difficolta? magari selettore di step
+	Bibibliografia
+	Funzionalità aggiuntive
+		(anche funzioni banali non viste)
+		HoldValue
+		DB interno
+		Caricamento da file System
+		...
+		(3/4 righe per ogniuno spiegate da noi poi link alla documentazione)
+		
+	
+	
