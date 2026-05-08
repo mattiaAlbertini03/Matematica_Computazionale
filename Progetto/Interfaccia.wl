@@ -3,7 +3,7 @@
 (*Dichiariamo il package "Interfaccia", esso conterr\[AGrave] tutta la parte di codice che viene 
 	utilizzata per l'interazione con l'utente*)
 (*La graffa all'interno di BeginPackage indica una dipendenza di "Interfaccia" nei confronti di "TrasformazioneImmagini"*)
-BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
+BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 	(*L'utilizzo di usage permette di rendere le funzioni visibili anche all'esterno del package
 		la stringa che gli viene assegnata invece rappresenta le informazioni che vengono mostrate quando
 		si utilizza il comando "Information" (?)*)
@@ -118,8 +118,18 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 				Row[{"Transla X:  ", translaX2}],
 				Row[{"Transla Y:  ", translaY2}]
 			}, Alignment->Left];
-		
-		GiocaPanel[seed_]:=DynamicModule[{
+			
+		creaBloccoClassifica[top3_, pos_Integer,colore_,h_] := Module[{},
+			Column[{
+				Style[If[pos<=Length[top3],top3[[pos,"Nome"]],"-"],14,Bold],
+				Framed[
+					Style[If[pos<=Length[top3],top3[[pos,"Punteggio"]],0],22,White],Background->colore,FrameStyle->None,ImageSize->{100,h},Alignment->Center
+				],
+				Style[ToString[pos]<>"\.ba",18,Gray]
+			},Alignment->Center]
+		];
+		SetAttributes[GiocaPanel, HoldFirst]
+		GiocaPanel[punteggio_, seed_, giocatore_]:=DynamicModule[{
 			img=Import["https://c8.alamy.com/compit/j253d8/esempio-illustrativo-del-timbro-j253d8.jpg"],
 			blur=0,
 			colore=None,
@@ -127,7 +137,6 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 			translaX=0,
 			translaY=0,
 			dims={0,0},
-			punteggio=0,
 			punteggioLivello=0,
 			partite=1,
 			blur2=0,
@@ -148,6 +157,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 			Panel[
 				Column[{
 					(*--- RIGA 1: la tua immagine (aggiornata in tempo reale) e immagine modificata ---*)
+					Style["Benvenuto "<>giocatore, Bold, DarkGreen, 20],
 					Pane[Row[{
 						Column[{
 							Style["Immagine modificata", Bold],
@@ -243,9 +253,10 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 							
 							(*Pulisci sotto agli altri bottoni*)
 							bottonePulisci[blur, rotazione, translaX, translaY, colore]
-						
 						}, Alignment->Center, ItemSize->20]
-					}, Alignment->Center]
+					}, Alignment->Center],
+					
+					ClassificaPanel[]
 				}, Alignment->Center],
 			ImageSize->Full]
 		];
@@ -295,23 +306,74 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 		]
 	];
 	
-	Gioca[]:=DynamicModule[{seed=0, errorMsg="", visual=""},
+	ClassificaPanel[] := Module[{dati,top3,altri},
+		dati=caricaClassifica[];
+		(*Prendiamo i primi 3 e i restanti*)
+		top3=Take[dati,UpTo[3]];
+		altri=If[Length[dati]>3,Drop[dati,3],{}];
+		
+		Panel[Column[{
+			Style["LEADERBOARD",24,Bold,Darker[Blue]],Spacer[10],
+			
+			(*Sezione Podio:2-1-3*)
+			Row[{
+				creaBloccoClassifica[top3, 2,GrayLevel[0.7],80],
+				creaBloccoClassifica[top3, 1,RGBColor[1,0.84,0],120],
+				creaBloccoClassifica[top3, 3,RGBColor[0.8,0.5,0.2],60]
+			},Alignment->Bottom],
+			
+			Spacer[20],
+			
+			(*Sezione Lista (da 4 a 10)*)
+			Column[
+				Table[
+					Grid[{{Style[ToString[i+3]<>"\.ba",16,Bold],Style[altri[[i,"Nome"]],16],Style[altri[[i,"Punteggio"]],16,Italic]}},ItemSize->{{3,10,5}},Alignment->Left],
+					{i,Length[altri]}
+				],Spacings->1
+			]
+		},Alignment->Center],Background->White]
+
+	];
+	
+	Gioca[]:=DynamicModule[{seed=0, errorMsg="", visual="", inputnome="", giocatore="", punteggio=0},
 		Panel[Column[{
 				Row[{
 					InputField[Dynamic[seed], Number], 
+					InputField[Dynamic[inputnome], String],
+					
 					Button["Nuova partita",
-					If[IntegerQ[seed],
-						errorMsg="";
-						visual="";
-						visual=GiocaPanel[seed],
-						errorMsg="Errore: devi inserire un numero intero";
-						visual="";
+						If[IntegerQ[seed],
+							errorMsg="";
+							visual="";
+							If[inputnome=="",
+									errorMsg="Errore: devi inserire un nome";
+									visual="";
+								,
+									errorMsg="";
+									visual="";
+									giocatore = inputnome;
+									punteggio = 0;
+									visual = GiocaPanel[punteggio, seed, giocatore]
+								
+							];,
+							errorMsg="Errore: devi inserire un numero intero";
+							visual="";
+						]
+					],
+					
+					Button["Termina Partita",
+								visual="";
+								aggiungiPunteggio[giocatore, punteggio];
+								visual = ClassificaPanel[]; ,
+								Background->LightRed
 					]
-				]}],
+				}],
 				
 				Dynamic[Style[errorMsg, Red, Bold]],
 				Dynamic[visual]
-		}]]
+		}, Alignment->Center]]
 	];
+	
+	
 End[];
 EndPackage[];
