@@ -10,10 +10,10 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 	Gioca::usage = "Gioca[] avvia l'interfaccia di gioco.";
 	Studia::usage = "Studia[] avvia la parte didattica.";
 	
-	(*Qui iniamo il contesto privato in cui definiamo variabili e funzioni a cui l'utente non potr\[AGrave] accedere*)
+	(*Qui iniziamo il contesto privato in cui definiamo variabili e funzioni a cui l'utente non potr\[AGrave] accedere*)
 	Begin["Private`"];
 		ALTEZZAIMMAGINE = 150; (*Altezza in pixel nella schermata*)
-		(*Qui definiamo tutti i parametri grafici e di trasformazione, in modo da rendereli coerenti in tutte le funzioni*)
+		(*Qui definiamo tutti i parametri grafici e di trasformazione, in modo da renderli coerenti in tutte le funzioni*)
 		MAXBLUR= 50;
 		BLURSTEP= 10;
 		ROTATIONSTEP= 30;
@@ -118,16 +118,69 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 				Row[{"Transla X:  ", translaX2}],
 				Row[{"Transla Y:  ", translaY2}]
 			}, Alignment->Left];
-			
-		creaBloccoClassifica[top3_, pos_Integer,colore_,h_] := Module[{},
+
+		(*Funzione helper per creare un blocco del podio nella classifica*)
+		creaBloccoClassifica[top3_, pos_Integer, colore_, h_] := Module[{},
 			Column[{
-				Style[If[pos<=Length[top3],top3[[pos,"Nome"]],"-"],14,Bold],
+				(*Nome del giocatore sopra il blocco*)
+				Style[If[pos<=Length[top3], top3[[pos,"Nome"]], "-"], 14, Bold],
+				(*Blocco colorato con punteggio*)
 				Framed[
-					Style[If[pos<=Length[top3],top3[[pos,"Punteggio"]],0],22,White],Background->colore,FrameStyle->None,ImageSize->{100,h},Alignment->Center
+					Column[{
+						Style[If[pos<=Length[top3], top3[[pos,"Nome"]], "-"], 12, White],
+						Style[If[pos<=Length[top3], top3[[pos,"Punteggio"]], 0], 22, White, Bold]
+					}, Alignment->Center],
+					Background->colore,
+					FrameStyle->None,
+					ImageSize->{100, h},
+					Alignment->Center
 				],
-				Style[ToString[pos]<>"\.ba",18,Gray]
-			},Alignment->Center]
+				(*Posizione in fondo al blocco*)
+				Style[ToString[pos]<>"\.ba", 18, Gray]
+			}, Alignment->Center]
 		];
+
+		(*Pannello classifica con podio e lista*)
+		ClassificaPanel[] := Module[{dati, top3, altri},
+			dati = caricaClassifica[];
+			(*Prendiamo i primi 3 e i restanti*)
+			top3 = Take[dati, UpTo[3]];
+			altri = If[Length[dati]>3, Drop[dati,3], {}];
+			
+			Panel[Column[{
+				Style["LEADERBOARD", 24, Bold, Darker[Blue]],
+				Spacer[10],
+				
+				(*Sezione Podio: ordine visivo 2-1-3*)
+				Row[{
+					creaBloccoClassifica[top3, 2, GrayLevel[0.7], 80],
+					creaBloccoClassifica[top3, 1, RGBColor[1,0.84,0], 120],
+					creaBloccoClassifica[top3, 3, RGBColor[0.8,0.5,0.2], 60]
+				}, Alignment->Bottom],
+				
+				Spacer[20],
+				
+				(*Sezione Lista dal 4\[Degree] posto in poi \[LongDash] mostra posizione, nome e punteggio*)
+				Column[
+					Table[
+						Grid[{
+							{
+								Style[ToString[i+3]<>"\.ba", 16, Bold],
+								Column[{
+									Style[altri[[i,"Nome"]], 16, Bold],
+									Style[ToString[altri[[i,"Punteggio"]]]<>" pt", 13, Italic, Gray]
+								}]
+							}
+						}, ItemSize->{{3, 12}}, Alignment->Left],
+						{i, Length[altri]}
+					],
+					Spacings->1
+				]
+			}, Alignment->Center], Background->White]
+		];
+
+		(*Nota: HoldFirst permette di passare 'punteggio' come simbolo
+		  cos\[IGrave] da poter essere aggiornato in tempo reale dal DynamicModule*)
 		SetAttributes[GiocaPanel, HoldFirst]
 		GiocaPanel[punteggio_, seed_, giocatore_]:=DynamicModule[{
 			img=Import["https://c8.alamy.com/compit/j253d8/esempio-illustrativo-del-timbro-j253d8.jpg"],
@@ -156,21 +209,21 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			(*Grazie a 'Panel' posso crearmi una UI grande quanto l'intero pannello del notebook*)
 			Panel[
 				Column[{
-					(*--- RIGA 1: la tua immagine (aggiornata in tempo reale) e immagine modificata ---*)
+					(*Messaggio di benvenuto con nome giocatore*)
 					Style["Benvenuto "<>giocatore, Bold, DarkGreen, 20],
+					
+					(*--- RIGA 1: la tua immagine (aggiornata in tempo reale) e immagine modificata ---*)
 					Pane[Row[{
 						Column[{
 							Style["Immagine modificata", Bold],
-							Dynamic[Show[immagineModificata, ImageSize -> {Automatic, ALTEZZAIMMAGINE}]]
+							Dynamic[Show[immagineModificata, ImageSize->{Automatic, ALTEZZAIMMAGINE}]]
 						}, Alignment->Top],
 						Spacer[30],
 						Column[{
 							Style["La tua immagine", Bold],
 							mostraImmagine[img, blur, rotazione, translaX, translaY, colore]
 						}, Alignment->Top]
-						
-					}, Alignment->Center], {Full, ALTEZZAIMMAGINE+10} (* Qui imposti l'altezza (es. 450 pixel)*)],
-					
+					}, Alignment->Center], {Full, ALTEZZAIMMAGINE+10}],
 					
 					(*--- RIGA 2: controlli + punteggio + bottoni ---*)
 					Row[{
@@ -253,127 +306,141 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							
 							(*Pulisci sotto agli altri bottoni*)
 							bottonePulisci[blur, rotazione, translaX, translaY, colore]
+						
 						}, Alignment->Center, ItemSize->20]
 					}, Alignment->Center],
 					
+					(*Classifica mostrata in fondo al pannello di gioco*)
 					ClassificaPanel[]
+					
 				}, Alignment->Center],
 			ImageSize->Full]
 		];
 
-
-	Studia[]= DynamicModule[{
-			img=Import["https://c8.alamy.com/compit/j253d8/esempio-illustrativo-del-timbro-j253d8.jpg"],
-			blur = 0,
-			colore = None,
-			rotazione = 0,
-			translaX = 0,
-			translaY = 0,
-			dims = {0,0}
-		},
-		
-		(*Grazie a 'Panel' posso crearmi una UI grande quanto l'intero pannello del notebook*)
-		Panel[
-			Column[{
-				(*--- RIGA 1: bottone caricamento e pulisci affiancati ---*)
-				Row[{
-					bottoneCaricamento[img],
-					Spacer[10],
-					bottonePulisci[blur, rotazione, translaX, translaY, colore]
-				}, Alignment->Center],
-				
-				Spacer[20],
-				
-				(*--- RIGA 2: immagini affiancate della stessa dimensione ---*)
-				Row[{
-					Column[{
-						Style["Originale", Bold],
-						mostraImmagine[img]
+		Studia[]= DynamicModule[{
+				img=Import["https://c8.alamy.com/compit/j253d8/esempio-illustrativo-del-timbro-j253d8.jpg"],
+				blur = 0,
+				colore = None,
+				rotazione = 0,
+				translaX = 0,
+				translaY = 0,
+				dims = {0,0}
+			},
+			
+			(*Grazie a 'Panel' posso crearmi una UI grande quanto l'intero pannello del notebook*)
+			Panel[
+				Column[{
+					(*--- RIGA 1: bottone caricamento e pulisci affiancati ---*)
+					Row[{
+						bottoneCaricamento[img],
+						Spacer[10],
+						bottonePulisci[blur, rotazione, translaX, translaY, colore]
 					}, Alignment->Center],
-					Spacer[30],
-					Column[{
-						Style["Modificata", Bold],
-						mostraImmagine[img, blur, rotazione, translaX, translaY, colore]
-					}, Alignment->Center]
-				}, Alignment->Center],
-				
-				Spacer[20],
-				
-				(*--- RIGA 3: controlli ---*)
-				controlliImmagine[img, blur, rotazione, translaX, translaY, colore]
-			}, Alignment->Center],
-			ImageSize->Full
-		]
-	];
-	
-	ClassificaPanel[] := Module[{dati,top3,altri},
-		dati=caricaClassifica[];
-		(*Prendiamo i primi 3 e i restanti*)
-		top3=Take[dati,UpTo[3]];
-		altri=If[Length[dati]>3,Drop[dati,3],{}];
-		
-		Panel[Column[{
-			Style["LEADERBOARD",24,Bold,Darker[Blue]],Spacer[10],
-			
-			(*Sezione Podio:2-1-3*)
-			Row[{
-				creaBloccoClassifica[top3, 2,GrayLevel[0.7],80],
-				creaBloccoClassifica[top3, 1,RGBColor[1,0.84,0],120],
-				creaBloccoClassifica[top3, 3,RGBColor[0.8,0.5,0.2],60]
-			},Alignment->Bottom],
-			
-			Spacer[20],
-			
-			(*Sezione Lista (da 4 a 10)*)
-			Column[
-				Table[
-					Grid[{{Style[ToString[i+3]<>"\.ba",16,Bold],Style[altri[[i,"Nome"]],16],Style[altri[[i,"Punteggio"]],16,Italic]}},ItemSize->{{3,10,5}},Alignment->Left],
-					{i,Length[altri]}
-				],Spacings->1
-			]
-		},Alignment->Center],Background->White]
-
-	];
-	
-	Gioca[]:=DynamicModule[{seed=0, errorMsg="", visual="", inputnome="", giocatore="", punteggio=0},
-		Panel[Column[{
-				Row[{
-					InputField[Dynamic[seed], Number], 
-					InputField[Dynamic[inputnome], String],
 					
+					Spacer[20],
+					
+					(*--- RIGA 2: immagini affiancate della stessa dimensione ---*)
+					Row[{
+						Column[{
+							Style["Originale", Bold],
+							mostraImmagine[img]
+						}, Alignment->Center],
+						Spacer[30],
+						Column[{
+							Style["Modificata", Bold],
+							mostraImmagine[img, blur, rotazione, translaX, translaY, colore]
+						}, Alignment->Center]
+					}, Alignment->Center],
+					
+					Spacer[20],
+					
+					(*--- RIGA 3: controlli ---*)
+					controlliImmagine[img, blur, rotazione, translaX, translaY, colore]
+				}, Alignment->Center],
+				ImageSize->Full
+			]
+		];
+		
+		Gioca[]:=DynamicModule[{
+				seed=0,
+				errorMsg="",
+				visual="",
+				inputnome="",
+				giocatore="",
+				punteggio=0,
+				(*Sorgente immagini: "Web" o "Locale" \[LongDash] default Web*)
+				sorgente="Web",
+				statusMsg=""
+			},
+			Panel[Column[{
+				
+				(*--- Selezione sorgente immagini ---*)
+				Row[{
+					Style["Sorgente immagini: ", Bold],
+					PopupMenu[Dynamic[sorgente], {"Web"->"Web (EntityList)", "Locale"->"Locale (cartella img)"}],
+					Spacer[10],
+					Button["Carica database",
+						statusMsg = "Caricamento in corso...";
+						If[sorgente === "Web",
+							(*Carica immagini dal web tramite EntityList*)
+							imageDatabase = buildDatabaseFromWeb[];
+							lengthImageDb = Length[imageDatabase];
+							statusMsg = "Database Web caricato: "<>ToString[lengthImageDb]<>" immagini",
+							(*Carica immagini dalla cartella locale 'img'*)
+							imageDatabase = buildDatabaseFromFolder[];
+							lengthImageDb = Length[imageDatabase];
+							statusMsg = "Database Locale caricato: "<>ToString[lengthImageDb]<>" immagini"
+						],
+						Method->"Queued"
+					],
+					Spacer[10],
+					Dynamic[Style[statusMsg, Italic, Gray]]
+				}],
+				
+				Spacer[10],
+				
+				(*--- Nome giocatore, seed e avvio partita ---*)
+				Row[{
+					InputField[Dynamic[seed], Number, FieldHint->"Seed"],
+					Spacer[5],
+					InputField[Dynamic[inputnome], String, FieldHint->"Nome giocatore"],
+					Spacer[5],
 					Button["Nuova partita",
-						If[IntegerQ[seed],
-							errorMsg="";
-							visual="";
-							If[inputnome=="",
-									errorMsg="Errore: devi inserire un nome";
-									visual="";
-								,
-									errorMsg="";
-									visual="";
+						If[lengthImageDb == 0,
+							errorMsg = "Errore: carica prima il database immagini!";
+							visual = "";,
+							If[IntegerQ[seed],
+								If[inputnome == "",
+									errorMsg = "Errore: devi inserire un nome";
+									visual = "";,
+									errorMsg = "";
+									visual = "";
 									giocatore = inputnome;
 									punteggio = 0;
 									visual = GiocaPanel[punteggio, seed, giocatore]
-								
-							];,
-							errorMsg="Errore: devi inserire un numero intero";
-							visual="";
+								],
+								errorMsg = "Errore: devi inserire un numero intero";
+								visual = "";
+							]
 						]
 					],
-					
-					Button["Termina Partita",
-								visual="";
-								aggiungiPunteggio[giocatore, punteggio];
-								visual = ClassificaPanel[]; ,
-								Background->LightRed
+					Spacer[10],
+					(*Bottone Termina Partita \[LongDash] grande e ben visibile*)
+					Button[
+						Style["\[FilledSquare]  Termina Partita", FontSize->14, FontWeight->Bold, FontColor->White],
+						visual = "";
+						aggiungiPunteggio[giocatore, punteggio];
+						visual = ClassificaPanel[];,
+						Background -> RGBColor[0.8, 0.1, 0.1],
+						FrameMargins -> 12,
+						ImageSize -> {200, 45}
 					]
 				}],
 				
 				Dynamic[Style[errorMsg, Red, Bold]],
 				Dynamic[visual]
-		}, Alignment->Center]]
-	];
-	
-	
-End[];
+			}, Alignment->Center]]
+		];
+		
+	End[];
 EndPackage[];
