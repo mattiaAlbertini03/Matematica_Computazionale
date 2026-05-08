@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     29584,        756]
-NotebookOptionsPosition[     21215,        568]
-NotebookOutlinePosition[     25047,        668]
-CellTagsIndexPosition[     24511,        646]
+NotebookDataLength[     34129,        835]
+NotebookOptionsPosition[     25487,        641]
+NotebookOutlinePosition[     29472,        745]
+CellTagsIndexPosition[     28913,        722]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -37,16 +37,14 @@ Cell[BoxData[{
   RowBox[{"SetOptions", "[", 
    RowBox[{
     RowBox[{"NextCell", "[", "]"}], ",", 
-    RowBox[{"Deletable", "->", "False"}]}], " ", 
-   RowBox[{"(*", 
-    RowBox[{",", " ", 
-     RowBox[{"Editable", "->", "False"}]}], " ", "*)"}], " ", "]"}], 
-  ";"}]}], "Input",
+    RowBox[{"Deletable", "->", "False"}], " ", ",", " ", 
+    RowBox[{"Editable", "->", "False"}]}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.986443260570863*^9, 3.986443335363929*^9}, {
    3.986443889581102*^9, 3.986443928261694*^9}, {3.986445362139905*^9, 
    3.986445385478817*^9}, {3.986446718674209*^9, 3.986446720741159*^9}, 
-   3.986449579805904*^9, {3.986449621274341*^9, 
-   3.986449623486105*^9}},ExpressionUUID->"234a75cf-c155-4e61-bbf9-\
+   3.986449579805904*^9, {3.986449621274341*^9, 3.986449623486105*^9}, {
+   3.987223531012273*^9, 
+   3.9872235396345053`*^9}},ExpressionUUID->"234a75cf-c155-4e61-bbf9-\
 b3abdf03a3e8"],
 
 Cell[CellGroupData[{
@@ -125,7 +123,7 @@ Cell[TextData[{
   BaseStyle->"Hyperlink",
   ButtonData->"introduzione"],
  "\n\t1.1",
- ButtonBox[" Effetto Blur",
+ ButtonBox[" Sfocatura (Blur)",
   BaseStyle->"Hyperlink",
   ButtonData->"effetto_blur"],
  "\n\t1.2 ",
@@ -133,7 +131,7 @@ Cell[TextData[{
   BaseStyle->"Hyperlink",
   ButtonData->"cambio_colore"],
  "\n\t1.3 ",
- ButtonBox["Trasposizione ",
+ ButtonBox["Traslazione ",
   BaseStyle->"Hyperlink",
   ButtonData->"trasposizione"],
  "\n\t1.4 ",
@@ -192,7 +190,8 @@ Cell[TextData[{
    3.986021804542259*^9}, {3.986443880662756*^9, 3.9864438815522537`*^9}, {
    3.986444452062283*^9, 3.986444463372633*^9}, {3.986444495075852*^9, 
    3.98644449507733*^9}, {3.986444742769396*^9, 3.986444784139234*^9}, {
-   3.986446271026732*^9, 3.986446275910523*^9}},
+   3.986446271026732*^9, 3.986446275910523*^9}, {3.9872243189905853`*^9, 
+   3.987224319917701*^9}, {3.987224631182797*^9, 3.987224635897777*^9}},
  TextAlignment->
   AlignmentMarker,ExpressionUUID->"20301a34-8458-4ffc-8c6e-b8bdf49589ca"]
 }, Open  ]],
@@ -216,21 +215,28 @@ testare se si ha compreso come queste trasformazioni lavorino tramite un gioco.
 ......
 ....
 .. 
-Le trasformazioni che tratteremo in questo notebook sono: il blur, il cambio \
-colore, la trasposizione e  la rotazione. \
+Le trasformazioni che tratteremo in questo notebook sono: la sfocatura \
+(Blur), il cambio colore, la traslazione e  la rotazione. 
+\
 \>", "Text",
  CellChangeTimes->{{3.985419930168797*^9, 3.985419938775285*^9}, {
    3.986024168769562*^9, 3.98602423850384*^9}, {3.986443980098908*^9, 
    3.986444004273199*^9}, {3.986444122661772*^9, 3.9864441983165283`*^9}, {
-   3.9864450895411873`*^9, 3.986445264979288*^9}, 
-   3.986445427317451*^9},ExpressionUUID->"ed8a53e7-cf58-4e15-babc-\
+   3.9864450895411873`*^9, 3.986445264979288*^9}, 3.986445427317451*^9, {
+   3.987223911267342*^9, 3.987223911950993*^9}, {3.987224012059719*^9, 
+   3.987224032761861*^9}, {3.987224270169793*^9, 3.987224277593804*^9}, {
+   3.9872243300628147`*^9, 3.987224331963771*^9}, {3.9872245612499638`*^9, 
+   3.987224577047963*^9}, {3.987224614559044*^9, 3.987224626098649*^9}, {
+   3.987225323480283*^9, 
+   3.987225325595595*^9}},ExpressionUUID->"ed8a53e7-cf58-4e15-babc-\
 1ae9f14de9df"],
 
 Cell[CellGroupData[{
 
-Cell["Effetto Blur", "Section",
+Cell["Sfocatura (Blur)", "Section",
  CellChangeTimes->{{3.985418660281992*^9, 3.9854186889265957`*^9}, {
-  3.9854187409947453`*^9, 3.9854187445206003`*^9}},
+  3.9854187409947453`*^9, 3.9854187445206003`*^9}, {3.9872245963375387`*^9, 
+  3.987224607877083*^9}},
  CellTags->
   "effetto_blur",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b"],
 
@@ -238,7 +244,11 @@ Cell[TextData[{
  "... ... ...... ",
  ButtonBox["[1]",
   BaseStyle->"Hyperlink",
-  ButtonData->"bib1"]
+  ButtonData->"bib1"],
+ " ",
+ ButtonBox["[5]",
+  BaseStyle->"Hyperlink",
+  ButtonData->"bib5"]
 }], "Text",
  CellChangeTimes->{{3.985418746074801*^9, 3.985418763751737*^9}, 
    3.9854188266690063`*^9, {3.986021769153657*^9, 3.986021779177373*^9}, {
@@ -246,8 +256,8 @@ Cell[TextData[{
    3.9860243039488707`*^9}, {3.9860243753478413`*^9, 3.986024375880563*^9}, {
    3.986024689553541*^9, 3.986024689558971*^9}, {3.986025281555747*^9, 
    3.9860252916692266`*^9}, {3.986025802125311*^9, 3.986025802126045*^9}, {
-   3.9864453167018967`*^9, 
-   3.986445316914322*^9}},ExpressionUUID->"5bdc1a2c-1975-4f35-ab19-\
+   3.9864453167018967`*^9, 3.986445316914322*^9}, {3.987223797709216*^9, 
+   3.987223816440493*^9}},ExpressionUUID->"5bdc1a2c-1975-4f35-ab19-\
 94750b5fff74"]
 }, Open  ]],
 
@@ -262,38 +272,63 @@ Cell["Cambio colore", "Section",
 
 Cell[TextData[{
  "............. ",
- ButtonBox["[2]",
+ ButtonBox["[2] ",
   BaseStyle->"Hyperlink",
-  ButtonData->"bib2"]
+  ButtonData->"bib2"],
+ ButtonBox["[5]",
+  BaseStyle->"Hyperlink",
+  ButtonData->"bib5"]
 }], "Text",
  CellChangeTimes->{{3.985418746074801*^9, 3.985418763751737*^9}, 
    3.9854188266690063`*^9, {3.98542066607854*^9, 3.985420666079977*^9}, {
    3.9854207643678617`*^9, 3.985420769970419*^9}, {3.986024666284204*^9, 
    3.98602468959286*^9}, {3.986025295880473*^9, 3.986025296805903*^9}, {
-   3.986025818528956*^9, 3.986025818529632*^9}, 
-   3.986445315000355*^9},ExpressionUUID->"7bed703d-c2de-4a4c-b88c-\
+   3.986025818528956*^9, 3.986025818529632*^9}, 3.986445315000355*^9, 
+   3.987223823041019*^9},ExpressionUUID->"7bed703d-c2de-4a4c-b88c-\
 f5db1203191f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Trasposizione", "Section",
+Cell["Traslazione", "Section",
  CellChangeTimes->{{3.985418660281992*^9, 3.9854186889265957`*^9}, {
   3.9854187409947453`*^9, 3.9854187445206003`*^9}, {3.98541885960674*^9, 
-  3.9854188636343813`*^9}},
+  3.9854188636343813`*^9}, {3.9872243037802343`*^9, 3.987224308378282*^9}},
  CellTags->
   "trasposizione",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a"],
 
 Cell[TextData[{
- "... ... ... ... ... . ",
+ "La traslazione \[EGrave] una fondamentale trasformazione geometrica che \
+sposta in blocco l\[CloseCurlyQuote]intera matrice di pixel o la struttura di \
+un\[CloseCurlyQuote]immagine di una determinata distanza e verso una \
+direzione spaziale ben precisa. Dal punto di vista matematico, il processo \
+consiste semplicemente nel sommare un valore numerico costante alle \
+coordinate originali orizzontali e verticali di ogni singolo punto nel piano \
+dell\[CloseCurlyQuote]immagine. Questa \[EGrave] definita una trasformazione \
+rigida perch\[EAcute] lo spostamento vettoriale non altera minimamente le \
+dimensioni complessive, le proporzioni geometriche o le distanze relative tra \
+i vari elementi che compongono la figura. La traslazione rappresenta il \
+principio base dei sistemi di stabilizzazione video digitale. Se durante una \
+ripresa le mani tremano spostando inavvertitamente \
+l\[CloseCurlyQuote]inquadratura verso destra, il software analizza i \
+fotogrammi e applica una traslazione dell\[CloseCurlyQuote]intera immagine \
+verso sinistra per compensare il movimento, restituendo cos\[IGrave] un video \
+fluido e privo di vibrazioni. ",
  ButtonBox["[3]",
   BaseStyle->"Hyperlink",
-  ButtonData->"bib3"]
+  ButtonData->"bib3"],
+ ButtonBox[" ",
+  BaseStyle->"Hyperlink",
+  ButtonData->"bib2"],
+ ButtonBox["[5]",
+  BaseStyle->"Hyperlink",
+  ButtonData->"bib5"]
 }], "Text",
  CellChangeTimes->{{3.985420748252697*^9, 3.9854207593937817`*^9}, {
    3.986025298825656*^9, 3.986025303646714*^9}, {3.9860258269781513`*^9, 
-   3.9860258269792147`*^9}, 
-   3.986445313101602*^9},ExpressionUUID->"d7fb4399-22d6-443a-af54-\
+   3.9860258269792147`*^9}, 3.986445313101602*^9, 3.987223824412664*^9, 
+   3.9872242921004953`*^9, 
+   3.98722434431708*^9},ExpressionUUID->"d7fb4399-22d6-443a-af54-\
 80f9381e7350"]
 }, Open  ]],
 
@@ -306,14 +341,37 @@ Cell["Rotazione", "Section",
  CellTags->"rotazione",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5"],
 
 Cell[TextData[{
- "... ... .. ",
+ "La rotazione \[EGrave] una trasformazione geometrica bidimensionale in cui \
+ogni punto di una figura viene fatto scorrere lungo un arco di cerchio \
+attorno a un punto centrale fisso, comunemente chiamato fulcro o asse di \
+rotazione. Questo movimento di rivoluzione segue un preciso angolo stabilito \
+dall\[CloseCurlyQuote]utente o dall\[CloseCurlyQuote]algoritmo. Per calcolare \
+l\[CloseCurlyQuote]esatta posizione finale dei nuovi punti sulla griglia dei \
+pixel, i software utilizzano matrici di trasformazione che includono le \
+classiche funzioni trigonometriche di seno e coseno. Proprio come la \
+traslazione, anche la rotazione rientra a pieno titolo nella categoria delle \
+trasformazioni rigide, in quanto fa girare l\[CloseCurlyQuote]immagine ma la \
+mantiene perfettamente intatta nella sua forma originale e nelle sue \
+dimensioni strutturali. Questa tecnica viene impiegata costantemente negli \
+editor fotografici attraverso lo strumento Raddrizza. Se ad esempio si scatta \
+la foto di un tramonto ma la linea del mare risulta inclinata a causa di un\
+\[CloseCurlyQuote]inquadratura imprecisa, il software applica una rotazione \
+di pochi gradi per allineare l\[CloseCurlyQuote]orizzonte rendendolo \
+parallelo ai bordi orizzontali della foto. ",
  ButtonBox["[4]",
   BaseStyle->"Hyperlink",
-  ButtonData->"bib4"]
+  ButtonData->"bib4"],
+ ButtonBox[" ",
+  BaseStyle->"Hyperlink",
+  ButtonData->"bib2"],
+ ButtonBox["[5]",
+  BaseStyle->"Hyperlink",
+  ButtonData->"bib5"]
 }], "Text",
  CellChangeTimes->{{3.985418746074801*^9, 3.985418763751737*^9}, {
-  3.986025306393079*^9, 3.9860253073653717`*^9}, {3.986025835108448*^9, 
-  3.9860258351090937`*^9}},ExpressionUUID->"f4873060-c8d7-40f8-bd86-\
+   3.986025306393079*^9, 3.9860253073653717`*^9}, {3.986025835108448*^9, 
+   3.9860258351090937`*^9}, 3.9872238261139812`*^9, {3.987224049019483*^9, 
+   3.987224083468733*^9}},ExpressionUUID->"f4873060-c8d7-40f8-bd86-\
 b6e8b2e8e622"]
 }, Open  ]]
 }, Open  ]],
@@ -464,8 +522,23 @@ Cell[TextData[{
  CellChangeTimes->{{3.9860256846614857`*^9, 3.986025687159803*^9}, 
    3.98602607980571*^9, {3.986026124245461*^9, 3.986026130915629*^9}, {
    3.98602621439266*^9, 3.986026214393324*^9}, {3.9860276309397907`*^9, 
-   3.9860276314011497`*^9}},
- CellTags->"bib4",ExpressionUUID->"3aa04edd-e54f-43aa-a725-1415d8298d14"]
+   3.9860276314011497`*^9}, {3.987223576674295*^9, 3.987223577256299*^9}},
+ CellTags->"bib4",ExpressionUUID->"c89440dd-7d01-40e3-a238-86170b6be41e"],
+
+Cell[TextData[{
+ ButtonBox["\[UpArrow] ",
+  BaseStyle->"Hyperlink",
+  ButtonData->"introduzione"],
+ " [5] Gonzalez, R. C., & Woods, R. E. (2017). Digital Image Processing (4th \
+ed.). Pearson."
+}], "Text",
+ CellChangeTimes->{{3.9860256846614857`*^9, 3.986025687159803*^9}, 
+   3.98602607980571*^9, {3.986026124245461*^9, 3.986026130915629*^9}, {
+   3.98602621439266*^9, 3.986026214393324*^9}, {3.9860276309397907`*^9, 
+   3.9860276314011497`*^9}, {3.987223576674295*^9, 3.987223577256299*^9}, {
+   3.987223732982568*^9, 3.987223750009316*^9}, {3.9872239292189703`*^9, 
+   3.98722393556203*^9}},
+ CellTags->"bib5",ExpressionUUID->"249cec0f-6b5d-4673-85fd-22f009343122"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -586,175 +659,181 @@ ExpressionUUID->"a7145d13-eea1-4dfb-884b-539519f81723"
 (*CellTagsOutline
 CellTagsIndex->{
  "allenamento"->{
-  Cell[12586, 337, 334, 5, 65, "Section",ExpressionUUID->"d010562d-d474-42d7-a160-f77e9db1a0c8",
+  Cell[16141, 395, 334, 5, 65, "Section",ExpressionUUID->"d010562d-d474-42d7-a160-f77e9db1a0c8",
    CellTags->"allenamento"]},
  "bibliografia"->{
-  Cell[15279, 412, 395, 6, 67, "Chapter",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36",
+  Cell[18834, 470, 395, 6, 67, "Chapter",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36",
    CellTags->"bibliografia"]},
  "bib1"->{
-  Cell[15677, 420, 578, 11, 33, "Text",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73",
+  Cell[19232, 478, 578, 11, 33, "Text",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73",
    CellTags->"bib1"]},
  "bib2"->{
-  Cell[16258, 433, 481, 10, 33, "Text",ExpressionUUID->"06518877-4a3f-4207-9034-984b4fdfade5",
+  Cell[19813, 491, 481, 10, 33, "Text",ExpressionUUID->"06518877-4a3f-4207-9034-984b4fdfade5",
    CellTags->"bib2"]},
  "bib3"->{
-  Cell[16742, 445, 476, 10, 33, "Text",ExpressionUUID->"ee129440-7031-4977-8b86-18ec5fd0dc24",
+  Cell[20297, 503, 476, 10, 33, "Text",ExpressionUUID->"ee129440-7031-4977-8b86-18ec5fd0dc24",
    CellTags->"bib3"]},
  "bib4"->{
-  Cell[17221, 457, 452, 10, 33, "Text",ExpressionUUID->"3aa04edd-e54f-43aa-a725-1415d8298d14",
+  Cell[20776, 515, 498, 10, 33, "Text",ExpressionUUID->"c89440dd-7d01-40e3-a238-86170b6be41e",
    CellTags->"bib4"]},
+ "bib5"->{
+  Cell[21277, 527, 668, 13, 33, "Text",ExpressionUUID->"249cec0f-6b5d-4673-85fd-22f009343122",
+   CellTags->"bib5"]},
  "cambio_colore"->{
-  Cell[9816, 255, 287, 5, 65, "Section",ExpressionUUID->"57e71acb-a0f0-416b-8e4f-ff6a7f2f9712",
+  Cell[10444, 265, 287, 5, 65, "Section",ExpressionUUID->"57e71acb-a0f0-416b-8e4f-ff6a7f2f9712",
    CellTags->"cambio_colore"]},
  "commenti"->{
-  Cell[17710, 472, 363, 5, 67, "Chapter",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83",
+  Cell[21982, 545, 363, 5, 67, "Chapter",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83",
    CellTags->"commenti"],
-  Cell[18098, 481, 172, 2, 65, "Section",ExpressionUUID->"f3250828-fa03-40c9-8012-15b7a1204967",
+  Cell[22370, 554, 172, 2, 65, "Section",ExpressionUUID->"f3250828-fa03-40c9-8012-15b7a1204967",
    CellTags->"commenti"]},
  "copia_codice"->{
-  Cell[19475, 525, 239, 4, 65, "Section",ExpressionUUID->"bcce8394-d598-4b4c-9822-5511415dea6e",
+  Cell[23747, 598, 239, 4, 65, "Section",ExpressionUUID->"bcce8394-d598-4b4c-9822-5511415dea6e",
    CellTags->"copia_codice"]},
  "c:1"->{
-  Cell[1728, 53, 677, 9, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079",
+  Cell[1725, 51, 677, 9, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079",
    CellTags->"c:1"]},
  "effetto_blur"->{
-  Cell[8874, 230, 237, 4, 65, "Section",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b",
+  Cell[9328, 235, 292, 5, 65, "Section",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b",
    CellTags->"effetto_blur"]},
  "esUni"->{
-  Cell[12045, 322, 208, 3, 67, "Chapter",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943",
+  Cell[15600, 380, 208, 3, 67, "Chapter",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943",
    CellTags->"esUni"]},
  "gioco"->{
-  Cell[13909, 374, 367, 5, 65, "Section",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41",
+  Cell[17464, 432, 367, 5, 65, "Section",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41",
    CellTags->"gioco"]},
  "Indice"->{
-  Cell[4429, 112, 243, 3, 67, "Chapter",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f",
+  Cell[4426, 110, 243, 3, 67, "Chapter",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f",
    CellTags->"Indice"]},
  "introduzione"->{
-  Cell[7617, 201, 377, 6, 67, "Chapter",ExpressionUUID->"4cb4e65d-5f25-4d28-9825-00055fee9c42",
+  Cell[7714, 200, 377, 6, 67, "Chapter",ExpressionUUID->"4cb4e65d-5f25-4d28-9825-00055fee9c42",
    CellTags->"introduzione"]},
  "lavoro_futuro"->{
-  Cell[19044, 507, 183, 3, 65, "Section",ExpressionUUID->"3ac31b79-cb52-4c91-a8e9-55ec1661188d",
+  Cell[23316, 580, 183, 3, 65, "Section",ExpressionUUID->"3ac31b79-cb52-4c91-a8e9-55ec1661188d",
    CellTags->"lavoro_futuro"]},
  "rotazione"->{
-  Cell[11378, 301, 281, 4, 65, "Section",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5",
+  Cell[13473, 336, 281, 4, 65, "Section",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5",
    CellTags->"rotazione"]},
  "trasposizione"->{
-  Cell[10674, 279, 289, 5, 65, "Section",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a",
+  Cell[11392, 292, 335, 5, 65, "Section",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a",
    CellTags->"trasposizione"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"allenamento", 21885, 587},
- {"bibliografia", 22031, 590},
- {"bib1", 22170, 593},
- {"bib2", 22299, 596},
- {"bib3", 22428, 599},
- {"bib4", 22557, 602},
- {"cambio_colore", 22695, 605},
- {"commenti", 22838, 608},
- {"copia_codice", 23104, 613},
- {"c:1", 23242, 616},
- {"effetto_blur", 23376, 619},
- {"esUni", 23515, 622},
- {"gioco", 23648, 625},
- {"Indice", 23782, 628},
- {"introduzione", 23922, 631},
- {"lavoro_futuro", 24069, 634},
- {"rotazione", 24214, 637},
- {"trasposizione", 24359, 640}
+ {"allenamento", 26157, 660},
+ {"bibliografia", 26303, 663},
+ {"bib1", 26442, 666},
+ {"bib2", 26571, 669},
+ {"bib3", 26700, 672},
+ {"bib4", 26829, 675},
+ {"bib5", 26958, 678},
+ {"cambio_colore", 27096, 681},
+ {"commenti", 27240, 684},
+ {"copia_codice", 27506, 689},
+ {"c:1", 27644, 692},
+ {"effetto_blur", 27778, 695},
+ {"esUni", 27917, 698},
+ {"gioco", 28050, 701},
+ {"Indice", 28184, 704},
+ {"introduzione", 28324, 707},
+ {"lavoro_futuro", 28471, 710},
+ {"rotazione", 28616, 713},
+ {"trasposizione", 28761, 716}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[554, 20, 1149, 29, 133, "Input",ExpressionUUID->"234a75cf-c155-4e61-bbf9-b3abdf03a3e8"],
+Cell[554, 20, 1146, 27, 133, "Input",ExpressionUUID->"234a75cf-c155-4e61-bbf9-b3abdf03a3e8"],
 Cell[CellGroupData[{
-Cell[1728, 53, 677, 9, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079",
+Cell[1725, 51, 677, 9, 96, "Title",ExpressionUUID->"989c1cbe-160b-40cc-b979-1da47311f079",
  CellTags->"c:1"],
 Cell[CellGroupData[{
-Cell[2430, 66, 430, 7, 67, "Chapter",ExpressionUUID->"4ae55e51-4243-46d9-b772-69edd83dd885"],
-Cell[2863, 75, 208, 4, 52, "Subtitle",ExpressionUUID->"5455213e-7fb5-4d2d-a4a8-e2d8cc6b0d27"],
-Cell[3074, 81, 688, 13, 30, "Author",ExpressionUUID->"96f6e007-5609-4b27-9117-6dbc214ac18e"],
-Cell[3765, 96, 627, 11, 33, "Text",ExpressionUUID->"6b343bc3-2708-48fd-8996-71509f44da71"]
+Cell[2427, 64, 430, 7, 67, "Chapter",ExpressionUUID->"4ae55e51-4243-46d9-b772-69edd83dd885"],
+Cell[2860, 73, 208, 4, 52, "Subtitle",ExpressionUUID->"5455213e-7fb5-4d2d-a4a8-e2d8cc6b0d27"],
+Cell[3071, 79, 688, 13, 30, "Author",ExpressionUUID->"96f6e007-5609-4b27-9117-6dbc214ac18e"],
+Cell[3762, 94, 627, 11, 33, "Text",ExpressionUUID->"6b343bc3-2708-48fd-8996-71509f44da71"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4429, 112, 243, 3, 67, "Chapter",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f",
+Cell[4426, 110, 243, 3, 67, "Chapter",ExpressionUUID->"b1cebfba-9274-4c20-bc34-02db143f900f",
  CellTags->"Indice"],
-Cell[4675, 117, 2905, 79, 317, "Text",ExpressionUUID->"20301a34-8458-4ffc-8c6e-b8bdf49589ca"]
+Cell[4672, 115, 3005, 80, 317, "Text",ExpressionUUID->"20301a34-8458-4ffc-8c6e-b8bdf49589ca"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7617, 201, 377, 6, 67, "Chapter",ExpressionUUID->"4cb4e65d-5f25-4d28-9825-00055fee9c42",
+Cell[7714, 200, 377, 6, 67, "Chapter",ExpressionUUID->"4cb4e65d-5f25-4d28-9825-00055fee9c42",
  CellTags->"introduzione"],
-Cell[7997, 209, 852, 17, 164, "Text",ExpressionUUID->"ed8a53e7-cf58-4e15-babc-1ae9f14de9df"],
+Cell[8094, 208, 1209, 23, 186, "Text",ExpressionUUID->"ed8a53e7-cf58-4e15-babc-1ae9f14de9df"],
 Cell[CellGroupData[{
-Cell[8874, 230, 237, 4, 65, "Section",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b",
+Cell[9328, 235, 292, 5, 65, "Section",ExpressionUUID->"f9864a2a-cdf6-4ec9-b215-efb0014cc00b",
  CellTags->"effetto_blur"],
-Cell[9114, 236, 665, 14, 33, "Text",ExpressionUUID->"5bdc1a2c-1975-4f35-ab19-94750b5fff74"]
+Cell[9623, 242, 784, 18, 33, "Text",ExpressionUUID->"5bdc1a2c-1975-4f35-ab19-94750b5fff74"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9816, 255, 287, 5, 65, "Section",ExpressionUUID->"57e71acb-a0f0-416b-8e4f-ff6a7f2f9712",
+Cell[10444, 265, 287, 5, 65, "Section",ExpressionUUID->"57e71acb-a0f0-416b-8e4f-ff6a7f2f9712",
  CellTags->"cambio_colore"],
-Cell[10106, 262, 531, 12, 33, "Text",ExpressionUUID->"7bed703d-c2de-4a4c-b88c-f5db1203191f"]
+Cell[10734, 272, 621, 15, 33, "Text",ExpressionUUID->"7bed703d-c2de-4a4c-b88c-f5db1203191f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10674, 279, 289, 5, 65, "Section",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a",
+Cell[11392, 292, 335, 5, 65, "Section",ExpressionUUID->"f43a5b01-b8ca-48fe-9210-cd31f9b0518a",
  CellTags->"trasposizione"],
-Cell[10966, 286, 375, 10, 33, "Text",ExpressionUUID->"d7fb4399-22d6-443a-af54-80f9381e7350"]
+Cell[11730, 299, 1706, 32, 121, "Text",ExpressionUUID->"d7fb4399-22d6-443a-af54-80f9381e7350"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11378, 301, 281, 4, 65, "Section",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5",
+Cell[13473, 336, 281, 4, 65, "Section",ExpressionUUID->"89c74b8a-4049-480e-9578-d2480c2426f5",
  CellTags->"rotazione"],
-Cell[11662, 307, 334, 9, 33, "Text",ExpressionUUID->"f4873060-c8d7-40f8-bd86-b6e8b2e8e622"]
+Cell[13757, 342, 1794, 32, 143, "Text",ExpressionUUID->"f4873060-c8d7-40f8-bd86-b6e8b2e8e622"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12045, 322, 208, 3, 67, "Chapter",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943",
+Cell[15600, 380, 208, 3, 67, "Chapter",ExpressionUUID->"d51d1170-8bbb-47c6-870c-972a05f86943",
  CellTags->"esUni"],
-Cell[12256, 327, 305, 6, 33, "Text",ExpressionUUID->"f9c954c2-946a-485e-8cf5-4e2a44be99a0"],
+Cell[15811, 385, 305, 6, 33, "Text",ExpressionUUID->"f9c954c2-946a-485e-8cf5-4e2a44be99a0"],
 Cell[CellGroupData[{
-Cell[12586, 337, 334, 5, 65, "Section",ExpressionUUID->"d010562d-d474-42d7-a160-f77e9db1a0c8",
+Cell[16141, 395, 334, 5, 65, "Section",ExpressionUUID->"d010562d-d474-42d7-a160-f77e9db1a0c8",
  CellTags->"allenamento"],
-Cell[12923, 344, 296, 5, 33, "Text",ExpressionUUID->"2c932672-52a7-4ff0-84b1-dcd67c2b07d5"],
-Cell[13222, 351, 650, 18, 69, "Input",ExpressionUUID->"fcfe3c4e-a7e4-45af-beb8-e2a7fdebf403"]
+Cell[16478, 402, 296, 5, 33, "Text",ExpressionUUID->"2c932672-52a7-4ff0-84b1-dcd67c2b07d5"],
+Cell[16777, 409, 650, 18, 69, "Input",ExpressionUUID->"fcfe3c4e-a7e4-45af-beb8-e2a7fdebf403"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13909, 374, 367, 5, 65, "Section",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41",
+Cell[17464, 432, 367, 5, 65, "Section",ExpressionUUID->"6781ee59-d337-4a00-8e9c-2f9be6153e41",
  CellTags->"gioco"],
-Cell[14279, 381, 249, 4, 33, "Text",ExpressionUUID->"978aa148-7721-4ff1-b81f-f1f4df6019a2"],
-Cell[14531, 387, 699, 19, 69, "Input",ExpressionUUID->"dc9ac5d7-8816-4278-a50e-27f3eb4355e9"]
+Cell[17834, 439, 249, 4, 33, "Text",ExpressionUUID->"978aa148-7721-4ff1-b81f-f1f4df6019a2"],
+Cell[18086, 445, 699, 19, 69, "Input",ExpressionUUID->"dc9ac5d7-8816-4278-a50e-27f3eb4355e9"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15279, 412, 395, 6, 67, "Chapter",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36",
+Cell[18834, 470, 395, 6, 67, "Chapter",ExpressionUUID->"bbb1b125-bf35-49de-a552-640afb6f5e36",
  CellTags->"bibliografia"],
-Cell[15677, 420, 578, 11, 33, "Text",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73",
+Cell[19232, 478, 578, 11, 33, "Text",ExpressionUUID->"5e1c3969-d3df-4583-96f7-921881f93d73",
  CellTags->"bib1"],
-Cell[16258, 433, 481, 10, 33, "Text",ExpressionUUID->"06518877-4a3f-4207-9034-984b4fdfade5",
+Cell[19813, 491, 481, 10, 33, "Text",ExpressionUUID->"06518877-4a3f-4207-9034-984b4fdfade5",
  CellTags->"bib2"],
-Cell[16742, 445, 476, 10, 33, "Text",ExpressionUUID->"ee129440-7031-4977-8b86-18ec5fd0dc24",
+Cell[20297, 503, 476, 10, 33, "Text",ExpressionUUID->"ee129440-7031-4977-8b86-18ec5fd0dc24",
  CellTags->"bib3"],
-Cell[17221, 457, 452, 10, 33, "Text",ExpressionUUID->"3aa04edd-e54f-43aa-a725-1415d8298d14",
- CellTags->"bib4"]
+Cell[20776, 515, 498, 10, 33, "Text",ExpressionUUID->"c89440dd-7d01-40e3-a238-86170b6be41e",
+ CellTags->"bib4"],
+Cell[21277, 527, 668, 13, 33, "Text",ExpressionUUID->"249cec0f-6b5d-4673-85fd-22f009343122",
+ CellTags->"bib5"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[17710, 472, 363, 5, 67, "Chapter",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83",
+Cell[21982, 545, 363, 5, 67, "Chapter",ExpressionUUID->"6c98ffb7-416a-4a85-a9f7-6ecedd645b83",
  CellTags->"commenti"],
 Cell[CellGroupData[{
-Cell[18098, 481, 172, 2, 65, "Section",ExpressionUUID->"f3250828-fa03-40c9-8012-15b7a1204967",
+Cell[22370, 554, 172, 2, 65, "Section",ExpressionUUID->"f3250828-fa03-40c9-8012-15b7a1204967",
  CellTags->"commenti"],
-Cell[18273, 485, 734, 17, 143, "Text",ExpressionUUID->"fc1224d5-3827-43a2-b0e2-91737a7b023a"]
+Cell[22545, 558, 734, 17, 143, "Text",ExpressionUUID->"fc1224d5-3827-43a2-b0e2-91737a7b023a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19044, 507, 183, 3, 65, "Section",ExpressionUUID->"3ac31b79-cb52-4c91-a8e9-55ec1661188d",
+Cell[23316, 580, 183, 3, 65, "Section",ExpressionUUID->"3ac31b79-cb52-4c91-a8e9-55ec1661188d",
  CellTags->"lavoro_futuro"],
-Cell[19230, 512, 208, 8, 99, "Text",ExpressionUUID->"c058ae4b-0ab0-4ea1-8052-a45186c1a2d1"]
+Cell[23502, 585, 208, 8, 99, "Text",ExpressionUUID->"c058ae4b-0ab0-4ea1-8052-a45186c1a2d1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19475, 525, 239, 4, 65, "Section",ExpressionUUID->"bcce8394-d598-4b4c-9822-5511415dea6e",
+Cell[23747, 598, 239, 4, 65, "Section",ExpressionUUID->"bcce8394-d598-4b4c-9822-5511415dea6e",
  CellTags->"copia_codice"],
-Cell[19717, 531, 1115, 22, 49, "Input",ExpressionUUID->"0b945694-6e1a-4cc3-be4d-88b42fb29281",
+Cell[23989, 604, 1115, 22, 49, "Input",ExpressionUUID->"0b945694-6e1a-4cc3-be4d-88b42fb29281",
  CellOpen->True],
-Cell[20835, 555, 340, 8, 77, "Text",ExpressionUUID->"16bcf0dc-1dd4-4e85-850c-a1c3a65a63bc"]
+Cell[25107, 628, 340, 8, 77, "Text",ExpressionUUID->"16bcf0dc-1dd4-4e85-850c-a1c3a65a63bc"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
