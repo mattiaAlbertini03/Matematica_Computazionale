@@ -12,7 +12,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 	
 	(*Qui iniamo il contesto privato in cui definiamo variabili e funzioni a cui l'utente non potr\[AGrave] accedere*)
 	Begin["Private`"];
-	
+		ALTEZZAIMMAGINE = 150; (*Altezza in pixel nella schermata*)
 		(*Qui definiamo tutti i parametri grafici e di trasformazione, in modo da rendereli coerenti in tutte le funzioni*)
 		MAXBLUR= 50;
 		BLURSTEP= 10;
@@ -89,13 +89,13 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 		mostraImmagine[img_]=DynamicModule[{},
 			(*Cos\[IGrave] facendo \[EGrave] possibile avere una cella interattiva che mostra i cambiamenti
 			applicati sull'immagine in tempo reale*)
-			Dynamic[Show[img, ImageSize->Medium]]
+			Dynamic[Show[img, ImageSize->{Automatic, ALTEZZAIMMAGINE}]]
 		];
 		
 		SetAttributes[mostraImmagine, HoldAll]
 		mostraImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_]=DynamicModule[{},
 			Dynamic[
-				Show[modifyImage[img, blur, rotazione, translaX, translaY, colore, MAXTRANSLATIONSTEP], ImageSize->Medium]
+				Show[modifyImage[img, blur, rotazione, translaX, translaY, colore, MAXTRANSLATIONSTEP], ImageSize->{Automatic, ALTEZZAIMMAGINE}]
 			]
 		];
 		
@@ -148,19 +148,19 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`"}];
 			Panel[
 				Column[{
 					(*--- RIGA 1: la tua immagine (aggiornata in tempo reale) e immagine modificata ---*)
-					Row[{
+					Pane[Row[{
+						Column[{
+							Style["Immagine modificata", Bold],
+							Dynamic[Show[immagineModificata, ImageSize -> {Automatic, ALTEZZAIMMAGINE}]]
+						}, Alignment->Top],
+						Spacer[30],
 						Column[{
 							Style["La tua immagine", Bold],
 							mostraImmagine[img, blur, rotazione, translaX, translaY, colore]
-						}, Alignment->Center],
-						Spacer[30],
-						Column[{
-							Style["Immagine modificata", Bold],
-							Dynamic[Show[immagineModificata, ImageSize->Medium]]
-						}, Alignment->Center]
-					}, Alignment->Center],
+						}, Alignment->Top]
+						
+					}, Alignment->Center], {Full, ALTEZZAIMMAGINE+10} (* Qui imposti l'altezza (es. 450 pixel)*)],
 					
-					Spacer[20],
 					
 					(*--- RIGA 2: controlli + punteggio + bottoni ---*)
 					Row[{
