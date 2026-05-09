@@ -2,6 +2,17 @@
 
 (*Dichiariamo il package "Interfaccia", esso conterr\[AGrave] tutta la parte di codice che viene 
 	utilizzata per l'interazione con l'utente*)
+(* :Title:Interfaccia*)
+(* :Context:Trasformazione immagini*)
+(* :Author:Gruppo 3*)
+(* :Summary:Contiene funzioni far interagire l'utente con la logica*)
+(* :Copyright:GS 2026*)
+(* :Package Version:0.9*)
+(* :Mathematica Version:14.3*)
+(* :History:last modified 10/5/2026*)
+(* :Keywords:interfaccia, immagini*)
+(* :Limitations:this is a preliminary version,for educational purposes only.*)
+
 (*La graffa all'interno di BeginPackage indica una dipendenza di "Interfaccia" nei confronti di "TrasformazioneImmagini"*)
 BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 	(*L'utilizzo di usage permette di rendere le funzioni visibili anche all'esterno del package
@@ -9,23 +20,25 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		si utilizza il comando "Information" (?)*)
 	Gioca::usage = "Gioca[] avvia l'interfaccia di gioco.";
 	Studia::usage = "Studia[] avvia la parte didattica.";
-	
+
 	(*Qui iniziamo il contesto privato in cui definiamo variabili e funzioni a cui l'utente non potr\[AGrave] accedere*)
 	Begin["Private`"];
-		ALTEZZAIMMAGINE = 150; (*Altezza in pixel nella schermata*)
+		(*Definiamo dei parametri in cui ARBITRARIAMENTE scegliamo le opzioni di gioco e di visualizzazione*)
+		
+		(*Altezza in pixel nella schermata*)
+		ALTEZZAIMMAGINE = 150; 
 		(*Qui definiamo tutti i parametri grafici e di trasformazione, in modo da renderli coerenti in tutte le funzioni*)
 		MAXBLUR= 50;
 		BLURSTEP= 10;
 		ROTATIONSTEP= 30;
 		MAXTRANSLATIONSTEP = 11;
 		COLORS={None,Red,Green,Blue,Yellow,Cyan,Magenta,Orange};
-	
+		
+		(*Funzioni private*)
 		(*Nota: Attraverso la HoldFirst, 'img' viene passata alla funzione passando 
 			il simbolo cos\[IGrave] com'\[EGrave] e NON come valore*)
 		SetAttributes[bottoneCaricamento, HoldFirst]
-		(*Nota: DinamicModule viene costruito una sola volta e memorizzato, NON 
-		  ricalcolato ogni volta che viene richiamata la funzione (a tal proposito
-		  uso il simbolo '=' e NON ':=')*)
+		(*Creiamo il bottone per caricare l'immagine dal file system*)
 		bottoneCaricamento[img_] = DynamicModule[{},
 			Button["Carica Immagine",
 			(*Apre il selettore file ed importa l'immagine se l'utente non annulla*)
@@ -39,6 +52,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		];
 		
 		SetAttributes[pulisci, HoldAll]
+		(*Pulisce i campi per effettuare modifiche dell'immagine*)
 		pulisci[blur_, rotazione_, translaX_, translaY_, colore_]:= DynamicModule[{},
 			blur=0;
 			rotazione=0;
@@ -48,32 +62,37 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		];
 		
 		SetAttributes[bottonePulisci, HoldAll]
+		(*Bottone che quando premuto pulisce i campi*)
 		bottonePulisci[blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
 			Button["Pulisci",
 				pulisci[blur, rotazione, translaX, translaY, colore];
 			]
 		];
-	
-		SetAttributes[getWidth, HoldFirst]
-		getWidth[img_] := DynamicModule[{},
+		
+		SetAttributes[larghezzaImg, HoldFirst]
+		(*Funzione per ottenere la laghezza dell'immagine*)
+		larghezzaImg[img_] := DynamicModule[{},
 			ImageDimensions[img][[1]]
 		];
 		
-		SetAttributes[getHeight, HoldFirst]
-		getHeight[img_] := DynamicModule[{},
+		SetAttributes[altezzaImg, HoldFirst]
+		(*Funzione per ottenere l'altezza dell'immagine*)
+		altezzaImg[img_] := DynamicModule[{},
 			ImageDimensions[img][[2]]
 		];
 		
 		SetAttributes[aggiornaParametri, HoldAll]
-		aggiornaParametri[{blur2_, colore2_, rotazione2_, translaX2_, translaY2_}]:=Module[{},
-			blur2=RandomChoice[Range[0, MAXBLUR, BLURSTEP]];
-			colore2 = RandomChoice[COLORS];
-			rotazione2 = RandomChoice[Range[0, 359, ROTATIONSTEP]];
-			translaX2 = RandomChoice[Range[0, MAXTRANSLATIONSTEP-1, 1]];
-			translaY2 = RandomChoice[Range[0, MAXTRANSLATIONSTEP-1, 1]];
+		(*Cambia e imposta casualmente i valori passati come parametro*)
+		aggiornaParametri[{blur_, colore_, rotazione_, translaX_, translaY_}]:=Module[{},
+			blur=RandomChoice[Range[0, MAXBLUR, BLURSTEP]];
+			colore = RandomChoice[COLORS];
+			rotazione = RandomChoice[Range[0, 359, ROTATIONSTEP]];
+			translaX = RandomChoice[Range[0, MAXTRANSLATIONSTEP-1, 1]];
+			translaY = RandomChoice[Range[0, MAXTRANSLATIONSTEP-1, 1]];
 		];
 		
 		SetAttributes[controlliImmagine, HoldAll]
+		(*Crea una colonna che contiene tutti i selettori dei parametri delle immagini*)
 		controlliImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
 			(*Colonna verticale con tutti i controlli, ognuno sulla propria riga*)
 			Column[{
@@ -85,30 +104,33 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			}, Alignment->Left]
 		];
 		
-		SetAttributes[mostraImmagine, HoldFirst]
+		SetAttributes[mostraImmagine, HoldAll]
+		(*La funzione serve per mostrare l'immagine che si aggiorna in modo dinamico*)
 		mostraImmagine[img_]=DynamicModule[{},
 			(*Cos\[IGrave] facendo \[EGrave] possibile avere una cella interattiva che mostra i cambiamenti
 			applicati sull'immagine in tempo reale*)
 			Dynamic[Show[img, ImageSize->{Automatic, ALTEZZAIMMAGINE}]]
 		];
-		
-		SetAttributes[mostraImmagine, HoldAll]
+		(*Utilizziamo l'overloading definiamo la stessa funzione che viene chiamato in base ai parametri passti
+			Questa \[EGrave] la funzione chiamata se vogliamo mostrare l'immagine modificata*)
 		mostraImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_]=DynamicModule[{},
 			Dynamic[
-				Show[modifyImage[img, blur, rotazione, translaX, translaY, colore, MAXTRANSLATIONSTEP], ImageSize->{Automatic, ALTEZZAIMMAGINE}]
+				Show[modificaImmagine[img, blur, rotazione, translaX, translaY, colore, MAXTRANSLATIONSTEP], ImageSize->{Automatic, ALTEZZAIMMAGINE}]
 			]
 		];
 		
+		(*La funzione controlla se l'immagine attuale \[EGrave] uguale all'immagine che vogliamo ottenere*)
 		verifica[{blur1_, colore1_, rotazione1_, translaX1_, translaY1_}, {blur2_, colore2_, rotazione2_, translaX2_, translaY2_}] :=Module[{},
 			{blur1,colore1,rotazione1,translaX1,translaY1}==={blur2,colore2,rotazione2,translaX2,translaY2}
 		];
 		
+		(*La funzione aggiorna l'immagine su cui stiamo lavorando*)
 		prossimaImmagine[]:=Module[{indice},
 			indice = RandomInteger[{0,1000}];
-			imageFromSeed[indice]
+			immagineDaSeed[indice]
 		];
 		
-		(*Formatta i valori di soluzione con nomenclatura leggibile*)
+		(*Mostra tutti i valori in modo ordinato*)
 		formattaSoluzione[blur2_, colore2_, rotazione2_, translaX2_, translaY2_] :=
 			Column[{
 				Style["Valori di soluzione:", Bold, Underlined],
@@ -118,8 +140,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 				Row[{"Transla X:  ", translaX2}],
 				Row[{"Transla Y:  ", translaY2}]
 			}, Alignment->Left];
-
-		(*Funzione helper per creare un blocco del podio nella classifica*)
+			
+		(*Funzione di supporto per creare un blocco del podio nella classifica*)
 		creaBloccoClassifica[top3_, pos_Integer, colore_, h_] := Module[{},
 			Column[{
 				(*Nome del giocatore sopra il blocco*)
@@ -139,8 +161,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 				Style[ToString[pos]<>"\.ba", 18, Gray]
 			}, Alignment->Center]
 		];
-
-		(*Pannello classifica con podio e lista*)
+		
+		(*Crea un pannello che mostra la classifica con podio e lista*)
 		ClassificaPanel[] := Module[{dati, top3, altri},
 			dati = caricaClassifica[];
 			(*Prendiamo i primi 3 e i restanti*)
@@ -178,10 +200,9 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 				]
 			}, Alignment->Center], Background->White]
 		];
-
-		(*Nota: HoldFirst permette di passare 'punteggio' come simbolo
-		  cos\[IGrave] da poter essere aggiornato in tempo reale dal DynamicModule*)
+		
 		SetAttributes[GiocaPanel, HoldFirst]
+		(*Crea il pannello per la parte Gioca*)
 		GiocaPanel[punteggio_, seed_, giocatore_]:=DynamicModule[{
 			img=Import["https://c8.alamy.com/compit/j253d8/esempio-illustrativo-del-timbro-j253d8.jpg"],
 			blur=0,
@@ -202,17 +223,21 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			(*Variabile che controlla la visibilit\[AGrave] dei valori di soluzione*)
 			mostraValori=False
 			},
+			(*Impostiamo il seed, che di default \[EGrave] 0*)
 			SeedRandom[seed];
+			(*Grazie al seed generato generiamo un immagine*)
 			img = prossimaImmagine[];
+			(*Generiamo casualmente i parametri con cui l'immagine viene modificata*)
 			aggiornaParametri[{blur2, colore2, rotazione2, translaX2, translaY2}];
-			immagineModificata = modifyImage[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];
+			(*Ci creiamo l'immagine modificata per poterla mostrare*)
+			immagineModificata = modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];
 			(*Grazie a 'Panel' posso crearmi una UI grande quanto l'intero pannello del notebook*)
 			Panel[
 				Column[{
 					(*Messaggio di benvenuto con nome giocatore*)
 					Style["Benvenuto "<>giocatore, Bold, DarkGreen, 20],
 					
-					(*--- RIGA 1: la tua immagine (aggiornata in tempo reale) e immagine modificata ---*)
+					(*Pannel che mostra le due immagine: quella modificata e quella non modificata*)
 					Pane[Row[{
 						Column[{
 							Style["Immagine modificata", Bold],
@@ -225,7 +250,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						}, Alignment->Top]
 					}, Alignment->Center], {Full, ALTEZZAIMMAGINE+10}],
 					
-					(*--- RIGA 2: controlli + punteggio + bottoni ---*)
+					(*Riga che contine i controlli per modificare l'immagine e i punteggi attuali*)
 					Row[{
 						(*Controlli trasformazioni*)
 						controlliImmagine[img, blur, rotazione, translaX, translaY, colore],
@@ -267,30 +292,45 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							
 							Spacer[10],
 							
+							(*Bottone per verificare se l'immagine ottenuta \[EGrave] quella che vogliamo ottenere*)
 							Button["Verifica",
 								If[verifica[{blur, colore, rotazione, translaX, translaY}, {blur2, colore2, rotazione2, translaX2, translaY2}],
+									(*Calcoliamo il punteggio maggisso e gli togliamo gli aiuti che abbiamo utilizzato*)
 									punteggioLivello=Max[5-aiuti, 0];
 									MessageDialog[StringTemplate["Corretto: punteggio `1`, aiuti utilizzati `2`"][punteggioLivello,aiuti]];
+									(*Aggiorniamo il punteggio*)
 									punteggio=punteggio+punteggioLivello;
+									(*Resettiamo gli aiuti*)
 									aiuti=0;
+									(*Nascondiamo i valori se erano mostrati*)
 									mostraValori=False;
+									(*Incrementiamo il contatore che indica i tuorni*)
 									partite=partite+1;
+									(*Puliamo tutti i campi che abbiamo utilizzato per arrivare alla soluzione*)
 									pulisci[blur, rotazione, translaX, translaY, colore];
+									(*Passiamo all'immagine successiva*)
 									img=prossimaImmagine[];
+									(*Ci calcoliamo nuovi parametri*)
 									aggiornaParametri[{blur2, colore2, rotazione2, translaX2, translaY2}];
-									immagineModificata=modifyImage[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];,
+									(*Inifince ci calcoliamo la nuova immagine che vogliamo ottenere*)
+									immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];,
 									MessageDialog["sbagliato"]
 								]
 							],
 							
-							Button["Next", 
+							Button["Next",
+								(*Resetto gli aiuti*) 
 								aiuti=0;
+								(*Nascondo le soluzioni*)
 								mostraValori=False;
+								(*Incremento il contatore dei turni*)
 								partite=partite+1;
+								(*Pulisco i selettori*)
 								pulisci[blur, rotazione, translaX, translaY, colore];
+								(*Genero una nuova immagine*)
 								img=prossimaImmagine[];
 								aggiornaParametri[{blur2, colore2, rotazione2, translaX2, translaY2}];
-								immagineModificata=modifyImage[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];
+								immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];
 							],
 							
 							Button["Aiuto",
@@ -316,7 +356,9 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 				}, Alignment->Center],
 			ImageSize->Full]
 		];
-
+		
+		(*Funzioni pubbliche*)
+		(*Funzione che genera l'ambiente per esercitarsi*)
 		Studia[]= DynamicModule[{
 				img=Import["https://c8.alamy.com/compit/j253d8/esempio-illustrativo-del-timbro-j253d8.jpg"],
 				blur = 0,
@@ -327,10 +369,9 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 				dims = {0,0}
 			},
 			
-			(*Grazie a 'Panel' posso crearmi una UI grande quanto l'intero pannello del notebook*)
 			Panel[
 				Column[{
-					(*--- RIGA 1: bottone caricamento e pulisci affiancati ---*)
+					(*Nella prima riga bottone caricamento e pulisci affiancati*)
 					Row[{
 						bottoneCaricamento[img],
 						Spacer[10],
@@ -339,7 +380,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 					
 					Spacer[20],
 					
-					(*--- RIGA 2: immagini affiancate della stessa dimensione ---*)
+					(*Nella seconda riga immagini affiancate della stessa dimensione*)
 					Row[{
 						Column[{
 							Style["Originale", Bold],
@@ -354,13 +395,14 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 					
 					Spacer[20],
 					
-					(*--- RIGA 3: controlli ---*)
+					(*Nella terza riga inseriamo il pannel con i controlli*)
 					controlliImmagine[img, blur, rotazione, translaX, translaY, colore]
 				}, Alignment->Center],
 				ImageSize->Full
 			]
 		];
 		
+		(*Funzione che crea l'ambiente per giocare*)
 		Gioca[]:=DynamicModule[{
 				seed=0,
 				errorMsg="",
@@ -383,12 +425,12 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						statusMsg = "Caricamento in corso...";
 						If[sorgente === "Web",
 							(*Carica immagini dal web tramite EntityList*)
-							imageDatabase = buildDatabaseFromWeb[];
-							lengthImageDb = Length[imageDatabase];
+							cacheImmagini = creaDBWeb[];
+							lengthImageDb = Length[cacheImmagini];
 							statusMsg = "Database Web caricato: "<>ToString[lengthImageDb]<>" immagini",
 							(*Carica immagini dalla cartella locale 'img'*)
-							imageDatabase = buildDatabaseFromFolder[];
-							lengthImageDb = Length[imageDatabase];
+							cacheImmagini = creaDBCartella[];
+							lengthImageDb = Length[cacheImmagini];
 							statusMsg = "Database Locale caricato: "<>ToString[lengthImageDb]<>" immagini"
 						],
 						Method->"Queued"
