@@ -10,16 +10,342 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    589164,       9855]
-NotebookOptionsPosition[    588007,       9826]
-NotebookOutlinePosition[    588398,       9842]
-CellTagsIndexPosition[    588355,       9839]
+NotebookDataLength[    616837,      10514]
+NotebookOptionsPosition[    609182,      10376]
+NotebookOutlinePosition[    609573,      10392]
+CellTagsIndexPosition[    609530,      10389]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
+Cell["Progetto Metematica Computazionale a.a. 2025/2026", "Title",
+ CellChangeTimes->{
+  3.987329108574317*^9, {3.987329138976452*^9, 3.987329194766032*^9}, {
+   3.98732931069302*^9, 
+   3.9873293123446093`*^9}},ExpressionUUID->"7a7e4bd5-4f65-44e6-bf9f-\
+09e65e6ebe3c"],
+
+Cell["Gioco interattivo - Riproduci l\[CloseCurlyQuote]immagine mostrata!", \
+"Subtitle",
+ CellChangeTimes->{
+  3.987329319419655*^9},ExpressionUUID->"48149db2-8908-4337-8c11-\
+6ff796b50fce"],
+
+Cell[CellGroupData[{
+
+Cell["Gruppo n\[Degree]03 - ...nome gruppo...", "Chapter",
+ CellChangeTimes->{{3.987329350469459*^9, 
+  3.987329370968396*^9}},ExpressionUUID->"5d89b6a5-ddbf-4083-8a68-\
+5176243a1159"],
+
+Cell[CellGroupData[{
+
+Cell["MC 2025/2026", "Subsection",
+ CellChangeTimes->{{3.987329395464498*^9, 
+  3.987329405075645*^9}},ExpressionUUID->"08a1be57-eef0-4c40-8a4d-\
+f470cd4aa1db"],
+
+Cell["\<\
+Mattia Albertini,\t\tGiacomo Biribicchi,\t\tOrazio Capone, \t\tErik Dervishi, \
+\t\t\tAlex Rossi
+(anno 1, curriculum A),  (anno 1, curriculum A),  (anno 2, curriculum A),  \
+(anno 1, curriculum A), \t(anno 1, curriculum C)\
+\>", "Author",
+ CellChangeTimes->{{3.9873294731872473`*^9, 
+  3.9873295496025047`*^9}},ExpressionUUID->"ebdfef21-2bbb-4a6f-a492-\
+16b10e87eeb8"],
+
+Cell["...matricole?...", "Author",
+ CellChangeTimes->{{3.987329575265499*^9, 
+  3.987329589182239*^9}},ExpressionUUID->"d64b6aae-7169-4f9c-9f95-\
+7c0e9c6a1ca9"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Index", "Chapter",
+ CellChangeTimes->{{3.9873296514064503`*^9, 
+  3.987329652552582*^9}},ExpressionUUID->"e3cdaa6f-0f58-46db-bcec-\
+b4541c1b7845"],
+
+Cell["\<\
+1. Introduzione
+...\
+\>", "Text",
+ CellChangeTimes->{{3.987330064457823*^9, 3.9873300797432756`*^9}, {
+  3.987330123829855*^9, 3.9873301311376553`*^9}, {3.987330381784486*^9, 
+  3.9873303854190903`*^9}, {3.98733044634953*^9, 3.987330460744038*^9}, {
+  3.98733074024914*^9, 3.987330761761807*^9}, {3.987330867642407*^9, 
+  3.987330869136909*^9}, {3.9873309574437513`*^9, 
+  3.987330968231531*^9}},ExpressionUUID->"af19fab9-7a5f-4243-99c7-\
+574d91c5f495"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Introduzione", "Chapter",
+ CellChangeTimes->{{3.987329876243161*^9, 
+  3.9873298792562304`*^9}},ExpressionUUID->"3606b5af-fd6d-4d8d-98d1-\
+1a51d9caa0b2"],
+
+Cell["\<\
+Il presente notebook \[EGrave] stato realizzato nell\[CloseCurlyQuote]ambito \
+del progetto assegnato per il corso di Matematica Computazionale (a.a. \
+2025/2026). Il progetto consiste in un gioco interattivo sviluppato in \
+Mathematica, nel quale all\[CloseCurlyQuote]utente viene mostrata un\
+\[CloseCurlyQuote]immagine modificata tramite una serie di trasformazioni \
+\[LongDash] tra cui sfocatura, rotazione, traslazione e variazione cromatica \
+\[LongDash] e viene chiesto di riprodurre fedelmente tali modifiche agendo su \
+appositi controlli grafici.
+
+L\[CloseCurlyQuote]obiettivo del gioco \[EGrave] allenare la percezione \
+visiva e la capacit\[AGrave] di riconoscere trasformazioni applicate a un\
+\[CloseCurlyQuote]immagine, in un contesto puramente ludico e accessibile. Il \
+programma \[EGrave] infatti rivolto a un pubblico generico, privo di \
+conoscenze di programmazione: l\[CloseCurlyQuote]interfaccia grafica, \
+sviluppata interamente tramite le funzionalit\[AGrave] dinamiche di \
+Mathematica, guida l\[CloseCurlyQuote]utente in modo intuitivo attraverso le \
+varie funzionalit\[AGrave], dalla selezione del database di immagini fino \
+alla verifica della risposta e alla visualizzazione della classifica finale.\
+\>", "Text",
+ CellChangeTimes->{{3.987331004185892*^9, 3.9873310079604607`*^9}, {
+  3.987331238134314*^9, 
+  3.9873312410087557`*^9}},ExpressionUUID->"899950ec-463b-4132-8ee7-\
+eff2af9eea05"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Requisiti Tecnici", "Chapter",
+ CellChangeTimes->{{3.987333374505931*^9, 3.987333390665699*^9}, {
+  3.987333428676002*^9, 
+  3.9873334497541237`*^9}},ExpressionUUID->"b403c328-3c21-4781-9ccd-\
+6ca6ed40b706"],
+
+Cell["\<\
+Al fine del corretto funzionamento di questo notebook \[EGrave] necessario:\
+\>", "Text",
+ CellChangeTimes->{{3.987333472753408*^9, 
+  3.987333519582748*^9}},ExpressionUUID->"52275c0a-2228-4151-b76b-\
+d31d7c14eccd"],
+
+Cell["Avere una versione di Wolfram 14.3 o successive;", "Item",
+ CellChangeTimes->{{3.987333528274344*^9, 
+  3.987333586888094*^9}},ExpressionUUID->"7c56c710-c9f9-47ab-9e5b-\
+31be4600c176"],
+
+Cell["\<\
+Avere una connessione internet (in quanto \[EGrave] possibile di usufruire di \
+immagini direttamente scaricate da un web-database di Wolfram).\
+\>", "Item",
+ CellChangeTimes->{{3.987333528274344*^9, 3.987333622887556*^9}, {
+  3.987333690807723*^9, 
+  3.9873337027351427`*^9}},ExpressionUUID->"774be867-c0d6-4929-ac1e-\
+c0a10bcea033"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Trasformazioni Immagini", "Chapter",
+ CellChangeTimes->{{3.987331300404097*^9, 3.9873313144437037`*^9}, 
+   3.987333445978178*^9},ExpressionUUID->"05486883-c542-4e53-920a-\
+1eb3c95f0393"],
+
+Cell[CellGroupData[{
+
+Cell["Sfocatura (Blurring)", "Section",
+ CellChangeTimes->{{3.987331328303705*^9, 
+  3.98733133665091*^9}},ExpressionUUID->"6cae90e3-e70d-4c43-a132-\
+f95870cfa29d"],
+
+Cell["\<\
+La sfocatura, o blurring, \[EGrave] una tecnica di elaborazione delle \
+immagini che consiste nel ridurre la nitidezza di \
+un\[CloseCurlyQuote]immagine attenuando le variazioni brusche di intensit\
+\[AGrave] tra pixel adiacenti. Dal punto di vista matematico, l\
+\[CloseCurlyQuote]operazione di blur corrisponde a una convoluzione dell\
+\[CloseCurlyQuote]immagine originale con un apposito filtro, detto kernel. Il \
+kernel pi\[UGrave] comunemente utilizzato \[EGrave] il filtro gaussiano, che \
+assegna a ciascun pixel un nuovo valore calcolato come media pesata dei pixel \
+vicini, con pesi distribuiti secondo una funzione gaussiana bidimensionale. \
+Il risultato visivo \[EGrave] un\[CloseCurlyQuote]immagine progressivamente \
+pi\[UGrave] \[OpenCurlyDoubleQuote]morbida\[CloseCurlyDoubleQuote] all\
+\[CloseCurlyQuote]aumentare del parametro di sfocatura, poich\[EAcute] i \
+dettagli ad alta frequenza \[LongDash] come bordi e texture \[LongDash] \
+vengono progressivamente soppressi. In Mathematica questa operazione \
+\[EGrave] implementata tramite la funzione Blur[image, r], dove r rappresenta \
+il raggio di sfocatura, ovvero l\[CloseCurlyQuote]ampiezza del kernel \
+gaussiano applicato.\
+\>", "Text",
+ CellChangeTimes->{
+  3.987331451579584*^9},ExpressionUUID->"ce045841-6f2d-446c-9c0a-\
+09869a20359e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Rotazione", "Section",
+ CellChangeTimes->{{3.9873317850937243`*^9, 
+  3.9873317870876427`*^9}},ExpressionUUID->"5a346391-0ecb-4c98-8a95-\
+1718a41d9cb6"],
+
+Cell["\<\
+La rotazione \[EGrave] una trasformazione geometrica che ruota tutti i pixel \
+di un\[CloseCurlyQuote]immagine di un angolo \[Theta] attorno a un punto \
+fisso, tipicamente il centro dell\[CloseCurlyQuote]immagine. A differenza \
+della traslazione, che sposta l\[CloseCurlyQuote]immagine linearmente, la \
+rotazione modifica la posizione di ciascun pixel mantenendo invariate le \
+distanze dal centro di rotazione, preservando quindi forma e proporzioni dell\
+\[CloseCurlyQuote]immagine originale.
+
+Un aspetto fondamentale nella rotazione digitale delle immagini \[EGrave] il \
+problema dell\[CloseCurlyQuote]interpolazione: poich\[EAcute] le nuove \
+posizioni dei pixel non cadono in generale su coordinate intere della \
+griglia, \[EGrave] necessario stimare il valore di ciascun pixel a partire \
+dai pixel vicini. Le tecniche di interpolazione pi\[UGrave] comuni sono la \
+nearest-neighbor (che assegna il valore del pixel pi\[UGrave] vicino, veloce \
+ma con perdita di qualit\[AGrave]), la bilineare (che calcola una media \
+pesata dei quattro pixel adiacenti) e la bicubica (che considera un intorno \
+pi\[UGrave] ampio, producendo risultati pi\[UGrave] nitidi a costo di una \
+maggiore complessit\[AGrave] computazionale). Un ulteriore aspetto da gestire \
+riguarda i bordi: i pixel che dopo la rotazione cadono al di fuori dell\
+\[CloseCurlyQuote]area dell\[CloseCurlyQuote]immagine originale vengono \
+tipicamente riempiti con un colore fisso (nero), producendo le \
+caratteristiche aree scure agli angoli visibili nelle immagini ruotate. In \
+Mathematica la rotazione \[EGrave] implementata tramite la funzione \
+ImageRotate[image, \[Theta]], che gestisce automaticamente sia l\
+\[CloseCurlyQuote]interpolazione che il riempimento dei bordi.\
+\>", "Text",
+ CellChangeTimes->{{3.987332159471821*^9, 
+  3.987332171058844*^9}},ExpressionUUID->"890d4c94-626a-491e-ab6e-\
+96fcce9ab9a6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Applicazione Filtro Colore", "Section",
+ CellChangeTimes->{{3.987331795809287*^9, 3.987331815888782*^9}, {
+  3.987333457362006*^9, 
+  3.98733345990352*^9}},ExpressionUUID->"2ad1ed52-c590-4a8b-a85d-\
+190eeed2b13e"],
+
+Cell["\<\
+L\[CloseCurlyQuote]applicazione di un filtro colore \[EGrave] una tecnica di \
+elaborazione delle immagini che consiste nel modificare la tonalit\[AGrave] \
+cromatica di un\[CloseCurlyQuote]immagine mantenendo invariata la struttura \
+luminosa originale, ovvero le variazioni di luce e ombra che definiscono la \
+forma e il volume dei soggetti rappresentati. Per ottenere questo effetto in \
+modo controllato e intuitivo, \[EGrave] conveniente operare non nello spazio \
+colore RGB (Red, Green, Blue), nel quale i tre canali sono strettamente \
+intrecciati, bens\[IGrave] nello spazio HSV (Hue, Saturation, Value), che \
+separa esplicitamente la componente cromatica (Hue), la saturazione \
+(Saturation) e la luminosit\[AGrave] (Value).
+
+In questo spazio, applicare un filtro colore significa sostituire il valore \
+di Hue \[LongDash] che rappresenta la tonalit\[AGrave] pura, codificata come \
+angolo su una ruota dei colori \[LongDash] con quello del colore desiderato, \
+mantenendo invece invariato il valore di Value, che porta \
+l\[CloseCurlyQuote]informazione di luminosit\[AGrave] originale del pixel. In \
+questo modo i pixel chiari dell\[CloseCurlyQuote]immagine originale \
+risulteranno chiari nella versione colorata, e quelli scuri rimarranno scuri, \
+preservando la leggibilit\[AGrave] visiva dell\[CloseCurlyQuote]immagine. La \
+Saturation controlla invece l\[CloseCurlyQuote]intensit\[AGrave] del colore \
+applicato: valori alti producono tinte vivide, valori bassi tendono al \
+grigio. In Mathematica questa operazione \[EGrave] implementata tramite la \
+funzione Colorize[image, ColorFunction -> ...], che permette di applicare una \
+funzione colore pixel per pixel, combinata con ColorConvert per la \
+conversione tra spazi colore.\
+\>", "Text",
+ CellChangeTimes->{
+  3.987332305065816*^9},ExpressionUUID->"5646874f-2412-4bbf-909b-\
+71d10c70c968"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Traslazione", "Section",
+ CellChangeTimes->{{3.987331823670328*^9, 
+  3.987331825937921*^9}},ExpressionUUID->"8f9c36e0-b768-4e6d-a78e-\
+eb840f9b34bf"],
+
+Cell["\<\
+La traslazione \[EGrave] una trasformazione geometrica che consiste nello \
+spostamento di tutti i pixel di un\[CloseCurlyQuote]immagine di una quantit\
+\[AGrave] fissa lungo gli assi orizzontale e verticale. Formalmente, dato un \
+pixel di coordinate (x,y), la traslazione di vettore (tx,ty) lo mappa nelle \
+nuove coordinate (x+tx,\[NonBreakingSpace]y+ty)\:200b). A differenza di altre \
+trasformazioni geometriche come la rotazione o il ridimensionamento, la \
+traslazione \[EGrave] una trasformazione affine nella sua forma pi\[UGrave] \
+semplice, che preserva distanze, angoli e parallelismo tra le linee.
+
+Un aspetto critico nella traslazione digitale delle immagini riguarda la \
+gestione dei bordi: i pixel che vengono spostati oltre i limiti dell\
+\[CloseCurlyQuote]immagine devono essere trattati in qualche modo. Le \
+strategie pi\[UGrave] comuni includono il riempimento con un colore fisso \
+(tipicamente nero), la riflessione ai bordi, oppure il cosiddetto wrap-around \
+(o tiling), che consiste nel fare \[OpenCurlyDoubleQuote]rientrare\
+\[CloseCurlyDoubleQuote] dall\[CloseCurlyQuote]altro lato i pixel che escono \
+dal bordo opposto, trattando l\[CloseCurlyQuote]immagine come se fosse \
+disposta su una superficie toroidale. Nel progetto \[EGrave] stata adottata \
+proprio quest\[CloseCurlyQuote]ultima strategia, implementata tramite la \
+funzione RotateRight di Mathematica applicata alla matrice dei pixel, che \
+permette di ottenere la traslazione ciclica in modo efficiente senza \
+richiedere operazioni di copia o padding esplicito.\
+\>", "Text",
+ CellChangeTimes->{{3.987331832401475*^9, 
+  3.987331923893936*^9}},ExpressionUUID->"6ce389b5-6ca6-4b24-826a-\
+8743a60c82c9"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Set-up Notebook", "Chapter",
+ CellChangeTimes->{{3.987330857354333*^9, 
+  3.987330863575684*^9}},ExpressionUUID->"7f85949e-012a-4348-acdb-\
+7467d3558407"],
+
+Cell["\<\
+Prima di poter usufruire dell\[CloseCurlyQuote]apposita sezione \
+\[OpenCurlyQuote]Allenamento e Gioco interattivo\[CloseCurlyQuote], l\
+\[CloseCurlyQuote]utente deve eseguire le operazioni \
+nell\[CloseCurlyQuote]ordine presentato:\
+\>", "Text",
+ CellChangeTimes->{{3.987332667319703*^9, 3.987332857819435*^9}, {
+  3.987333010712866*^9, 
+  3.987333017034745*^9}},ExpressionUUID->"00e7a862-e09d-4fb7-871a-\
+43fa31375724"],
+
+Cell["\<\
+Inizializzazione dell\[CloseCurlyQuote]ambiente di notebook: l\
+\[CloseCurlyQuote]utente deve cliccare sul bottone \
+\[OpenCurlyQuote]Inizializza ambiente\[CloseCurlyQuote] per permettere sia di \
+caricare i pacchetti necessari al funzionamento del notebook, si di \
+permettere di settare la corretta directory di lavoro.\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.9873328701824293`*^9, 3.987333022245603*^9}, {
+  3.9873337364347353`*^9, 
+  3.987333736435152*^9}},ExpressionUUID->"8f3adcf5-a7b1-4a4b-b1fc-\
+6ff87018f738"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Evaluation del notebook: l\[CloseCurlyQuote]utente deve quindi cliccare sul \
+bottone \[OpenCurlyQuote]Valuta il Notebook\[CloseCurlyQuote] per permettere \
+la corretta esecuzione delle funzionalit\[AGrave] di \
+\[OpenCurlyQuote]Allenamento\[CloseCurlyQuote] e \[OpenCurlyQuote]Gioco\
+\[CloseCurlyQuote].\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.9873328701824293`*^9, 3.987333022245603*^9}, 
+   3.9873337467696733`*^9},ExpressionUUID->"ca998e83-381a-4286-9ad0-\
+36a1cda4d066"],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"Button", "[", 
   RowBox[{
@@ -89,7 +415,7 @@ Cell[BoxData[
    3.985240958501772*^9, 3.985240960024681*^9}, 3.9860271186346397`*^9, {
    3.986027179099594*^9, 3.986027188011156*^9}, {3.9860274218400087`*^9, 
    3.986027429991893*^9}},
- CellLabel->"In[9]:=",ExpressionUUID->"8874232a-570a-4c00-9eea-ccbd29bf3f74"],
+ CellLabel->"In[5]:=",ExpressionUUID->"8874232a-570a-4c00-9eea-ccbd29bf3f74"],
 
 Cell[BoxData[
  ButtonBox[
@@ -124,8 +450,9 @@ Cell[BoxData[
    3.987240690172864*^9, 3.987242271710277*^9, 3.9872427042400837`*^9, 
    3.9872429722807837`*^9, {3.987243182158002*^9, 3.98724321027881*^9}, 
    3.987243246671384*^9, 3.9872432898594217`*^9, 3.987243442616411*^9, 
-   3.9872439223148203`*^9, 3.987243991506303*^9, 3.987244197136072*^9},
- CellLabel->"Out[9]=",ExpressionUUID->"28d5c56c-afd6-4187-8fe8-5c0678274469"]
+   3.9872439223148203`*^9, 3.987243991506303*^9, 3.987244197136072*^9, 
+   3.987329059107751*^9, 3.9873331940809803`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"33294957-652d-4e67-810c-30704cf2eb71"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -154,7 +481,7 @@ Cell[BoxData[
  CellChangeTimes->{
   3.986891233933138*^9, 3.9868912933455048`*^9, {3.986891500413303*^9, 
    3.986891548223818*^9}},
- CellLabel->"In[10]:=",ExpressionUUID->"a64e059e-ee8c-468f-b25e-2e63abc602ce"],
+ CellLabel->"In[6]:=",ExpressionUUID->"a64e059e-ee8c-468f-b25e-2e63abc602ce"],
 
 Cell[BoxData[
  ButtonBox[
@@ -181,16 +508,63 @@ Cell[BoxData[
    3.987240690196269*^9, 3.987242271768415*^9, 3.9872427042895*^9, 
    3.987242972453044*^9, {3.987243182198701*^9, 3.987243210301564*^9}, 
    3.9872432467015543`*^9, 3.987243289881328*^9, 3.987243442636423*^9, 
-   3.987243922551371*^9, 3.987243991549775*^9, 3.987244197167726*^9},
- CellLabel->"Out[10]=",ExpressionUUID->"dbfff342-6359-4979-beba-d4d588163471"]
+   3.987243922551371*^9, 3.987243991549775*^9, 3.987244197167726*^9, 
+   3.987329059273347*^9, 3.987333194137793*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"7fb5c9ca-493c-4dcf-ab3a-bed1a219d95f"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Allenamento e Gioco interattivo", "Chapter",
+ CellChangeTimes->{{3.987332393004815*^9, 3.987332408981906*^9}, {
+  3.98733264782742*^9, 
+  3.987332650713767*^9}},ExpressionUUID->"791b9129-9273-4881-aa64-\
+e1001b77b777"],
+
+Cell[CellGroupData[{
+
+Cell["Allenamento", "Section",
+ CellChangeTimes->{{3.987332414546183*^9, 
+  3.98733241655758*^9}},ExpressionUUID->"56df94b5-5e17-43b5-ba99-\
+216e3e17faa2"],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial Allenamento", "Subsection",
+ CellChangeTimes->{{3.987333838534298*^9, 
+  3.9873338450427103`*^9}},ExpressionUUID->"f50e1e00-91a5-4a87-b7fb-\
+450e8092b5fd"],
+
+Cell["\<\
+Di seguito l\[CloseCurlyQuote]utente pu\[OGrave] testare le proprie capacit\
+\[AGrave] con un\[CloseCurlyQuote]immagine di prova caricata da internet, \
+oppure tramite una propria immagine caricata appositamente tramite il bottone \
+\[OpenCurlyQuote]Carica Immagine\[CloseCurlyQuote].
+
+Se l\[CloseCurlyQuote]utente pu\[OGrave] anche usufruire del tasto \
+\[OpenCurlyQuote]Pulisci\[CloseCurlyQuote] per portare \
+l\[CloseCurlyQuote]immagine che sta modificando alle condizioni originali.\
+\>", "Text",
+ CellChangeTimes->{{3.987332428766184*^9, 
+  3.987332570371271*^9}},ExpressionUUID->"207718d8-361f-4cb5-a0f9-\
+9994b1392348"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Allenamento interattivo", "Subsection",
+ CellChangeTimes->{{3.987333851734275*^9, 
+  3.987333887549226*^9}},ExpressionUUID->"ecfc3c89-53cc-4dd5-a2e7-\
+e976cff6a796"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Studia", "[", "]"}]], "Input",
  CellChangeTimes->{{3.986891967169972*^9, 3.98689197321418*^9}},
- CellLabel->"In[11]:=",ExpressionUUID->"35da8ec6-3c17-43ef-ab73-714b093edd6a"],
+ CellLabel->"In[7]:=",ExpressionUUID->"35da8ec6-3c17-43ef-ab73-714b093edd6a"],
 
 Cell[BoxData[
  DynamicModuleBox[{Private`img$$ = Image[CompressedData["
@@ -9657,67 +10031,52 @@ QgghhBBCCCGEEEIIIYQQQgghhBBCCCEyHv8P3qaitA==
    3.9872422717803993`*^9, 3.987242704301362*^9, 3.98724297247554*^9, {
    3.987243182211162*^9, 3.987243210315093*^9}, 3.987243246714786*^9, 
    3.987243289895012*^9, 3.9872434426518*^9, 3.987243922576318*^9, 
-   3.987243991563486*^9, 3.987244197180884*^9},
- CellLabel->"Out[11]=",ExpressionUUID->"8a518049-d85b-4550-8a62-f62db2f2704f"]
+   3.987243991563486*^9, 3.987244197180884*^9, 3.9873290592979813`*^9, 
+   3.987333194150138*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"d5bac4f3-552a-46bc-89e8-41709b95da9c"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gioco", "Section",
+ CellChangeTimes->{{3.9873325814365673`*^9, 
+  3.9873325890046*^9}},ExpressionUUID->"e8a05906-712f-49e3-8f04-9a52586c0d78"],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial Gioco", "Subsection",
+ CellChangeTimes->{{3.987333866269867*^9, 
+  3.987333870050517*^9}},ExpressionUUID->"c427eb0f-cd35-4f43-aa7c-\
+b650837c528e"],
+
+Cell["Di seguito l\[CloseCurlyQuote]utente pu\[OGrave] giocare ...", "Text",
+ CellChangeTimes->{{3.987332597405528*^9, 3.9873326152585287`*^9}, {
+  3.987333203931938*^9, 
+  3.987333204660158*^9}},ExpressionUUID->"851f9489-c155-48a8-861d-\
+454bd7494f67"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Allenamento Interattivo", "Subsection",
+ CellChangeTimes->{{3.9873338910369387`*^9, 
+  3.987333896834239*^9}},ExpressionUUID->"ebd98fd8-ebf0-4e45-b9d6-\
+c7471781d3bf"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Gioca", "[", "]"}]], "Input",
  CellChangeTimes->{{3.986891984074329*^9, 3.986891985947528*^9}},
- CellLabel->"In[12]:=",ExpressionUUID->"eee6dd1d-e616-49c8-b2ce-50f0db384d9d"],
+ CellLabel->"In[8]:=",ExpressionUUID->"eee6dd1d-e616-49c8-b2ce-50f0db384d9d"],
 
 Cell[BoxData[
  DynamicModuleBox[{Private`seed$$ = 0, Private`errorMsg$$ = "", 
-  Private`visual$$ = Panel[
-   Column[{
-     Style["LEADERBOARD", 24, Bold, 
-      RGBColor[0, 0, 
-       Rational[2, 3]]], 
-     Spacer[10], 
-     Row[{
-       Column[{
-         Style["help", 14, Bold], 
-         Framed[
-          Column[{
-            Style["help", 12, 
-             GrayLevel[1]], 
-            Style[5, 22, 
-             GrayLevel[1], Bold]}, Alignment -> Center], Background -> 
-          GrayLevel[0.7], FrameStyle -> None, ImageSize -> {100, 80}, 
-          Alignment -> Center], 
-         Style["2\.ba", 18, 
-          GrayLevel[0.5]]}, Alignment -> Center], 
-       Column[{
-         Style["help", 14, Bold], 
-         Framed[
-          Column[{
-            Style["help", 12, 
-             GrayLevel[1]], 
-            Style[10, 22, 
-             GrayLevel[1], Bold]}, Alignment -> Center], Background -> 
-          RGBColor[1, 0.84, 0], FrameStyle -> None, ImageSize -> {100, 120}, 
-          Alignment -> Center], 
-         Style["1\.ba", 18, 
-          GrayLevel[0.5]]}, Alignment -> Center], 
-       Column[{
-         Style["kill me", 14, Bold], 
-         Framed[
-          Column[{
-            Style["kill me", 12, 
-             GrayLevel[1]], 
-            Style[4, 22, 
-             GrayLevel[1], Bold]}, Alignment -> Center], Background -> 
-          RGBColor[0.8, 0.5, 0.2], FrameStyle -> None, ImageSize -> {100, 60},
-           Alignment -> Center], 
-         Style["3\.ba", 18, 
-          GrayLevel[0.5]]}, Alignment -> Center]}, Alignment -> Bottom], 
-     Spacer[20], 
-     Column[{}, Spacings -> 1]}, Alignment -> Center], Background -> 
-   GrayLevel[1]], Private`inputnome$$ = "help", Private`giocatore$$ = "help", 
-  Private`punteggio$$ = 10, Private`sorgente$$ = "Web", Private`statusMsg$$ = 
-  "Database Web caricato: 77 immagini"}, 
+  Private`visual$$ = "", Private`inputnome$$ = "", Private`giocatore$$ = "", 
+  Private`punteggio$$ = 0, Private`sorgente$$ = "Web", Private`statusMsg$$ = 
+  ""}, 
   PanelBox[
    TagBox[GridBox[{
       {
@@ -9751,8 +10110,7 @@ Cell[BoxData[
          TemplateBox[{10}, "Spacer1"], 
          DynamicBox[
           ToBoxes[
-           Style[Private`statusMsg$$, Italic, Gray], StandardForm], 
-          ImageSizeCache -> {176.3427734375, {2.0166015625, 7.451171875}}]},
+           Style[Private`statusMsg$$, Italic, Gray], StandardForm]]},
         "RowDefault"]},
       {
        TemplateBox[{10},
@@ -9792,7 +10150,7 @@ Cell[BoxData[
           "\"\[FilledSquare]  Termina Partita\"", FontSize -> 14, FontWeight -> 
            Bold, FontColor -> GrayLevel[1], StripOnInput -> False], 
           ButtonFunction :> (Private`visual$$ = ""; 
-           Classifica`aggiungiPunteggio[
+           Private`aggiungiPunteggio[
             Private`giocatore$$, Private`punteggio$$]; 
            Private`visual$$ = Private`ClassificaPanel[]; Null), Background -> 
           RGBColor[0.8, 0.1, 0.1], FrameMargins -> 12, ImageSize -> {200, 45},
@@ -9805,8 +10163,7 @@ Cell[BoxData[
         ImageSizeCache->{0., {0., 5.3759765625}}]},
       {
        DynamicBox[ToBoxes[Private`visual$$, StandardForm],
-        ImageSizeCache->{
-         317.96831597222223`, {114.3209228515625, 119.9766845703125}}]}
+        ImageSizeCache->{0., {0., 5.263671875}}]}
      },
      DefaultBaseStyle->"Column",
      GridBoxAlignment->{"Columns" -> {{Center}}},
@@ -9820,8 +10177,201 @@ Cell[BoxData[
    3.9872422718572893`*^9, 3.9872427043702717`*^9, 3.987242972536407*^9, {
    3.987243182262594*^9, 3.9872432103891153`*^9}, 3.987243246778894*^9, 
    3.987243289961364*^9, 3.987243442706007*^9, 3.9872439226391573`*^9, 
-   3.9872439916272984`*^9, 3.987244197241461*^9},
- CellLabel->"Out[12]=",ExpressionUUID->"0f8af11d-c362-4475-a67a-0c9c5933a1b4"]
+   3.9872439916272984`*^9, 3.987244197241461*^9, 3.987329059357781*^9, 
+   3.987333194212454*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"bebd320f-7e36-43ce-9b57-18e84bf45f14"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sitografia e Bibliografia", "Chapter",
+ CellChangeTimes->{{3.987331476355236*^9, 
+  3.9873314822496977`*^9}},ExpressionUUID->"168bf5a1-ae34-47dd-9223-\
+138b9947ed21"],
+
+Cell[CellGroupData[{
+
+Cell["Sfocatura (Blurring)", "Section",
+ CellChangeTimes->{{3.9873319707562037`*^9, 3.9873319725738573`*^9}, 
+   3.987332005911127*^9},ExpressionUUID->"ac81e7c2-2af6-41c2-a1ee-\
+0e26f5c72ef1"],
+
+Cell["\<\
+Gonzalez, R. C., Woods, R. E. \[LongDash] Digital Image Processing, 4\.aa \
+ed., Pearson, 2018 \
+\>", "Item",
+ CellChangeTimes->{{3.9873315067868223`*^9, 
+  3.987331567766633*^9}},ExpressionUUID->"79d14919-218c-4b59-a8af-\
+cb2f531f8a60"],
+
+Cell["\<\
+Wolfram Documentation \[LongDash] Blur: \
+https://reference.wolfram.com/language/ref/Blur.html\
+\>", "Item",
+ CellChangeTimes->{{3.9873315067868223`*^9, 
+  3.987331552901938*^9}},ExpressionUUID->"97334974-e869-43ee-84d4-\
+6229f4b6222f"],
+
+Cell["\<\
+Wolfram Documentation \[LongDash] GaussianFilter: \
+https://reference.wolfram.com/language/ref/GaussianFilter.html\
+\>", "Item",
+ CellChangeTimes->{{3.9873315067868223`*^9, 
+  3.987331555061351*^9}},ExpressionUUID->"afeed353-f012-425f-9d35-\
+1dc2bebd8aa1"],
+
+Cell["\<\
+Shapiro, L., Stockman, G. \[LongDash] Computer Vision, Prentice Hall, 2001\
+\>", "Item",
+ CellChangeTimes->{{3.9873315067868223`*^9, 
+  3.987331544615954*^9}},ExpressionUUID->"a4fe5a80-f865-4818-816f-\
+876d7f0dd36f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Rotazione", "Section",
+ CellChangeTimes->{{3.987331986522591*^9, 
+  3.9873319877956247`*^9}},ExpressionUUID->"99a9d914-82dd-4141-9d03-\
+fbc7c8f865d8"],
+
+Cell["\<\
+Gonzalez, R. C., Woods, R. E. \[LongDash] Digital Image Processing, 4\.aa \
+ed., Pearson, 2018\
+\>", "Item",
+ CellChangeTimes->{{3.9873321974778023`*^9, 
+  3.987332199229018*^9}},ExpressionUUID->"bf658c1b-6c17-403c-aebe-\
+257b672949d3"],
+
+Cell["\<\
+Szeliski, R. \[LongDash] Computer Vision: Algorithms and Applications, 2\.aa \
+ed., Springer, 2022. Disponibile online: https://szeliski.org/Book/\
+\>", "Item",
+ CellChangeTimes->{{3.9873321974778023`*^9, 
+  3.9873322011496477`*^9}},ExpressionUUID->"2180d87e-8444-4539-ad4e-\
+a52d86fe8304"],
+
+Cell["\<\
+Burger, W., Burge, M. J. \[LongDash] Digital Image Processing: An Algorithmic \
+Introduction, 3\.aa ed., Springer, 2022\
+\>", "Item",
+ CellChangeTimes->{{3.9873321974778023`*^9, 
+  3.987332202773651*^9}},ExpressionUUID->"9d469100-95d3-4cf5-a451-\
+db438e5f9c70"],
+
+Cell["\<\
+Wolfram Documentation \[LongDash] ImageRotate: \
+https://reference.wolfram.com/language/ref/ImageRotate.html\
+\>", "Item",
+ CellChangeTimes->{
+  3.9873321974778023`*^9},ExpressionUUID->"a912cdf8-6246-435f-9241-\
+becdf9570fed"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Applicazione filtro colore", "Section",
+ CellChangeTimes->{
+  3.987332032081318*^9},ExpressionUUID->"47a1af2d-ea77-4c51-b32f-\
+1ef2cb1350ee"],
+
+Cell["\<\
+Gonzalez, R. C., Woods, R. E. \[LongDash] Digital Image Processing, 4\.aa \
+ed., Pearson, 2018\
+\>", "Item",
+ CellChangeTimes->{{3.9873322761120567`*^9, 3.9873322896613617`*^9}, {
+  3.987332325339829*^9, 
+  3.987332326964651*^9}},ExpressionUUID->"f1128c09-e229-46eb-91ad-\
+7564f2b4bceb"],
+
+Cell["\<\
+Szeliski, R. \[LongDash] Computer Vision: Algorithms and Applications, 2\.aa \
+ed., Springer, 2022. Disponibile online: https://szeliski.org/Book/\
+\>", "Item",
+ CellChangeTimes->{{3.9873322761120567`*^9, 3.9873322896613617`*^9}, {
+  3.987332325339829*^9, 
+  3.987332330907329*^9}},ExpressionUUID->"7089cd2b-303e-40fd-bf87-\
+292bf365f375"],
+
+Cell["\<\
+Smith, A. R. \[LongDash] Color Gamut Transform Pairs, SIGGRAPH, 1978 \
+\[LongDash] articolo fondativo dello spazio colore HSV\
+\>", "Item",
+ CellChangeTimes->{{3.9873322761120567`*^9, 3.9873322896613617`*^9}, {
+  3.987332325339829*^9, 
+  3.987332339790845*^9}},ExpressionUUID->"22095937-53e2-44f9-b588-\
+29c86db2be00"],
+
+Cell["\<\
+Wolfram Documentation \[LongDash] Colorize: \
+https://reference.wolfram.com/language/ref/Colorize.html\
+\>", "Item",
+ CellChangeTimes->{{3.9873322761120567`*^9, 3.9873322896613617`*^9}, {
+  3.987332325339829*^9, 
+  3.9873323415911283`*^9}},ExpressionUUID->"fecd349a-d9c0-4106-9702-\
+b5f9e4bebeb4"],
+
+Cell["\<\
+Wolfram Documentation \[LongDash] ColorConvert: \
+https://reference.wolfram.com/language/ref/ColorConvert.html\
+\>", "Item",
+ CellChangeTimes->{{3.9873322761120567`*^9, 3.9873322896613617`*^9}, {
+  3.987332325339829*^9, 
+  3.987332343446087*^9}},ExpressionUUID->"4ac9af4e-ac24-46c0-a0e8-\
+45fe6fcdec22"],
+
+Cell["\<\
+Wolfram Documentation \[LongDash] Hue: \
+https://reference.wolfram.com/language/ref/Hue.html\
+\>", "Item",
+ CellChangeTimes->{{3.9873322761120567`*^9, 3.9873322896613617`*^9}, 
+   3.987332325339829*^9},ExpressionUUID->"6ba5b7fc-6054-41a1-b8b5-\
+ad250f501b26"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Traslazione", "Section",
+ CellChangeTimes->{{3.987332037320644*^9, 
+  3.987332039959779*^9}},ExpressionUUID->"9750c510-6a6f-492b-b553-\
+c58f9643d92e"],
+
+Cell["\<\
+Gonzalez, R. C., Woods, R. E. \[LongDash] Digital Image Processing, 4\.aa \
+ed., Pearson, 2018\
+\>", "Item",
+ CellChangeTimes->{{3.987332064904917*^9, 
+  3.987332066710267*^9}},ExpressionUUID->"bbef5d4d-45ed-4199-9c52-\
+5919a53d64db"],
+
+Cell["\<\
+Szeliski, R. \[LongDash] Computer Vision: Algorithms and Applications, 2\.aa \
+ed., Springer, 2022. Disponibile online: https://szeliski.org/Book/\
+\>", "Item",
+ CellChangeTimes->{{3.987332064904917*^9, 
+  3.987332068500242*^9}},ExpressionUUID->"d831bad2-2d66-4408-b55b-\
+03c27fd8c316"],
+
+Cell["\<\
+Wolfram Documentation \[LongDash] RotateRight: \
+https://reference.wolfram.com/language/ref/RotateRight.html\
+\>", "Item",
+ CellChangeTimes->{{3.987332064904917*^9, 
+  3.9873320700594254`*^9}},ExpressionUUID->"207efe8d-39b3-41bc-a862-\
+151199621d19"],
+
+Cell["\<\
+Wolfram Documentation \[LongDash] ImageTransformation: \
+https://reference.wolfram.com/language/ref/ImageTransformation.html\
+\>", "Item",
+ CellChangeTimes->{
+  3.987332064904917*^9},ExpressionUUID->"432269bb-3fb6-475c-8bbf-\
+801415438509"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1281, 689},
@@ -9842,20 +10392,129 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 3352, 69, 274, "Input",ExpressionUUID->"8874232a-570a-4c00-9eea-ccbd29bf3f74"],
-Cell[3931, 93, 1692, 34, 77, "Output",ExpressionUUID->"28d5c56c-afd6-4187-8fe8-5c0678274469"]
+Cell[576, 22, 269, 5, 96, "Title",ExpressionUUID->"7a7e4bd5-4f65-44e6-bf9f-09e65e6ebe3c"],
+Cell[848, 29, 191, 4, 52, "Subtitle",ExpressionUUID->"48149db2-8908-4337-8c11-6ff796b50fce"],
+Cell[CellGroupData[{
+Cell[1064, 37, 184, 3, 67, "Chapter",ExpressionUUID->"5d89b6a5-ddbf-4083-8a68-5176243a1159"],
+Cell[CellGroupData[{
+Cell[1273, 44, 160, 3, 53, "Subsection",ExpressionUUID->"08a1be57-eef0-4c40-8a4d-f470cd4aa1db"],
+Cell[1436, 49, 378, 8, 56, "Author",ExpressionUUID->"ebdfef21-2bbb-4a6f-a492-16b10e87eeb8"],
+Cell[1817, 59, 160, 3, 30, "Author",ExpressionUUID->"d64b6aae-7169-4f9c-9f95-7c0e9c6a1ca9"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5660, 132, 1025, 24, 70, "Input",ExpressionUUID->"a64e059e-ee8c-468f-b25e-2e63abc602ce"],
-Cell[6688, 158, 1195, 26, 77, "Output",ExpressionUUID->"dbfff342-6359-4979-beba-d4d588163471"]
+Cell[2026, 68, 152, 3, 67, "Chapter",ExpressionUUID->"e3cdaa6f-0f58-46db-bcec-b4541c1b7845"],
+Cell[2181, 73, 463, 10, 55, "Text",ExpressionUUID->"af19fab9-7a5f-4243-99c7-574d91c5f495"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7920, 189, 198, 3, 29, "Input",ExpressionUUID->"35da8ec6-3c17-43ef-ab73-714b093edd6a"],
-Cell[8121, 194, 572991, 9466, 394, "Output",ExpressionUUID->"8a518049-d85b-4550-8a62-f62db2f2704f"]
+Cell[2681, 88, 159, 3, 67, "Chapter",ExpressionUUID->"3606b5af-fd6d-4d8d-98d1-1a51d9caa0b2"],
+Cell[2843, 93, 1435, 23, 164, "Text",ExpressionUUID->"899950ec-463b-4132-8ee7-eff2af9eea05"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[581149, 9665, 198, 3, 29, "Input",ExpressionUUID->"eee6dd1d-e616-49c8-b2ce-50f0db384d9d"],
-Cell[581350, 9670, 6641, 153, 374, "Output",ExpressionUUID->"0f8af11d-c362-4475-a67a-0c9c5933a1b4"]
+Cell[4315, 121, 213, 4, 67, "Chapter",ExpressionUUID->"b403c328-3c21-4781-9ccd-6ca6ed40b706"],
+Cell[4531, 127, 225, 5, 33, "Text",ExpressionUUID->"52275c0a-2228-4151-b76b-d31d7c14eccd"],
+Cell[4759, 134, 190, 3, 30, "Item",ExpressionUUID->"7c56c710-c9f9-47ab-9e5b-31be4600c176"],
+Cell[4952, 139, 344, 7, 30, "Item",ExpressionUUID->"774be867-c0d6-4929-ac1e-c0a10bcea033"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5333, 151, 193, 3, 67, "Chapter",ExpressionUUID->"05486883-c542-4e53-920a-1eb3c95f0393"],
+Cell[CellGroupData[{
+Cell[5551, 158, 164, 3, 66, "Section",ExpressionUUID->"6cae90e3-e70d-4c43-a132-f95870cfa29d"],
+Cell[5718, 163, 1323, 21, 143, "Text",ExpressionUUID->"ce045841-6f2d-446c-9c0a-09869a20359e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7078, 189, 158, 3, 66, "Section",ExpressionUUID->"5a346391-0ecb-4c98-8a95-1718a41d9cb6"],
+Cell[7239, 194, 1901, 29, 230, "Text",ExpressionUUID->"890d4c94-626a-491e-ab6e-96fcce9ab9a6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9177, 228, 219, 4, 66, "Section",ExpressionUUID->"2ad1ed52-c590-4a8b-a85d-190eeed2b13e"],
+Cell[9399, 234, 1875, 29, 230, "Text",ExpressionUUID->"5646874f-2412-4bbf-909b-71d10c70c968"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11311, 268, 156, 3, 66, "Section",ExpressionUUID->"8f9c36e0-b768-4e6d-a78e-eb840f9b34bf"],
+Cell[11470, 273, 1706, 26, 208, "Text",ExpressionUUID->"6ce389b5-6ca6-4b24-826a-8743a60c82c9"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13225, 305, 160, 3, 67, "Chapter",ExpressionUUID->"7f85949e-012a-4348-acdb-7467d3558407"],
+Cell[13388, 310, 431, 9, 33, "Text",ExpressionUUID->"00e7a862-e09d-4fb7-871a-43fa31375724"],
+Cell[13822, 321, 532, 10, 50, "ItemNumbered",ExpressionUUID->"8f3adcf5-a7b1-4a4b-b1fc-6ff87018f738"],
+Cell[CellGroupData[{
+Cell[14379, 335, 489, 9, 30, "ItemNumbered",ExpressionUUID->"ca998e83-381a-4286-9ad0-36a1cda4d066"],
+Cell[CellGroupData[{
+Cell[14893, 348, 3352, 69, 274, "Input",ExpressionUUID->"8874232a-570a-4c00-9eea-ccbd29bf3f74"],
+Cell[18248, 419, 1742, 35, 77, "Output",ExpressionUUID->"33294957-652d-4e67-810c-30704cf2eb71"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20027, 459, 1024, 24, 70, "Input",ExpressionUUID->"a64e059e-ee8c-468f-b25e-2e63abc602ce"],
+Cell[21054, 485, 1242, 27, 77, "Output",ExpressionUUID->"7fb5c9ca-493c-4dcf-ab3a-bed1a219d95f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22357, 519, 224, 4, 67, "Chapter",ExpressionUUID->"791b9129-9273-4881-aa64-e1001b77b777"],
+Cell[CellGroupData[{
+Cell[22606, 527, 155, 3, 66, "Section",ExpressionUUID->"56df94b5-5e17-43b5-ba99-216e3e17faa2"],
+Cell[CellGroupData[{
+Cell[22786, 534, 170, 3, 53, "Subsection",ExpressionUUID->"f50e1e00-91a5-4a87-b7fb-450e8092b5fd"],
+Cell[22959, 539, 636, 12, 99, "Text",ExpressionUUID->"207718d8-361f-4cb5-a0f9-9994b1392348"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23632, 556, 171, 3, 53, "Subsection",ExpressionUUID->"ecfc3c89-53cc-4dd5-a2e7-e976cff6a796"],
+Cell[CellGroupData[{
+Cell[23828, 563, 197, 3, 29, "Input",ExpressionUUID->"35da8ec6-3c17-43ef-ab73-714b093edd6a"],
+Cell[24028, 568, 573040, 9467, 394, "Output",ExpressionUUID->"d5bac4f3-552a-46bc-89e8-41709b95da9c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[597129, 10042, 148, 2, 66, "Section",ExpressionUUID->"e8a05906-712f-49e3-8f04-9a52586c0d78"],
+Cell[CellGroupData[{
+Cell[597302, 10048, 162, 3, 53, "Subsection",ExpressionUUID->"c427eb0f-cd35-4f43-aa7c-b650837c528e"],
+Cell[597467, 10053, 253, 4, 33, "Text",ExpressionUUID->"851f9489-c155-48a8-861d-454bd7494f67"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[597757, 10062, 173, 3, 53, "Subsection",ExpressionUUID->"ebd98fd8-ebf0-4e45-b9d6-c7471781d3bf"],
+Cell[CellGroupData[{
+Cell[597955, 10069, 197, 3, 29, "Input",ExpressionUUID->"eee6dd1d-e616-49c8-b2ce-50f0db384d9d"],
+Cell[598155, 10074, 4950, 107, 149, "Output",ExpressionUUID->"bebd320f-7e36-43ce-9b57-18e84bf45f14"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[603178, 10189, 172, 3, 67, "Chapter",ExpressionUUID->"168bf5a1-ae34-47dd-9223-138b9947ed21"],
+Cell[CellGroupData[{
+Cell[603375, 10196, 192, 3, 66, "Section",ExpressionUUID->"ac81e7c2-2af6-41c2-a1ee-0e26f5c72ef1"],
+Cell[603570, 10201, 247, 6, 30, "Item",ExpressionUUID->"79d14919-218c-4b59-a8af-cb2f531f8a60"],
+Cell[603820, 10209, 246, 6, 30, "Item",ExpressionUUID->"97334974-e869-43ee-84d4-6229f4b6222f"],
+Cell[604069, 10217, 266, 6, 30, "Item",ExpressionUUID->"afeed353-f012-425f-9d35-1dc2bebd8aa1"],
+Cell[604338, 10225, 226, 5, 30, "Item",ExpressionUUID->"a4fe5a80-f865-4818-816f-876d7f0dd36f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[604601, 10235, 156, 3, 66, "Section",ExpressionUUID->"99a9d914-82dd-4141-9d03-fbc7c8f865d8"],
+Cell[604760, 10240, 246, 6, 30, "Item",ExpressionUUID->"bf658c1b-6c17-403c-aebe-257b672949d3"],
+Cell[605009, 10248, 300, 6, 30, "Item",ExpressionUUID->"2180d87e-8444-4539-ad4e-a52d86fe8304"],
+Cell[605312, 10256, 271, 6, 30, "Item",ExpressionUUID->"9d469100-95d3-4cf5-a451-db438e5f9c70"],
+Cell[605586, 10264, 236, 6, 30, "Item",ExpressionUUID->"a912cdf8-6246-435f-9241-becdf9570fed"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[605859, 10275, 147, 3, 66, "Section",ExpressionUUID->"47a1af2d-ea77-4c51-b32f-1ef2cb1350ee"],
+Cell[606009, 10280, 297, 7, 30, "Item",ExpressionUUID->"f1128c09-e229-46eb-91ad-7564f2b4bceb"],
+Cell[606309, 10289, 349, 7, 30, "Item",ExpressionUUID->"7089cd2b-303e-40fd-bf87-292bf365f375"],
+Cell[606661, 10298, 328, 7, 30, "Item",ExpressionUUID->"22095937-53e2-44f9-b588-29c86db2be00"],
+Cell[606992, 10307, 307, 7, 30, "Item",ExpressionUUID->"fecd349a-d9c0-4106-9702-b5f9e4bebeb4"],
+Cell[607302, 10316, 313, 7, 30, "Item",ExpressionUUID->"4ac9af4e-ac24-46c0-a0e8-45fe6fcdec22"],
+Cell[607618, 10325, 269, 6, 30, "Item",ExpressionUUID->"6ba5b7fc-6054-41a1-b8b5-ad250f501b26"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[607924, 10336, 156, 3, 66, "Section",ExpressionUUID->"9750c510-6a6f-492b-b553-c58f9643d92e"],
+Cell[608083, 10341, 244, 6, 30, "Item",ExpressionUUID->"bbef5d4d-45ed-4199-9c52-5919a53d64db"],
+Cell[608330, 10349, 296, 6, 30, "Item",ExpressionUUID->"d831bad2-2d66-4408-b55b-03c27fd8c316"],
+Cell[608629, 10357, 260, 6, 30, "Item",ExpressionUUID->"207efe8d-39b3-41bc-a862-151199621d19"],
+Cell[608892, 10365, 250, 6, 30, "Item",ExpressionUUID->"432269bb-3fb6-475c-8bbf-801415438509"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
