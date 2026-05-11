@@ -7,14 +7,13 @@ Commentare tutto il codice
 Parte testuale
 Parte estetica -> abbellirlo e rendere tutto coerenete
 Aggiunta aiuto -> bloccare bottone e renderlo grigio quando si arrivano a 5 aiuti?
-ARIAL -> font dislessia o lettura del testo SPEAK
+lettura del testo SPEAK  ??
 Grduatoria permanente (opzionale)
 Sviluppi futuri
 A chi è rivolto
 Approfondire parti non spiegate dalla prof
 Carico db locale
 Farlo provare a qualcuno a caso (2-3 persone)-> ce lo chiederà
-link nella biblografia e link tra le cose nelle pagine
 
 Indice
 	Introduzione
