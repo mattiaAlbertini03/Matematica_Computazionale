@@ -14,6 +14,9 @@ A chi è rivolto
 Approfondire parti non spiegate dalla prof
 Carico db locale
 Farlo provare a qualcuno a caso (2-3 persone)-> ce lo chiederà
+terminare partita piu volte da piu risultati
+riorganizzazione codice lengthIMageDB e cacheImmagini
+rimozione codice superfluo
 
 Indice
 	Introduzione
