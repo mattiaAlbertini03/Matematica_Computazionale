@@ -17,6 +17,8 @@ Farlo provare a qualcuno a caso (2-3 persone)-> ce lo chiederà
 terminare partita piu volte da piu risultati
 riorganizzazione codice lengthIMageDB e cacheImmagini
 rimozione codice superfluo
+cambiare indirizzo, non ludico ma magari per dare le basi di computer graphic
+
 
 Indice
 	Introduzione
