@@ -15,6 +15,7 @@ Codice
 
 Problemi
 	test di cosa carichiamo, ad esempio se carichiamo txt
+	sistemare visualizzazione aiuti
 
 Parte estetica -> abbellirlo e rendere tutto coerenete
 	Accorciare un po i testi o non allungarli, la prof ha detto che li voleva sintetici
