@@ -64,8 +64,11 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		SetAttributes[bottonePulisci, HoldAll]
 		(*Bottone che quando premuto pulisce i campi*)
 		bottonePulisci[blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
-			Button["Pulisci",
-				pulisci[blur, rotazione, translaX, translaY, colore];
+			Button[Style["Pulisci", White, Bold, 12],
+				pulisci[blur, rotazione, translaX, translaY, colore];,
+				Background -> RGBColor["#e67e22"],
+				ImageSize -> {100, 35},
+				Appearance -> "Framed"
 			]
 		];
 		
@@ -260,15 +263,28 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						(*Pannello punteggio e bottoni*)
 						Column[{
 							Dynamic[Style["Partita n: "<>ToString[partite], Bold]],
-							Dynamic[Style["Punteggio: "<>ToString[punteggio], Bold]],
-							Dynamic[Style["Aiuti: "<>ToString[aiuti], Bold, Green]],
+							Dynamic[Style["Punteggio: "<>ToString[punteggio], Bold, RGBColor["#2ecc71"]]],
+							Dynamic[Style["Aiuti: "<>ToString[aiuti], Bold, Orange]],
 							
 							Spacer[10],
 							
+							(*Replica automaticamente tutte le trasformazioni dell'immagine modificata*)
+							Button["Risolvi esercizio",
+								blur      = blur2;
+								rotazione = rotazione2;
+								colore    = colore2;
+								translaX  = translaX2;
+								translaY  = translaY2;
+								aiuti = 5;,
+								ImageSize -> {100, 35}
+							],
+							
 							(*Bottone che mostra/nasconde i valori di soluzione*)
 							Button[
-								Dynamic[If[mostraValori, "Nascondi soluzione", "Vedi valori di soluzione"]],
-								mostraValori = !mostraValori
+								Dynamic[If[mostraValori, "Nascondi soluzione", "Mostra soluzione"]],
+								aiuti = 5;
+								mostraValori = !mostraValori, 
+								ImageSize -> {100, 35}
 							],
 							
 							(*Valori di soluzione formattati: visibili solo se mostraValori \[EGrave] True*)
@@ -281,19 +297,9 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							
 							Spacer[10],
 							
-							(*Replica automaticamente tutte le trasformazioni dell'immagine modificata*)
-							Button["Genera esercizio",
-								blur      = blur2;
-								rotazione = rotazione2;
-								colore    = colore2;
-								translaX  = translaX2;
-								translaY  = translaY2;
-							],
-							
-							Spacer[10],
-							
 							(*Bottone per verificare se l'immagine ottenuta \[EGrave] quella che vogliamo ottenere*)
-							Button["Verifica",
+							Button[
+								Style["Verifica", White, Bold],
 								If[verifica[{blur, colore, rotazione, translaX, translaY}, {blur2, colore2, rotazione2, translaX2, translaY2}],
 									(*Calcoliamo il punteggio maggisso e gli togliamo gli aiuti che abbiamo utilizzato*)
 									punteggioLivello=Max[5-aiuti, 0];
@@ -315,10 +321,13 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 									(*Inifince ci calcoliamo la nuova immagine che vogliamo ottenere*)
 									immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];,
 									MessageDialog["sbagliato"]
-								]
+								],
+								Background -> RGBColor["#16a085"],
+								ImageSize -> {100, 35}
 							],
 							
-							Button["Next",
+							Button[
+							Style["Prossimo Esercizio", White, Bold],
 								(*Resetto gli aiuti*) 
 								aiuti=0;
 								(*Nascondo le soluzioni*)
@@ -330,16 +339,23 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 								(*Genero una nuova immagine*)
 								img=prossimaImmagine[];
 								aggiornaParametri[{blur2, colore2, rotazione2, translaX2, translaY2}];
-								immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];
+								immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];, 
+								Background -> RGBColor["#2980b9"],
+								ImageSize -> {100, 35},
+								Appearance -> "Framed"
 							],
 							
-							Button["Aiuto",
+							Button[
+							Style["Aiuto", White, Bold, 12],
 								aiuti=Min[aiuti+1,5];
 								If[aiuti>=1,blur=blur2];
 								If[aiuti>=2,rotazione=rotazione2];
 								If[aiuti>=3,colore=colore2];
 								If[aiuti>=4,translaX=translaX2];
-								If[aiuti>=5,translaY=translaY2];
+								If[aiuti>=5,translaY=translaY2];,
+								Background -> RGBColor["#8e44ad"],
+								ImageSize -> {100, 35},
+								Appearance -> "Framed"
 							],
 							
 							Spacer[10],
@@ -421,7 +437,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 					Style["Sorgente immagini: ", Bold],
 					PopupMenu[Dynamic[sorgente], {"Web"->"Web (EntityList)", "Locale"->"Locale (cartella img)"}],
 					Spacer[10],
-					Button["Carica database",
+					Button[
+						" Carica Database",
 						statusMsg = "Caricamento in corso...";
 						If[sorgente === "Web",
 							(*Carica immagini dal web tramite EntityList*)
@@ -433,6 +450,9 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							lengthImageDb = Length[cacheImmagini];
 							statusMsg = "Database Locale caricato: "<>ToString[lengthImageDb]<>" immagini"
 						],
+						Background -> LightBlue,
+						BaseStyle -> {FontFamily -> "Verdana", Bold},
+						Appearance -> "Palette",
 						Method->"Queued"
 					],
 					Spacer[10],
@@ -447,7 +467,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 					Spacer[5],
 					InputField[Dynamic[inputnome], String, FieldHint->"Nome giocatore"],
 					Spacer[5],
-					Button["Nuova partita",
+					Button[
+					Style["Nuova partita", White, Bold, 14],
 						If[lengthImageDb == 0,
 							errorMsg = "Errore: carica prima il database immagini!";
 							visual = "";,
@@ -464,7 +485,10 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 								errorMsg = "Errore: devi inserire un numero intero";
 								visual = "";
 							]
-						]
+						],
+						Appearance -> "Framed",
+						Background -> RGBColor["#2ecc71"], (* Verde moderno *)
+						FrameMargins -> {{20, 20}, {5, 5}}
 					],
 					Spacer[10],
 					(*Bottone Termina Partita \[LongDash] grande e ben visibile*)
