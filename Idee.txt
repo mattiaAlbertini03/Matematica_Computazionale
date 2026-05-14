@@ -14,14 +14,9 @@ Codice
 	togliere quite (in tutte le parti del codice in cui non è STRETTAMENTE NECESSARIO)
 
 Problemi
-	terminare partita piu volte da piu risultati
-	Armonizzare tutto bene: se mostro le soluzioni o premo l'ex pulante genera esercizio non verranno piu assegnati punti
 	test di cosa carichiamo, ad esempio se carichiamo txt
 
 Parte estetica -> abbellirlo e rendere tutto coerenete
-	colare pulsanti
-	inserire label mancanti
-	Nascondere numero di immagini caricate (dovrebbero essere idealmente infinite)
 	Accorciare un po i testi o non allungarli, la prof ha detto che li voleva sintetici
 
 Idee
