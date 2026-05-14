@@ -40,14 +40,17 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		SetAttributes[bottoneCaricamento, HoldFirst]
 		(*Creiamo il bottone per caricare l'immagine dal file system*)
 		bottoneCaricamento[img_] = DynamicModule[{},
-			Button["Carica Immagine",
+			Button[
+			Style["Carica Immagine", Bold, 12],
 			(*Apre il selettore file ed importa l'immagine se l'utente non annulla*)
 				With[{file=SystemDialogInput["FileOpen"]},
 					If[file=!=$Canceled,img=Import[file]]
 				],
 				(*Nota: questa metodologia \[EGrave] importante per evitare 'timeout'
 				(di bloccarsi) con file grandi*)
-				Method->"Queued" 
+				Method->"Queued",
+				Appearance -> "Framed",
+				ImageSize -> {150, 35}
 			]
 		];
 		
@@ -64,9 +67,9 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		SetAttributes[bottonePulisci, HoldAll]
 		(*Bottone che quando premuto pulisce i campi*)
 		bottonePulisci[blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
-			Button[Style["Pulisci", White, Bold, 12],
+			Button[Style["Pulisci", Bold, 12],
 				pulisci[blur, rotazione, translaX, translaY, colore];,
-				Background -> RGBColor["#e67e22"],
+				Background -> RGBColor["#E0FFFF"],
 				ImageSize -> {100, 35},
 				Appearance -> "Framed"
 			]
@@ -258,7 +261,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						(*Controlli trasformazioni*)
 						controlliImmagine[img, blur, rotazione, translaX, translaY, colore],
 						
-						Spacer[40],
+						Spacer[100],
 						
 						(*Pannello punteggio e bottoni*)
 						Column[{
@@ -276,7 +279,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 								translaX  = translaX2;
 								translaY  = translaY2;
 								aiuti = 5;,
-								ImageSize -> {100, 35}
+								ImageSize -> {Scaled[0.15], 35}
 							],
 							
 							(*Bottone che mostra/nasconde i valori di soluzione*)
@@ -284,7 +287,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 								Dynamic[If[mostraValori, "Nascondi soluzione", "Mostra soluzione"]],
 								aiuti = 5;
 								mostraValori = !mostraValori, 
-								ImageSize -> {100, 35}
+								ImageSize -> {Scaled[0.15], 35}
 							],
 							
 							(*Valori di soluzione formattati: visibili solo se mostraValori \[EGrave] True*)
@@ -323,7 +326,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 									MessageDialog["sbagliato"]
 								],
 								Background -> RGBColor["#16a085"],
-								ImageSize -> {100, 35}
+								ImageSize -> {Scaled[0.15], 35}
 							],
 							
 							Button[
@@ -341,7 +344,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 								aggiornaParametri[{blur2, colore2, rotazione2, translaX2, translaY2}];
 								immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];, 
 								Background -> RGBColor["#2980b9"],
-								ImageSize -> {100, 35},
+								ImageSize -> {Scaled[0.15], 35},
 								Appearance -> "Framed"
 							],
 							
@@ -353,8 +356,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 								If[aiuti>=3,colore=colore2];
 								If[aiuti>=4,translaX=translaX2];
 								If[aiuti>=5,translaY=translaY2];,
-								Background -> RGBColor["#8e44ad"],
-								ImageSize -> {100, 35},
+								Background -> RGBColor["#e67e22"],
+								ImageSize -> {Scaled[0.15], 35},
 								Appearance -> "Framed"
 							],
 							
@@ -363,7 +366,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							(*Pulisci sotto agli altri bottoni*)
 							bottonePulisci[blur, rotazione, translaX, translaY, colore]
 						
-						}, Alignment->Center, ItemSize->20]
+						}, Alignment->Center]
 					}, Alignment->Center],
 					
 					(*Classifica mostrata in fondo al pannello di gioco*)
@@ -428,6 +431,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 				punteggio=0,
 				(*Sorgente immagini: "Web" o "Locale" \[LongDash] default Web*)
 				sorgente="Web",
+				partitaIniziata = False,
 				statusMsg=""
 			},
 			Panel[Column[{
@@ -444,11 +448,11 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							(*Carica immagini dal web tramite EntityList*)
 							cacheImmagini = creaDBWeb[];
 							lengthImageDb = Length[cacheImmagini];
-							statusMsg = "Database Web caricato: "<>ToString[lengthImageDb]<>" immagini",
+							statusMsg = "Database Web caricato!",
 							(*Carica immagini dalla cartella locale 'img'*)
 							cacheImmagini = creaDBCartella[];
 							lengthImageDb = Length[cacheImmagini];
-							statusMsg = "Database Locale caricato: "<>ToString[lengthImageDb]<>" immagini"
+							statusMsg = "Database Locale caricato!";
 						],
 						Background -> LightBlue,
 						BaseStyle -> {FontFamily -> "Verdana", Bold},
@@ -463,10 +467,16 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 				
 				(*--- Nome giocatore, seed e avvio partita ---*)
 				Row[{
-					InputField[Dynamic[seed], Number, FieldHint->"Seed"],
-					Spacer[5],
-					InputField[Dynamic[inputnome], String, FieldHint->"Nome giocatore"],
-					Spacer[5],
+					Column[{
+						Style["Inserisci Seed:", 10, Bold],
+						InputField[Dynamic[seed], Number, FieldHint -> "Esempio: 123"]
+						}, Alignment -> Left, Spacings -> 0.5],
+					Spacer[15],
+					Column[{
+						Style["Nome Giocatore:", 10, Bold],
+						InputField[Dynamic[inputnome], String, FieldHint -> "Tuo nome...", ImageSize -> 200]
+						}, Alignment -> Left, Spacings -> 0.5],
+					Spacer[15],
 					Button[
 					Style["Nuova partita", White, Bold, 14],
 						If[lengthImageDb == 0,
@@ -480,22 +490,25 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 									visual = "";
 									giocatore = inputnome;
 									punteggio = 0;
+									partitaIniziata = True;
 									visual = GiocaPanel[punteggio, seed, giocatore]
 								],
-								errorMsg = "Errore: devi inserire un numero intero";
+								errorMsg = "Errore: devi inserire un numero intero come Seed";
 								visual = "";
 							]
 						],
 						Appearance -> "Framed",
 						Background -> RGBColor["#2ecc71"], (* Verde moderno *)
-						FrameMargins -> {{20, 20}, {5, 5}}
+						FrameMargins -> {{20, 20}, {5, 5}},
+						ImageSize -> {200, 45}
 					],
 					Spacer[10],
 					(*Bottone Termina Partita \[LongDash] grande e ben visibile*)
 					Button[
 						Style["\[FilledSquare]  Termina Partita", FontSize->14, FontWeight->Bold, FontColor->White],
 						visual = "";
-						aggiungiPunteggio[giocatore, punteggio];
+						If[partitaIniziata, aggiungiPunteggio[giocatore, punteggio];];
+						partitaIniziata = False;
 						visual = ClassificaPanel[];,
 						Background -> RGBColor[0.8, 0.1, 0.1],
 						FrameMargins -> 12,
