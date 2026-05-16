@@ -1,11 +1,9 @@
 (* ::Package:: *)
 
-(*In questo file sono contenute le funzioni che il notebook utilizza per gestire la classifica*)
 (* :Title:Classifica*)
 (* :Context:Trasformazione immagini*)
-(* :Author:Gruppo 3*)
+(* :Author:Gruppo 3 - Mattia Albertini, Giacomo Biribicchi, Orazio Capone, Erik Dervishi, Alex Rossi*)
 (* :Summary:Contiene funzioni per caricare e creare/salvare la classifica*)
-(* :Copyright:GS 2026*)
 (* :Package Version:0.9*)
 (* :Mathematica Version:14.3*)
 (* :History:last modified 10/5/2026*)

@@ -1,15 +1,13 @@
 (* ::Package:: *)
 
-(*Dichiariamo il package "Interfaccia", esso conterr\[AGrave] tutta la parte di codice che viene 
-	utilizzata per l'interazione con l'utente*)
 (* :Title:Interfaccia*)
-(* :Context:Trasformazione immagini*)
-(* :Author:Gruppo 3*)
-(* :Summary:Contiene funzioni far interagire l'utente con la logica*)
-(* :Copyright:GS 2026*)
+(* :Context:Trasformazione Immagini*)
+(* :Author:Gruppo 3 - Mattia Albertini, Giacomo Biribicchi, Orazio Capone, Erik Dervishi, Alex Rossi*)
+(* :Summary:Pacchetto che contiene tutta la parte di codice che viene 
+	utilizzata per l'interazione con l'utente*)
 (* :Package Version:0.9*)
 (* :Mathematica Version:14.3*)
-(* :History:last modified 10/5/2026*)
+(* :History:last modified 16/5/2026*)
 (* :Keywords:interfaccia, immagini*)
 (* :Limitations:this is a preliminary version,for educational purposes only.*)
 

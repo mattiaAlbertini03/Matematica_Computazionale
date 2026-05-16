@@ -1,20 +1,16 @@
 (* ::Package:: *)
 
-(*Contiene tutte le funzione necessarie al notebook che non hanno a che fare con la rapprensenzatione
-	la maggioranza di queste funzioni consiste nelle operazioni di trasformazioni delle immagini*)
 (* :Title:Operazioni su immagini e DB*)
-(* :Context:Trasformazione immagini*)
-(* :Author:Gruppo 3*)
+(* :Context:Trasformazione Immagini*)
+(* :Author:Gruppo 3 - Mattia Albertini, Giacomo Biribicchi, Orazio Capone, Erik Dervishi, Alex Rossi*)
 (* :Summary:Contine le funzioni per effettuare operazioni sulle immagini e per 
 	la gestione dei DataBase*)
-(* :Copyright:GS 2026*)
 (* :Package Version:0.9*)
 (* :Mathematica Version:14.3*)
-(* :History:last modified 10/5/2026*)
+(* :History:last modified 16/5/2026*)
 (* :Keywords:immagini, DataBase*)
 (* :Limitations:this is a preliminary version,for educational purposes only.*)
 
-(*Crediamo il package per gestire le immagini e il DB*)
 BeginPackage["TrasformazioneImmagini`"];
 	(*Dichiaro le variabili che diventano pubbliche ed utilizzabili fuori dal package*)
 	confrontoImmagini::usage = "confrontoImmagini[img1, img2] confronta due oggetti immagine e restituisce True se sono identici, False altrimenti.";
