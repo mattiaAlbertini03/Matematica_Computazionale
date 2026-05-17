@@ -1,27 +1,16 @@
 Verificare correttezza codice
 
 Testo
-	controllare la grammatica e l'italiano
-	finire parti mancanti
-	scriverlo come se non fosse diretto alla prof
-	cambiare indirizzo, non ludico ma magari per dare le basi di computer graphic
-	Come richiesto dalla prof spiegare meglio ogni funzionalità tipo:
-		una volta premuto il pulsante per caricare il gioco l'utente come prima cosa dovremo / dovrai (dipende da che punto di vista lo mettiamo (N.B. il testo non lo dobbiamo scrivere come se lo leggesse la prof ma come se lo leggesse lo studente finale, non come è stato scritto fino ad ora)) selezionare da dove caricare le immagine, premere sul pulsante carica db ed attendere fino che non verranno caricate tutte le immagini: lo si potra notare dall'avviso che apparirà. A questo punto dovremmo inserire il seed e il nome eccc...............
+	scriverlo come se non fosse diretto alla prof ?
+	fin troppo specifico ?
 
 Codice 
 	eliminare parti superflue
 	riorganizzazione codice lengthIMageDB e cacheImmagini
-	togliere quite (in tutte le parti del codice in cui non è STRETTAMENTE NECESSARIO)
 
 Problemi
-	test di cosa carichiamo, ad esempio se carichiamo txt
+	test di cosa carichiamo, ad esempio se carichiamo txt !!!!!!!!
 	sistemare visualizzazione aiuti
-
-Parte estetica -> abbellirlo e rendere tutto coerenete
-	Accorciare un po i testi o non allungarli, la prof ha detto che li voleva sintetici
-
-Idee
-	Aggiunta aiuto -> bloccare bottone e renderlo grigio quando si arrivano a 5 aiuti?
 
 Farlo provare a qualcuno a caso (2-3 persone)-> ce lo chiederà
 
