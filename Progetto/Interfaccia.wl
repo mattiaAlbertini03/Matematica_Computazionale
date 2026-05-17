@@ -39,14 +39,24 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		(*Creiamo il bottone per caricare l'immagine dal file system*)
 		bottoneCaricamento[img_] = DynamicModule[{},
 			Button[
-			Style["Carica Immagine", Bold, 12],
-			(*Apre il selettore file ed importa l'immagine se l'utente non annulla*)
-				With[{file=SystemDialogInput["FileOpen"]},
-					If[file=!=$Canceled,img=Import[file]]
+				Style["Carica Immagine", Bold, 12],
+				(*Apre il selettore file ed importa l'immagine se l'utente non annulla*)
+				With[{file = SystemDialogInput["FileOpen"]},
+					If[file =!= $Canceled,
+						(*Controlla che l'estensione sia png o jpg/jpeg \[LongDash] senza punto*)
+						If[MemberQ[{"png", "jpg", "jpeg"}, ToLowerCase[FileExtension[file]]],
+							img = Import[file],
+							(*Estensione non valida: mostra popup di errore*)
+							MessageDialog[
+								Style["Errore: caricare un'immagine!\nSono supportati solo file .png e .jpeg",
+									Red, Bold, 14]
+							]
+						]
+					]
 				],
 				(*Nota: questa metodologia \[EGrave] importante per evitare 'timeout'
 				(di bloccarsi) con file grandi*)
-				Method->"Queued",
+				Method -> "Queued",
 				Appearance -> "Framed",
 				ImageSize -> {150, 35}
 			]
@@ -74,7 +84,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		];
 		
 		SetAttributes[larghezzaImg, HoldFirst]
-		(*Funzione per ottenere la laghezza dell'immagine*)
+		(*Funzione per ottenere la larghezza dell'immagine*)
 		larghezzaImg[img_] := DynamicModule[{},
 			ImageDimensions[img][[1]]
 		];
@@ -115,7 +125,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			applicati sull'immagine in tempo reale*)
 			Dynamic[Show[img, ImageSize->{Automatic, ALTEZZAIMMAGINE}]]
 		];
-		(*Utilizziamo l'overloading definiamo la stessa funzione che viene chiamato in base ai parametri passti
+		(*Utilizziamo l'overloading: definiamo la stessa funzione che viene chiamata in base ai parametri passati.
 			Questa \[EGrave] la funzione chiamata se vogliamo mostrare l'immagine modificata*)
 		mostraImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_]=DynamicModule[{},
 			Dynamic[
@@ -150,7 +160,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			Column[{
 				(*Nome del giocatore sopra il blocco*)
 				Style[If[pos<=Length[top3], top3[[pos,"Nome"]], "-"], 14, Bold],
-				(*Blocco colorato con punteggio*)
+				(*Blocco colorato con nome e punteggio*)
 				Framed[
 					Column[{
 						Style[If[pos<=Length[top3], top3[[pos,"Nome"]], "-"], 12, White],
@@ -241,7 +251,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 					(*Messaggio di benvenuto con nome giocatore*)
 					Style["Benvenuto "<>giocatore, Bold, DarkGreen, 20],
 					
-					(*Pannel che mostra le due immagine: quella modificata e quella non modificata*)
+					(*Pannello che mostra le due immagini: quella modificata e quella non modificata*)
 					Pane[Row[{
 						Column[{
 							Style["Immagine modificata", Bold],
@@ -254,7 +264,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						}, Alignment->Top]
 					}, Alignment->Center], {Full, ALTEZZAIMMAGINE+10}],
 					
-					(*Riga che contine i controlli per modificare l'immagine e i punteggi attuali*)
+					(*Riga che contiene i controlli per modificare l'immagine e i punteggi attuali*)
 					Row[{
 						(*Controlli trasformazioni*)
 						controlliImmagine[img, blur, rotazione, translaX, translaY, colore],
@@ -284,7 +294,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							Button[
 								Dynamic[If[mostraValori, "Nascondi soluzione", "Mostra soluzione"]],
 								aiuti = 5;
-								mostraValori = !mostraValori, 
+								mostraValori = !mostraValori,
 								ImageSize -> {Scaled[0.15], 35}
 							],
 							
@@ -302,7 +312,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							Button[
 								Style["Verifica", White, Bold],
 								If[verifica[{blur, colore, rotazione, translaX, translaY}, {blur2, colore2, rotazione2, translaX2, translaY2}],
-									(*Calcoliamo il punteggio maggisso e gli togliamo gli aiuti che abbiamo utilizzato*)
+									(*Calcoliamo il punteggio massimo e gli togliamo gli aiuti che abbiamo utilizzato*)
 									punteggioLivello=Max[5-aiuti, 0];
 									MessageDialog[StringTemplate["Corretto: punteggio `1`, aiuti utilizzati `2`"][punteggioLivello,aiuti]];
 									(*Aggiorniamo il punteggio*)
@@ -311,7 +321,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 									aiuti=0;
 									(*Nascondiamo i valori se erano mostrati*)
 									mostraValori=False;
-									(*Incrementiamo il contatore che indica i tuorni*)
+									(*Incrementiamo il contatore che indica i turni*)
 									partite=partite+1;
 									(*Puliamo tutti i campi che abbiamo utilizzato per arrivare alla soluzione*)
 									pulisci[blur, rotazione, translaX, translaY, colore];
@@ -319,7 +329,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 									img=prossimaImmagine[];
 									(*Ci calcoliamo nuovi parametri*)
 									aggiornaParametri[{blur2, colore2, rotazione2, translaX2, translaY2}];
-									(*Inifince ci calcoliamo la nuova immagine che vogliamo ottenere*)
+									(*Infine ci calcoliamo la nuova immagine che vogliamo ottenere*)
 									immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];,
 									MessageDialog["sbagliato"]
 								],
@@ -328,8 +338,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							],
 							
 							Button[
-							Style["Prossimo Esercizio", White, Bold],
-								(*Resetto gli aiuti*) 
+								Style["Prossimo Esercizio", White, Bold],
+								(*Resetto gli aiuti*)
 								aiuti=0;
 								(*Nascondo le soluzioni*)
 								mostraValori=False;
@@ -340,14 +350,14 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 								(*Genero una nuova immagine*)
 								img=prossimaImmagine[];
 								aggiornaParametri[{blur2, colore2, rotazione2, translaX2, translaY2}];
-								immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];, 
+								immagineModificata=modificaImmagine[img, blur2, rotazione2, translaX2, translaY2, colore2, MAXTRANSLATIONSTEP];,
 								Background -> RGBColor["#2980b9"],
 								ImageSize -> {Scaled[0.15], 35},
 								Appearance -> "Framed"
 							],
 							
 							Button[
-							Style["Aiuto", White, Bold, 12],
+								Style["Aiuto", White, Bold, 12],
 								aiuti=Min[aiuti+1,5];
 								If[aiuti>=1,blur=blur2];
 								If[aiuti>=2,rotazione=rotazione2];
@@ -412,7 +422,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 					
 					Spacer[20],
 					
-					(*Nella terza riga inseriamo il pannel con i controlli*)
+					(*Nella terza riga inseriamo il pannello con i controlli*)
 					controlliImmagine[img, blur, rotazione, translaX, translaY, colore]
 				}, Alignment->Center],
 				ImageSize->Full
@@ -455,7 +465,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						Background -> LightBlue,
 						BaseStyle -> {FontFamily -> "Verdana", Bold},
 						Appearance -> "Palette",
-						Method->"Queued"
+						Method -> "Queued"
 					],
 					Spacer[10],
 					Dynamic[Style[statusMsg, Italic, Gray]]
@@ -468,15 +478,15 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 					Column[{
 						Style["Inserisci Seed:", 10, Bold],
 						InputField[Dynamic[seed], Number, FieldHint -> "Esempio: 123"]
-						}, Alignment -> Left, Spacings -> 0.5],
+					}, Alignment->Left, Spacings->0.5],
 					Spacer[15],
 					Column[{
 						Style["Nome Giocatore:", 10, Bold],
 						InputField[Dynamic[inputnome], String, FieldHint -> "Tuo nome...", ImageSize -> 200]
-						}, Alignment -> Left, Spacings -> 0.5],
+					}, Alignment->Left, Spacings->0.5],
 					Spacer[15],
 					Button[
-					Style["Nuova partita", White, Bold, 14],
+						Style["Nuova partita", White, Bold, 14],
 						If[lengthImageDb == 0,
 							errorMsg = "Errore: carica prima il database immagini!";
 							visual = "";,
@@ -496,7 +506,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							]
 						],
 						Appearance -> "Framed",
-						Background -> RGBColor["#2ecc71"], (* Verde moderno *)
+						Background -> RGBColor["#2ecc71"],
 						FrameMargins -> {{20, 20}, {5, 5}},
 						ImageSize -> {200, 45}
 					],
