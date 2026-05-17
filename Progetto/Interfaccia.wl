@@ -363,7 +363,11 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 								If[aiuti>=2,rotazione=rotazione2];
 								If[aiuti>=3,colore=colore2];
 								If[aiuti>=4,translaX=translaX2];
-								If[aiuti>=5,translaY=translaY2];,
+								If[aiuti>=5,translaY=translaY2];
+								MessageDialog[
+									Style["E' stato dato il "<>ToString[aiuti]<>"\[Degree] aiuto.",
+										Orange, Bold, 14]
+								],
 								Background -> RGBColor["#e67e22"],
 								ImageSize -> {Scaled[0.15], 35},
 								Appearance -> "Framed"
