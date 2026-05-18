@@ -10,7 +10,6 @@
 (* :Keywords:classifica, file*)
 (* :Limitations:this is a preliminary version,for educational purposes only.*)
 
-(*Crediamo il package per gestire la classifica*)
 BeginPackage["Classifica`"];
 	(*Dichiaro le variabili che diventano pubbliche ed utilizzabili fuori dal package*)
 	aggiungiPunteggio::usage = "aggiungiPunteggio[nome, punteggio] aggiunge un nuovo record alla classifica locale, ordina i risultati in modo decrescente e mantiene solo i migliori 10, salvando il tutto su file.";
