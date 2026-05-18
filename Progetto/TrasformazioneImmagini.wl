@@ -159,6 +159,24 @@ BeginPackage["TrasformazioneImmagini`"];
 			listaFilm    = verificaImmagini[EntityList[SampledEntityClass["Movie",    50]]];
 			Join[listaAnimali, listaAerei, listaFilm]
 		];
+		
+		(*Funzione che carica le immagini dal web tramite EntityList*)
+		creaDBWeb[] := Module[{listaAnimali, listaAerei, listaPianeti},
+		    (*Creazione della Batch di immagini variegate: prima si ricavano diverse liste 
+		    di immagini di diversa categoria (Nota: in ogni lista sono presenti diverse entit\[AGrave] delle quali per\[OGrave] si 
+		    prenderanno solo quelle cui immagine \[EGrave] presente) e successivamente si fa il Join in un'unica*)
+		    listaAnimali  = verificaImmagini[EntityList[SampledEntityClass[EntityClass["Species", "MammalSpecies"], 50]]];
+		    listaAerei    = verificaImmagini[EntityList[SampledEntityClass["Aircraft", 50]]];
+		    (*Planet ha solo 8 elementi quindi non serve SampledEntityClass*)
+		    listaPianeti  = verificaImmagini[EntityList["Planet"]];
+		    
+		    (*Sostituisce con lista vuota qualsiasi risultato non valido*)
+		    listaAnimali  = If[ListQ[listaAnimali],  listaAnimali,  {}];
+		    listaAerei    = If[ListQ[listaAerei],    listaAerei,    {}];
+		    listaPianeti  = If[ListQ[listaPianeti],  listaPianeti,  {}];
+		    
+		    Join[listaAnimali, listaAerei, listaPianeti]
+		];
 	
 	End[];
 EndPackage[];
