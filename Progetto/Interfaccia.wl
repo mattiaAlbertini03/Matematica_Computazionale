@@ -26,7 +26,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		(*Altezza in pixel nella schermata*)
 		ALTEZZAIMMAGINE = 150; 
 		(*Qui definiamo tutti i parametri grafici e di trasformazione, in modo da renderli coerenti in tutte le funzioni*)
-		MAXBLUR= 50;
+		MAXBLUR= 40;
 		BLURSTEP= 10;
 		ROTATIONSTEP= 30;
 		MAXTRANSLATIONSTEP = 11;
@@ -235,7 +235,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			immagineModificata="",
 			aiuti=0,
 			(*Variabile che controlla la visibilit\[AGrave] dei valori di soluzione*)
-			mostraValori=False
+			mostraValori=False,
+			messaggioAiuto=""
 			},
 			(*Impostiamo il seed, che di default \[EGrave] 0*)
 			SeedRandom[seed];
@@ -359,13 +360,13 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 							Button[
 								Style["Aiuto", White, Bold, 12],
 								aiuti=Min[aiuti+1,5];
-								If[aiuti>=1,blur=blur2];
-								If[aiuti>=2,rotazione=rotazione2];
-								If[aiuti>=3,colore=colore2];
-								If[aiuti>=4,translaX=translaX2];
-								If[aiuti>=5,translaY=translaY2];
+								If[aiuti>=1,blur=blur2; messaggioAiuto="(Blur)"];
+								If[aiuti>=2,rotazione=rotazione2; messaggioAiuto="(Rotazione)"];
+								If[aiuti>=3,colore=colore2; messaggioAiuto="(Colore)"];
+								If[aiuti>=4,translaX=translaX2; messaggioAiuto="(Transla X)"];
+								If[aiuti>=5,translaY=translaY2; messaggioAiuto="(Transla Y)"];
 								MessageDialog[
-									Style["E' stato dato il "<>ToString[aiuti]<>"\[Degree] aiuto.",
+									Style["E' stato dato il "<>ToString[aiuti]<>"\[Degree] aiuto. "<>messaggioAiuto,
 										Orange, Bold, 14]
 								],
 								Background -> RGBColor["#e67e22"],
@@ -512,7 +513,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						Appearance -> "Framed",
 						Background -> RGBColor["#2ecc71"],
 						FrameMargins -> {{20, 20}, {5, 5}},
-						ImageSize -> {200, 45}
+						ImageSize -> {200, 45},
+						Enabled -> Dynamic[Not[partitaIniziata]]
 					],
 					Spacer[10],
 					(*Bottone Termina Partita \[LongDash] grande e ben visibile*)
@@ -524,7 +526,8 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						visual = ClassificaPanel[];,
 						Background -> RGBColor[0.8, 0.1, 0.1],
 						FrameMargins -> 12,
-						ImageSize -> {200, 45}
+						ImageSize -> {200, 45},
+						Enabled -> Dynamic[partitaIniziata]
 					]
 				}],
 				
