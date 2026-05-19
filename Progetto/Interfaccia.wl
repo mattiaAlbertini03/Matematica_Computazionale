@@ -37,7 +37,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			il simbolo cos\[IGrave] com'\[EGrave] e NON come valore*)
 		SetAttributes[bottoneCaricamento, HoldFirst]
 		(*Creiamo il bottone per caricare l'immagine dal file system*)
-		bottoneCaricamento[img_] = DynamicModule[{},
+		bottoneCaricamento[img_] := DynamicModule[{},
 			Button[
 				Style["Carica Immagine", Bold, 12],
 				(*Apre il selettore file ed importa l'immagine se l'utente non annulla*)
@@ -74,7 +74,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		
 		SetAttributes[bottonePulisci, HoldAll]
 		(*Bottone che quando premuto pulisce i campi*)
-		bottonePulisci[blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
+		bottonePulisci[blur_, rotazione_, translaX_, translaY_, colore_] := DynamicModule[{},
 			Button[Style["Pulisci immagine", Bold, 12],
 				pulisci[blur, rotazione, translaX, translaY, colore];,
 				Background -> RGBColor["#E0FFFF"],
@@ -107,7 +107,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		
 		SetAttributes[controlliImmagine, HoldAll]
 		(*Crea una colonna che contiene tutti i selettori dei parametri delle immagini*)
-		controlliImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_] = DynamicModule[{},
+		controlliImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_] := DynamicModule[{},
 			(*Colonna verticale con tutti i controlli, ognuno sulla propria riga*)
 			Column[{
 				Row[{"Blur:       ", Slider[Dynamic[blur],{0,MAXBLUR,BLURSTEP},Appearance->"Labeled"]}],
@@ -121,14 +121,14 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		
 		SetAttributes[mostraImmagine, HoldAll]
 		(*La funzione serve per mostrare l'immagine che si aggiorna in modo dinamico*)
-		mostraImmagine[img_]=DynamicModule[{},
+		mostraImmagine[img_]:=DynamicModule[{},
 			(*Cos\[IGrave] facendo \[EGrave] possibile avere una cella interattiva che mostra i cambiamenti
 			applicati sull'immagine in tempo reale*)
 			Dynamic[Show[img, ImageSize->{Automatic, ALTEZZAIMMAGINE}]]
 		];
 		(*Utilizziamo l'overloading: definiamo la stessa funzione che viene chiamata in base ai parametri passati.
 			Questa \[EGrave] la funzione chiamata se vogliamo mostrare l'immagine modificata*)
-		mostraImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_]=DynamicModule[{},
+		mostraImmagine[img_, blur_, rotazione_, translaX_, translaY_, colore_]:=DynamicModule[{},
 			Dynamic[
 				Show[modificaImmagine[img, blur, rotazione, translaX, translaY, colore, MAXTRANSLATIONSTEP], ImageSize->{Automatic, ALTEZZAIMMAGINE}]
 			]
@@ -267,6 +267,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 						}, Alignment->Top]
 					}, Alignment->Center], {Full, ALTEZZAIMMAGINE+10}],
 					
+					Spacer[10];
 					(*Riga che contiene i controlli per modificare l'immagine e i punteggi attuali*)
 					Row[{
 						(*Controlli trasformazioni*)
