@@ -37,7 +37,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			il simbolo cos\[IGrave] com'\[EGrave] e NON come valore*)
 		SetAttributes[bottoneCaricamento, HoldFirst]
 		(*Creiamo il bottone per caricare l'immagine dal file system*)
-		bottoneCaricamento[img_] := DynamicModule[{},
+		bottoneCaricamento[img_] := Module[{},
 			Button[
 				Style["Carica Immagine", Bold, 12],
 				(*Apre il selettore file ed importa l'immagine se l'utente non annulla*)
@@ -64,7 +64,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		
 		SetAttributes[pulisci, HoldAll]
 		(*Pulisce i campi per effettuare modifiche dell'immagine*)
-		pulisci[blur_, rotazione_, translaX_, translaY_, colore_]:= DynamicModule[{},
+		pulisci[blur_, rotazione_, translaX_, translaY_, colore_]:= Module[{},
 			blur=0;
 			rotazione=0;
 			translaX=0;
@@ -74,7 +74,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		
 		SetAttributes[bottonePulisci, HoldAll]
 		(*Bottone che quando premuto pulisce i campi*)
-		bottonePulisci[blur_, rotazione_, translaX_, translaY_, colore_] := DynamicModule[{},
+		bottonePulisci[blur_, rotazione_, translaX_, translaY_, colore_] := Module[{},
 			Button[Style["Pulisci immagine", Bold, 12],
 				pulisci[blur, rotazione, translaX, translaY, colore];,
 				Background -> RGBColor["#E0FFFF"],
@@ -85,13 +85,13 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 		
 		SetAttributes[larghezzaImg, HoldFirst]
 		(*Funzione per ottenere la larghezza dell'immagine*)
-		larghezzaImg[img_] := DynamicModule[{},
+		larghezzaImg[img_] := Module[{},
 			ImageDimensions[img][[1]]
 		];
 		
 		SetAttributes[altezzaImg, HoldFirst]
 		(*Funzione per ottenere l'altezza dell'immagine*)
-		altezzaImg[img_] := DynamicModule[{},
+		altezzaImg[img_] := Module[{},
 			ImageDimensions[img][[2]]
 		];
 		
