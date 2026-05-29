@@ -252,7 +252,7 @@ BeginPackage["Interfaccia`", {"TrasformazioneImmagini`", "Classifica`"}];
 			Panel[
 				Column[{
 					(*Messaggio di benvenuto con nome giocatore*)
-					Style["Benvenuto "<>giocatore, Bold, DarkGreen, 20],
+					Style["Benvenuto "<>giocatore, Bold, RGBColor["#006400"], 20],
 					
 					(*Pannello che mostra le due immagini: quella modificata e quella non modificata*)
 					Pane[Row[{
